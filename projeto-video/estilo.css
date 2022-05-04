@@ -1,0 +1,36 @@
+.cordetexto1{
+
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    }
+    
+    p{
+    
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    }
+    
+    .estilo1{
+        background-color:grey;
+        color: black;
+        text-align: center;
+    }
+    
+    form {    
+    
+        color: white;
+        background: black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        
+    }
+    
+    legend{
+    
+        color:white;
+        text-transform: uppercase;
+    
+    }
