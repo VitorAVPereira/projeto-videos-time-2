@@ -3,8 +3,79 @@
     <head>
         <title>Contato Primeira Sessão</title>
         <meta charset ="utf-8" />
+        <link rel="stylesheet" href="estilo.css" type="text/css" />
     </head>
     <body>
-        
+         <header>
+            <a href="index.html"> <img src="imagens/logo2.jpeg" width="250"/></a>
+            
+                
+                    <a href="produtos.html">PRODUTOS</a>
+                
+                
+            </ul>
+            <h1>Entre em contato conosco.Conheça nossas canais</h1>
+            <form id="formContato">
+                <fieldset>
+                    <legend>
+                        Contate conosco
+                    </legend>
+                    <div>
+                        <lable>Nome :</br></lable>
+                        <input name="nomeContato" id="nomeContato" maxlength="50" required>
+
+                    </div>
+                    <div>
+                        <label>Email :</br></label>
+                        <input name="emailContato" id="emailContato" type="email" required>
+                    </div>
+                    <div>
+                        <label>assunto:</br></label>
+                        <input name="assuntoContato" id="assuntoContato"  maxlength="50" type="text" >
+                    </div>
+                    <div>
+                        <label>Comentários :</br></label>
+                        <textarea name="comentarios" id="comentarios" rows="8"></textarea>
+                    </div>
+                    <div>
+                        <button id="btContato" type="button">Confirmar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </header>
+        <section>
+            <article>
+<h3>Estamos aqui,perto de você</h3>
+<img src="imagens/p3.jpg" width="400"/>
+<p>Pode chamar,se precisar de ajuda</p>
+            </article><table border="1"  width="400" >
+                <tr>
+                    <th><a href="https://mail.google.com/mail/u/0/#inbox">EMAIL</a></th>
+                <th>+87 4458373</th>
+               <th>INSTAGRAM</th>
+               
+            </tr>
+            </table>
+            <form method="get"action="https://www.google.com/search">
+                <fieldset>
+                    <legend>
+                        Pesquise no Google
+                    </legend>
+                    <div>
+                        <lable>Plavra-chave </lable>
+                        <input name="q" maxlength="50">
+
+                    </div>
+                    <div>
+                        <button>Confirmar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy/2022-Todos os direitos reservados</p>
+        </footer>
     </body>
+    <script src="../controle.js"></script>
 </html>
