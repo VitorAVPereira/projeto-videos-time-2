@@ -37,3 +37,6 @@ section article:nth-of-type(2) table tr:nth-of-type(2) td:last-child{
     color: black;
     text-align: center;
 }
+.bgblack {
+    background-color: #000000;
+}
