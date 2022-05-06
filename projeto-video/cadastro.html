@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastrar-se Primeira Sessão</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="estilo.css" type="text/css"/>
+        <link rel="stylesheet" href="imagens/primeirasessão.png"/>
+    </head>
+    <body class="bgblack text-primary">
+        <header>
+            <div class="container text-center">
+            <img src="imagens/primeirasessão.png" width="250"/>
+            </div>
+        </header>
+        <section class="container text-center ">
+            <div>
+            <h1>Bem vindo a Primeira Sessão! </h1>
+            <h2>Cadastre-se aqui para ter seu acesso a está incrível <br />
+                plataforma de streaming</h2>
+                <br />
+            </div>
+            <form  id="formCadastro" action="login.html">
+                <fieldset>
+                    <div>
+                    <legend>
+                        Informe seus dados para seguir
+                    </legend>
+                    </div>
+                    <div>
+                        <lable>Nome : </lable>
+                        <p></p>
+                        <input name="nomeContato" id="nomeContato" maxlength="50" required>
+                    </div>
+                    <div>
+                        <label>E-mail : </label>
+                        <p></p>
+                        <input name="emailContato" id="emailContato" type="email" required>
+                    </div>
+                    <div>
+                        <label>Telefone : </label>
+                        <p></p>
+                        <input name="telefoneContato" id="telefoneContato"  maxlength="13" type="number" >
+                    </div>
+                    <div>
+                        <label>Senha : </label>
+                        <p></p>
+                       <input name="senha" id="senha" type="password" maxlength="15">
+                    </div>
+                    <div>
+                        <label>Confirmar senha: </label>
+                        <p></p>
+                     <!-- APLICAR UM IF ELSE PARA SENHA = SENHA !-->
+                       <input name="senhaC" id="senhaC" type="password" maxlength="15">
+                    </div>
+                    <div>
+                        <p></p>
+                        <div>
+                        <button id="btContato" type="button"  class="btn btn-primary">Confirmar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+        <script src="js/validacao.js"></script>        
+    </body>
+    </html> 
