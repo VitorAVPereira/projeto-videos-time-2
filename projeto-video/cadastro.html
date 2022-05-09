@@ -13,64 +13,42 @@
             <img src="imagens/primeirasessão.png" width="250"/>
             </div>
         </header>
-        <section class="container text-center ">
-            <div>
+        <section>
+            <div class="container text-center ">
             <h1>Bem vindo a Primeira Sessão! </h1>
-            <h2>Cadastre-se aqui para ter seu acesso a está incrível <br />
+            <h2>Cadastre-se aqui para ter seu acesso a esta incrível <br />
                 plataforma de streaming</h2>
                 <br />
             </div>
-            <form  id="formCadastro" action="login.html" >
+            <form  id="formCadastro" action="index.html"class="w-50 mx-auto p-3 mt-5 mb-5" style="border: 1px solid #ccc; border-radius: 12px;">
                 <fieldset>
                     <div>
-                    <legend>
+                    <legend class="text-center">
                         Informe seus dados para seguir
                     </legend>
                     </div>
-                    <div>
-                        <p>
-                        <br />
-                        <lable>Nome : </lable>
-                        <br />
-                        <input name="nomeContato" id="nomeContato" maxlength="50" required>
-                        </p>
+                    <div class="form-group">
+                        <lable>Nome : </lable>                        
+                        <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
                     </div>
-                    <div>
-                        <p>
-                        <br />
+                    <div class="form-group">
                         <label>E-mail : </label>
-                        <br />
-                        <input name="emailContato" id="emailContato" type="email" required>
-                        </p>
+                        <input class="form-control" name="emailContato" id="emailContato" type="email" required>
                     </div>
-                    <div>
-                        <p>
-                        <br />
-                        <label>Telefone : </label>
-                        <br />
-                        <input name="telefoneContato" id="telefoneContato"  maxlength="13" type="number" >
-                        </p>
+                    <div class="form-group">
+                        <label>Telefone : </label>                        
+                        <input class="form-control" name="telefoneContato" id="telefoneContato"  maxlength="13" type="number" >
                     </div>
-                    <div >
-                        <p>
-                        <br />
-                        <label>Senha : </label>
-                        <br />
-                       <input name="senha" id="senha" type="password" maxlength="15">
-                       </p>
+                    <div class="form-group">                       
+                        <label>Senha : </label>                
+                       <input class="form-control" name="senha" id="senha" type="password" maxlength="15">
                     </div>
-                    <div>
-                        <p>
-                        <br />
-                        <label>Confirmar senha: </label>
-                        <br />
-                     <!-- APLICAR UM IF ELSE PARA SENHA = SENHA !-->
-                       <input name="senhaC" id="senhaC" type="password" maxlength="15">
-                       </p>
-
-                    </div>
-                    <div>
+                    <div class="form-group">             
                         
+                        <label>Confirmar senha: </label>
+                       <input class="form-control" name="senhaC" id="senhaC" type="password" maxlength="12">
+                    </div>
+                    <div>                        
                         <div>
                         <button id="btContato" type="button"  class="btn btn-primary">Confirmar</button>
                         </div>
@@ -78,6 +56,11 @@
                 </fieldset>
             </form>
         </section>
+
+        <footer class="bg-dark p-4 text-white text-center mt-4">
+            <p> &copy;2022 - Todos os direitos reservados. </p>
+         </footer>
+
         <script src="js/validacao.js"></script>        
     </body>
     </html> 
