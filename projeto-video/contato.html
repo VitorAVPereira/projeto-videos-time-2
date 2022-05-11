@@ -12,10 +12,27 @@
            
             <a href="index.html"> <img src="imagens/primeirasessão.png" width="250"/></a>
             
-        <nav class="mt-4">
-        <a href="produto.html">PRODUTOS</a>
-         </nav>
+    
          </header>
+         <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+            <a class="navbar-brand" href="#">Acesse</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href='produto.html'>Produtos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href='promocao.html'>Promoções</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href='carrinho.html'>Carrinho</a>
+                </li>    
+              </ul>
+            </div>  
+          </nav>
             <section class="container">
             <h1 class="text-center p-4">Entre em contato conosco. Conheça nossos canais!</h1>
             <form id="formContato" methot="post" action="index.html" class="w-50 mx-auto p-4 mt-5 mb-5" style="border:1px solid #ccc; border-radius: 12px;">
@@ -41,14 +58,13 @@
                         <textarea class="form-control" name="comentarios" id="comentarios" rows="8"></textarea>
                     </div>
                     <div class="text-center">
-                        <button id="btContato" type="button" class="btn btn-info">Confirmar</button>
+                        <button id="btContato" type="button" class="btn btn-primary">Confirmar</button>
                     </div>
                 </fieldset>
             </form>
             <article class="text-center">
 <h3>Estamos aqui, perto de você!</h3>
-<img src="imagens/primeirasessão.png" width="400"/>
-<p>Pode chamar, se precisar de ajuda.</p>
+
             
         </article>
         </section>
