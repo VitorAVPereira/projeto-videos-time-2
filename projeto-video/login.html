@@ -4,38 +4,37 @@
         <title>Login</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/estilo.css" type="text/css"/>
-      
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     </head>
-    <body>
-        <header>
-            <img src="imagens/logo2.jpeg" width="250"/>
-           
-            <h1>Bem vindo a primeiro Sessão </h1>
-            <h2>Por favor  fazer login</h2>
-            <form method="get" action="index.html">
+    <body class="bgblack text-primary">
+        <header class="text-center mb-3">
+            <img src="imagens/primeirasessão.png" width="250"/>
+        </header> 
+            <section class="container">
+            <h1 class="text-center">Bem vindo a sua primeiro Sessão! </h1>
+            <p class="text-center">Faça seu login!</p>
+            <form id="formContato" method="post" action="index.html" class="w-50 mx-auto p-3 mt-5 mb-5"
+            style="border:1px solid #accc;border-radius: 12px;">
                 <fieldset>
-                    <legend>
-                        Login
-                    </legend>
-                    <div>
-                        <lable>Login:</br></lable>
-                        <input name="login-contato" maxlength="50"   required>
-
+                    <legend class="text-center">Login</legend>
+                    <div class="form-group">
+                        <label>Login:</label>
+                        <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
+                        </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input class="form-control" name="senhaContato" id="senhaContato" type="password" maxlength="8" required>
                     </div>
                     <div>
-                        <label>Senha :</br></label>
-                        <input name="senha-contato"  type="password" required>
-                    </div>
-                   
-                    <div>
-                        <button>Confirmar</button>
+                        <button id="btContato" type="button" class="btn btn-info text-center">Confirmar</button>
                     </div>
                 </fieldset>
             </form>
-          
-        </header>
-        <section>
-
         </section>
+</br></br></br>
+        <footer class="bg-primary p-4 text-white text-center mt-5">
+            <p>&copy;2022 - Todos os direitos reservados. </p> 
+        </footer> 
         </body>
+        <script src="js/login.js"></script>
 </html>
