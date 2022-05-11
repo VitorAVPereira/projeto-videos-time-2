@@ -20,12 +20,12 @@ let p6=document.querySelector("#p6")
 let p7=document.querySelector("#p7")
 
 h3.innerHTML=videosJSON.tipo
-p1.innerHTML="Nome :"+videosJSON.nome
-p2.innerHTML="Idade :"+videosJSON.idade
-p3.innerHTML="Email :"+videosJSON.email
-p4.innerHTML="Preferencia :"+videosJSON.preferencia
-p5.innerHTML="Data Do Inicio:"+videosJSON.dataInicio
-p6.innerHTML="Tipo de Assinatura:"+videosJSON.tipoAssinatura
-p7.innerHTML="Valor :"+videosJSON.valor+" R$"
+p1.innerHTML="Nome: "+videosJSON.nome
+p2.innerHTML="Idade: "+videosJSON.idade
+p3.innerHTML="Email: "+videosJSON.email
+p4.innerHTML="Preferencia: "+videosJSON.preferencia
+p5.innerHTML="Data Do Inicio: "+videosJSON.dataInicio
+p6.innerHTML="Tipo de Assinatura: "+videosJSON.tipoAssinatura
+p7.innerHTML="Valor: "+videosJSON.valor+" R$"
 
 
