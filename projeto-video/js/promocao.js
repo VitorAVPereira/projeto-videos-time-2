@@ -25,7 +25,7 @@ var filmes = [
     
     ["Eternos", "filme12.jpeg","Eternos são seres super dotados com características como imortalidade e manipulação de energia cósmica, e eles são frutos de experiências fracassadas de seu próprio criador, o Celestial Arishem, desde a criação da Terra há milhões de anos.","Ano: 2021","Categoria: Ação/Fantasia","Classificação Indicativa:"],
     
-    ["Homem-Aranha: Sem Volta Pra Casa", "filme13.jpg","Em Homem-Aranha: Sem Volta para Casa, Peter Parker (Tom Holland) precisará lidar com as consequências da sua identidade como o herói mais querido do mundo após ter sido revelada pela reportagem do Clarim Diário, com uma gravação feita por Mysterio (Jake Gyllenhaal) no filme anterior.","Ano: 2017","Categoria: Ação/Aventura","Classificação Indicativa:"],
+    ["Homem-Aranha: Sem Volta Pra Casa", "filme13.jpeg","Em Homem-Aranha: Sem Volta para Casa, Peter Parker (Tom Holland) precisará lidar com as consequências da sua identidade como o herói mais querido do mundo após ter sido revelada pela reportagem do Clarim Diário, com uma gravação feita por Mysterio (Jake Gyllenhaal) no filme anterior.","Ano: 2017","Categoria: Ação/Aventura","Classificação Indicativa:"],
     
     ["Shag-Chi e a Lenda dos Dez Anéis", "filme14.jpeg","Em Shang-Chi e a Lenda dos Dez Anéis, Shang-Chi (Simu Liu) é um jovem chinês que abandonou seu país e seu pai, que lhe treinou desde criança nas artes marciais para ser um assassino ao seu dispor. Seu pai porta Dez Anéis que lhe dão poderes e longevidade, vivendo por séculos.","Ano: 2021","Categoria: Ação/Fantasia","Classificação Indicativa:"],
     
@@ -39,7 +39,7 @@ var filmes = [
     
     ["Logan", "filme19.jpeg","Em 2029, Logan (Hugh Jackman) ganha a vida como chofer de limousine para cuidar do nonagenário Charles Xavier (Patrick Stewart). Debilitado fisicamente e esgotado emocionalmente, ele é procurado por Gabriela (Elizabeth Rodriguez), uma mexicana que precisa da ajuda do ex-X-Men para defender a pequena Laura Kinney / X-23 (Dafne Keen).","Ano: 2017","Categoria: Ação/Aventura","Classificação Indicativa:"],
     
-    ["X-Men: Apocalipse", "filme20.jpeg","O primeiro mutante destruidor do mundo, Apocalipse, está de volta disposto a acabar com a humanidade. Professor Xavier conta com Mística, Fera e Mercúrio, além de novos alunos, para impedir o vilão.,","Ano: 2015","Categoria: Ação/Aventura","Classificação Indicativa:"]
+    ["X-Men: Apocalipse", "filme21.jpg","O primeiro mutante destruidor do mundo, Apocalipse, está de volta disposto a acabar com a humanidade. Professor Xavier conta com Mística, Fera e Mercúrio, além de novos alunos, para impedir o vilão.,","Ano: 2015","Categoria: Ação/Aventura","Classificação Indicativa:"]
 ]
 
 var galeria=document.querySelector("#conteudo")
@@ -55,10 +55,10 @@ for(var i=0; i<filmes.length; i++){
 
 conteudo.innerHTML+='<h3 class="col-sm-12 mt-4"> ' + filmes[i][0] + '</h3>'
 
-conteudo.innerHTML+='<div class="col-sm-5 mt-4"><img src="imagens/' + filmes[i][1] + '" class="w-100"/> </div>'
+conteudo.innerHTML+='<div class="col-sm-5 mt-4"><a href="singleproduto.html" class="col-"><img src="imagens/' + filmes[i][1] + '" class="w-100"/></a> </div>'
 
 
-conteudo.innerHTML+='<div class="col-sm-7 mt-4"> <p>' + filmes[i][4]+ "</br>" + filmes[1][3] + "</br>" + "</br>"  + filmes[i][5]  + filmes[i][2] + '</p></div>'
+conteudo.innerHTML+='<div class="col-sm-7 mt-4"> <p>' + filmes[i][4]+ "</br>" + filmes[1][3] + "</br>" + "</br>"  + filmes[i][5] + " Livre" + "</br>"  + filmes[i][2] + '</p></div>'
  
     div.appendChild(conteudo)
     
