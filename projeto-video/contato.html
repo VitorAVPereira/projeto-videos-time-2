@@ -1,82 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>contato</title>
-        <meta charset="utf-8">
+        <title>Contato Primeira Sessão</title>
+        <meta charset ="utf-8" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/estilo.css" type="text/css"/>
-      <link  rel="stylesheet" href="estilo2.css"/>
+        <link rel="stylesheet" href="estilo.css" type="text/css"/>
     </head>
-    <body>
-        <header>
-            <a href="index.html"> <img src="imagens/logo2.jpeg" width="250"/></a>
+    <body class="bgblack text-primary"></body>
+        
+         <header class="text-center">
+           
+            <a href="index.html"> <img src="imagens/primeirasessão.png" width="250"/></a>
             
-                
-                    <a href="produtos.html">PRODUTOS</a>
-                
-                
-            </ul>
-            <h1>Entre em contato conosco.Conheça nossas canais</h1>
-            <form>
+        <nav class="mt-4">
+        <a href="produto.html">PRODUTOS</a>
+         </nav>
+         </header>
+            <section class="container">
+            <h1 class="text-center p-4">Entre em contato conosco. Conheça nossos canais!</h1>
+            <form id="formContato" methot="post" action="index.html" class="w-50 mx-auto p-4 mt-5 mb-5" style="border:1px solid #ccc; border-radius: 12px;">
                 <fieldset>
-                    <legend>
+                    <legend class="text-center">
                         Contate conosco
                     </legend>
-                    <div>
+                    <div class="form-group">
                         <lable>Nome :</br></lable>
-                        <input name="nome-contato" maxlength="50" required>
+                        <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
 
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>Email :</br></label>
-                        <input name="email-contato" type="email" required>
+                        <input class="form-control" name="emailContato" id="emailContato" type="email" required>
                     </div>
-                    <div>
-                        <label>assunto:</br></label>
-                        <input name="assunto-contato"  maxlength="50" type="text" >
+                    <div class="form-group">
+                        <label>Assunto :</br></label>
+                        <input class="form-control" name="assuntoContato" id="assuntoContato"  maxlength="50" type="text" >
                     </div>
-                    <div>
+                    <div class="form-group">
                         <label>Comentários :</br></label>
-                        <textarea rows="8"></textarea>
+                        <textarea class="form-control" name="comentarios" id="comentarios" rows="8"></textarea>
                     </div>
-                    <div>
-                        <button>Confirmar</button>
-                    </div>
-                </fieldset>
-            </form>
-        </header>
-        <section>
-            <article>
-<h3>Estamos aqui,perto de você</h3>
-<img src="imagens/p3.jpg" width="400"/>
-<p>Só pode chamar,se precisa ajuda</p>
-            </article><table border="1"  width="400" >
-                <tr>
-                    <th><a href="https://mail.google.com/mail/u/0/#inbox">EMAIL</a></th>
-                <th>+87 4458373</th>
-               <th>INSTAGRAM</th>
-               
-            </tr>
-            </table>
-            <form method="get"action="https://www.google.com/search">
-                <fieldset>
-                    <legend>
-                        Pesquise no Google
-                    </legend>
-                    <div>
-                        <lable>Plavra-chave </lable>
-                        <input name="q" maxlength="50">
-
-                    </div>
-                    <div>
-                        <button>Confirmar</button>
+                    <div class="text-center">
+                        <button id="btContato" type="button" class="btn btn-info">Confirmar</button>
                     </div>
                 </fieldset>
             </form>
+            <article class="text-center">
+<h3>Estamos aqui, perto de você!</h3>
+<img src="imagens/primeirasessão.png" width="400"/>
+<p>Pode chamar, se precisar de ajuda.</p>
+            
+        </article>
         </section>
 
         <footer class="bg-primary p-4 text-white text-center mt-4">
-            <p> &copy;2022 - Todos os direitos reservados. </p>
-         </footer>
+            <p> &copy;2022 - Todos os direitos reservados.</p>
+            </footer>
     </body>
+    <script src="js/contato.js"></script>
 </html>
