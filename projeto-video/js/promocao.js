@@ -55,7 +55,7 @@ for(var i=0; i<filmes.length; i++){
 
 conteudo.innerHTML+='<h3 class="col-sm-12 mt-4"> ' + filmes[i][0] + '</h3>'
 
-conteudo.innerHTML+='<div class="col-sm-5 mt-4"><a href="singleproduto.html" class="col-"><img src="imagens/' + filmes[i][1] + '" class="w-100"/></a> </div>'
+conteudo.innerHTML+='<div class="col-sm-5 mt-4"><a href="singleproduto.html" class="col-"><img src="imagens/' + filmes[i][1] + '" class="w-100"/></a></div>'
 
 
 conteudo.innerHTML+='<div class="col-sm-7 mt-4"> <p>' + filmes[i][4]+ "</br>" + filmes[1][3] + "</br>" + "</br>"  + filmes[i][5] + " Livre" + "</br>"  + filmes[i][2] + '</p></div>'
