@@ -5,55 +5,111 @@
             <meta charset="utf-8" >
             <!-- Latest compiled and minified CSS -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-            <link rel="stylesheet" href="css/estilo1.css" type="text/css">
+            <link rel="stylesheet" href="css/estilo.css" type="text/css">
     </head>
-        <body>
+        <body class="bgblack text-primary">
+          <style>
+            h1{
+                text-align: right;
+            }
+            h3{
+                text-align: left;
+            }
+           
+        </style>
         <!-- Setor cabeçalho -->
-        <a target="" href="index.html">
-          <a target="" href="index.html">
-            <img src="imagens/primeirasessão.png" width="250"/></a>
-            <h1 class="text-center">Sua primeira sessão com o melhor do cinema</h1>
-            <nav class="text-center">                     
-                <a target="" href='cadastro.html'>Cadastro</a>
-                <a target="" href='login.html'>Login</a> 
-                <a target="" href='produtos.html'>Produtos</a>            
-                <a target="" href='contato.html'>Contato</a> 
-    
-            </nav>
+        <header >
+                <div class="jumbotron text-center bgblack">
+                  <div class="">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <h3>
+                          <a target="" href="index.html">
+                            <img src="imagens/primeirasessão.png" width="250"/> </a>
+                          </h3>
+                        </div>
+                        <div class="container text-center">
+                          <p>Olá Usuário</p>
+                        </div>
+                        <div class="text-right mr-2">
+                          <a href="login.html">Sair</a>
+                        </div>
+                        <div class="col-sm-8 container mr-2 mb-5">
+                          <h1 >Assista estréias na sua casa</h1>
+                        </div>
+                        </div>      
+                      </div> 
+                      <div class="row">
+                      <div class="container text-right mr-2">
+                        <a href="cadastro.html" >Cadastre-se</a>
+                      </div> 
+                      </div>
+                        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+                            <a class="navbar-brand" href="#">Acesse</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                              <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                              <ul class="navbar-nav">
+                                <li class="nav-item">
+                                  <a class="nav-link" href='carrinho.html'>Carrinho</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href='promocao.html'>Promoções</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href='produto.html'>Produtos</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href='contato.html'>Contato</a>
+                                </li>     
+                              </ul>
+                            </div>  
+                          </nav>
+                          <div class="row"><hr /></div>
+                          <div class="container" class="col-sm-8">
+                                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas elit a porttitor eleifend. Maecenas varius elementum mattis. Ut imperdiet hendrerit libero non imperdiet. Mauris sodales eros ipsum, condimentum rhoncus nunc consequat quis. Ut orci massa, ultricies eu urna in, pretium accumsan dui. Curabitur ac dignissim dolor, ut bibendum odio. Donec ornare dapibus ipsum, in scelerisque odio sollicitudin in.
+            
+                            </p>
+                          </div>
+      </header>
     
         <section>
 
-            <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque ratione dignissimos nihil ab temporibus enim culpa beatae accusamus cum, molestias quis voluptas. Sapiente ducimus voluptate voluptatum, temporibus nostrum expedita quas!</p>
+      
            <hr>
            <div id="sigleProduto" class="mt-5 mb-5">
             <div class="row">
             <div class="col-sm-6 mt-5">
-                <h2>Barbie - Big City,Big Dreams</h2>
+                <h2>Pantera Negra</h2>
                 <div class="row">
-                  <div class="col-sm-4">
-           <img src="imagens/cartaz-barbie.jpg" width="300"/> </a>
+                  <div class="col-sm-8">
+           <img src="imagens/filme11.jpeg" width="500"/> </a>
                   </div> 
-           <p class="col-sm-5" class="con" > Barbie - Big City,Big Dreams; 2021; Direção:Scott Pleydell-Pearce. </p>
+           <p class="col-sm-4" >Pantera Negra; 2018; Direção:Ryan Coogler. </p>
            </div>
         </div>
     </div>
     </div>
-    <div class="row">
-  <div class="coluna">
-    <img src="imagens/cartaz-barbie.jpg" alt="cartaz-barbie" style="width: 40%">
-  </div>
-  <div class="coluna">
-    <img src="imagens/cartaz-barbie.jpg" alt="cartaz-barbie" style="width: 40%">
-  </div>
-  <div class="coluna">
-    <img src="imagens/cartaz-barbie.jpg" alt="cartaz-barbie" style="width: 40%">
-  </div>
-</div>
+    <article>
+      <div class="row mt-5 mb-5">
+        <div class="col-sm-4 text-center">
+          <img src="imagens/filme1.jpeg" width="200">
+      </div>
+        <div class="col-sm-4 text-center">
+          <img src="imagens/filme5.jpeg" width="200">
+        </div>
+      <div class="col-sm-4 text-center">
+        <img src="imagens/filme13.jpeg"  width="200">
+          </div>
+      </div>
+    </article>
 
         </section>
-        <footer class="bg-primary p-4 text-white text-center mt-4">
-          <p> &copy;2022 - Todos os direitos reservados. </p>
-       </footer>
+        <footer class="bg-primary text-white mt-4 p-4 text-center">
+            <p>&copy;2022 - Todos os direitos reservados.</p>
+        </footer>
       </body>
       </html>
       
