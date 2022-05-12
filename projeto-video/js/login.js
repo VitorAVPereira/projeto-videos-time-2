@@ -7,5 +7,6 @@ document.querySelector("#btContato").onclick=function(){
         alert ("Coloque sua senha!")}
     else{
          formC.submit()
+         
     }
     }
