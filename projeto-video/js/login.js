@@ -1,12 +1,11 @@
-console.log(document.forms.formContato)
-var formC=document.forms.formContato
-document.querySelector("#btContato").onclick=function(){
-    if(formC.nomeContato.value == ""){
-        alert ("Preencha o nome!")
-    }else if (formC.senhaContato.value == ""){
-        alert ("Coloque sua senha!")}
+let formL=document.forms.formLogin
+document.querySelector("#btLogin").onclick=function(){
+    if(formL.email.value == ""){
+        alert ("Preencha o Email!")
+    }else if (formL.senha.value == ""){
+        alert ("Coloque sua Senha!")}
     else{
-         formC.submit()
-         
+         formL.submit()
+         localStorage.emailUser=formL.email.value
     }
     }
