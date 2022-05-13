@@ -4,9 +4,6 @@ let entrar=document.querySelector("#entrar")
 let sair=document.querySelector("#sair")
 let cadastro=document.querySelector("#cadastro")
 
-//console.log(user.indexOf('@'))
-//console.log(user.substring(0,user.indexOf('@')))
-
 function msgUser(){
     let nomeUser=user.substring(0,user.indexOf('@'))
     bemVindo.innerHTML= 'Olá <b>' + nomeUser + '<b/>'
@@ -21,5 +18,4 @@ sair.onclick=function(){
     location.href='index.html'
 }
 
-//localStorage.emailUser ? bemVindo.innerHTML='Olá ' + user : null
 localStorage.emailUser ? msgUser() : resetUser()
