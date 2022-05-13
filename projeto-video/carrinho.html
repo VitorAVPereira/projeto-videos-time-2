@@ -84,32 +84,32 @@
                     <td>01</td>
                     <td>25,00</td>
                 </tr>
+                
             </table>
           </div>
           <div class="col-sm-3">
             <h2>Resumo do Pedido</h2>
 
             <!--Tabela <table> (tabela) <tr> (linha) <td> (coluna)-->
-                <table border="1" width="400">
+                <table border="1" width="300">
                     <tr>
 
-                        <th>xx
-                          Produto <br /> R$ Total
-
-                          
-                        </th>
-              
+                        <th id="total2"></th>
+                         <th id="total"></th>
                         
                     </tr>
                    
                 </table>
-                <div class="resumo text-center">Capitão América:O Primeiro Vingador <b>
-                  Total: R$25,00 <b>
-                
-                  </b>
-                  <hr>
+                <div class="resumo text-center"> 
+
+                  <p id="total3"></p>
+                  <h3>Insira seu cupom</h3>
+                  <input class="form-control" name="nomeContato" id="nomeContato" maxlength="8" required>
+                  <br />
                   <button type="button">Continuar</button>
-                </b></div>
+
+                  <a href="produto.html" >Adicionar mais produtos</a>
+                </div>
           
           </div>
           <!--Fim Carrinho-->
@@ -154,4 +154,5 @@
         </section>
     </body>
     <script src=".//js/promocao.js"></script>
+    <script src="js/carrinho.js"></script>
 </html>
