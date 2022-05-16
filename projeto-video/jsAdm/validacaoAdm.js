@@ -29,3 +29,10 @@ senhaC.addEventListener('input', validarSenha);
         }
     }
     
+    let sair=document.querySelector("#sair")
+sair.onclick=function(){
+    localStorage.removeItem("emailUser")
+    location.href='../adm/loginAdm.html'
+}
+
+localStorage.emailUser ? msgUser() : resetUser()
