@@ -1,5 +1,5 @@
 
-let videos='{"tipo":"Bem vinda!","idade":35,"preferencia":"Comedia","dataInicio":"05/04/2022","tipoAssinatura":"Gold","valor":30}'
+let videos='{"tipo":"Bem vindo(a)!","idade":35,"preferencia":"Comedia","dataInicio":"05/04/2022","tipoAssinatura":"Gold","valor":30}'
 let videosJSON= JSON.parse(videos)
 let conteudo=document.querySelector("#conteudo")
 let h3=document.querySelector("#conteudo h3")
@@ -12,19 +12,19 @@ let nome=localStorage.nomeUser
 
 let nomeUsu=document.querySelector("#nomeUsu")
     
-    nomeUsu.innerHTML='Nome : '+ nome
+    nomeUsu.innerHTML='Nome: '+ nome
 
 let email=localStorage.emailUser
 let emailUsu=document.querySelector("#emailUsu")
  
-    emailUsu.innerHTML='Email : '+ email
+    emailUsu.innerHTML='Email: '+ email
     
 
 let tel=localStorage.telefoneUser
 let telUsu=document.querySelector("#telUsu")
 
     
-    telUsu.innerHTML='Telefone : '+ tel
+    telUsu.innerHTML='Telefone: '+ tel
     
 
 

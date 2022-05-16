@@ -1,3 +1,20 @@
+//Validação do Formulário de Cadastro//
+var formC=document.forms.formCadastro
+document.querySelector('#btCad').onclick=function(){
+    if(formC.nomeCad.value == ""){
+        alert("Preencha o nome!")
+    }else if(formC.categoria.value == ""){
+        alert("Preencha a categoria!")
+    }else if(formC.ano.value == ""){
+        alert("Informe o ano!")
+    }else if(formC.sinopse.value == ""){
+        alert("Preencha a sinopse!")}
+    else{
+        formC.submit ();
+    }
+}
+
+///////////////////////////////////////////////////
 let user=localStorage.emailUser
 let bemVindo=document.querySelector("#bemVindo")
 let entrar=document.querySelector("#entrar")
