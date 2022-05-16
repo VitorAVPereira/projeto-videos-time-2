@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cadastrar-se Primeira Sessão</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../imagens/primeirasessão.png"/>
+    </head>
+    <body class="bgblack text-primary">
+        <header>
+        <div class="row"><div class="col-sm-4">
+            <a href="indexAdm.html"><img class="w-50" src="../imagens/primeirasessão.png" /></a>
+        </div>
+        <div class="text-center col-sm-4 p-5 mb-5">
+            <h1 >Bem vindo à Primeira Sessão! </h1>
+            <h2 >Cadastre-se seu produto aqui!</h2>
+        </div>
+            <div class="col-sm-4">
+                <span id="bemVindo"></span>
+                <a id="entrar" href="loginAdm.html">Entrar</a>
+                <a class="text-left ml-5 pl-5" style="cursor:pointer;text-decoration: underline;" id="sair" href="">Sair</a>
+            </div>
+        </div>
+        </header>
+        <section>
+            <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+                <a class="navbar-brand" href="#">Acesse</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href='loginAdm.html'>Página principal</a>
+                      </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href=''>Cadastro de produtos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href='cadastroUsuario.html'>Cadastro de Usuario</a>
+                    </li>  
+                  </ul>
+                </div>  
+              </nav>
+            <form  method="post" id="formCadastro" action="indexAdm.html"class="w-50 mx-auto p-3 mt-5 mb-5" style="border: 1px solid #ccc; border-radius: 12px;">
+                <fieldset>
+                    <div>
+                    <legend class="text-center">
+                        Informe os dados do produto.
+                    </legend>
+                    </div>
+                    <div class="form-group">
+                        <lable>Nome : </lable>                        
+                        <input class="form-control" name="nomeCad" id="nomeCad" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria : </label>
+                        <input class="form-control" name="categoria" id="categoria" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ano : </label>                        
+                        <input class="form-control" name="ano" id="ano"  maxlength="4" type="number" >
+                    </div>
+                    <div class="form-group">
+                        <label>Sinopse :</br></label>
+                        <textarea class="form-control" name="sinopse" id="sinopse" rows="8"></textarea>
+                    </div>
+                    <div>                        
+                        <div class="text-center">
+                        <button id="btCad" type="button"  class="btn btn-primary">Confirmar</button>
+                        <input type="file" id="fileUpload" name="fileUpload" />
+                        <input type="button" id="btnEnviar" value="Enviar" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <footer class="bg-primary p-4 text-white text-center mt-4">
+            <p> &copy;2022 - Todos os direitos reservados. </p>
+         </footer>
+    </body>
+    <script src="../jsAdm/cadastroProduto.js"></script>
+    </html>
