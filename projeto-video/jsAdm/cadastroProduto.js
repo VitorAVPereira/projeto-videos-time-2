@@ -8,13 +8,13 @@ document.querySelector('#btCad').onclick=function(){
     }else if(formC.ano.value == ""){
         alert("Informe o ano!")
     }else if(formC.sinopse.value == ""){
-        alert("Preencha a sinopse!")}
-    else{
+        alert("Preencha a sinopse!")
+    }else{
         formC.submit ();
     }
 }
 
-///////////////////////////////////////////////////
+// Botão de entrar superior
 let user=localStorage.emailUser
 let bemVindo=document.querySelector("#bemVindo")
 let entrar=document.querySelector("#entrar")
@@ -36,3 +36,18 @@ sair.onclick=function(){
 }
 
 localStorage.emailUser ? msgUser() : resetUser()
+// Fim
+
+//////
+
+function readImage() {
+    if (this.files && this.files[0]) {
+        var file = new FileReader();
+        file.onload = function(e) {
+            document.getElementById("preview").src = e.target.result;
+        };       
+        file.readAsDataURL(this.files[0]);
+    }
+}
+
+document.getElementById("img-input").addEventListener("change", readImage, false);
