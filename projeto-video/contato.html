@@ -4,7 +4,7 @@
         <title>Contato Primeira Sessão</title>
         <meta charset ="utf-8" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+        <!-- <link rel="stylesheet" href="css/estilo.css" type="text/css"/> -->
     </head>
     <body class="bgblack text-primary"></body>
         
@@ -35,7 +35,7 @@
           </nav>
             <section class="container">
             <h1 class="text-center p-4">Entre em contato conosco. Conheça nossos canais!</h1>
-            <form id="formContato" methot="post" action="index.html" class="w-50 mx-auto p-4 mt-5 mb-5" style="border:1px solid #ccc; border-radius: 12px;">
+            <form id="formContato" methot="post" action="" class="w-50 mx-auto p-4 mt-5 mb-5" style="border:1px solid #ccc; border-radius: 12px;">
                 <fieldset>
                     <legend class="text-center">
                         Preencha o formulário 
@@ -50,16 +50,25 @@
                         <input class="form-control" name="emailContato" id="emailContato" type="email" required>
                     </div>
                     <div class="form-group">
-                        <label>Assunto :</br></label>
-                        <input class="form-control" name="assuntoContato" id="assuntoContato"  maxlength="50" type="text" >
+                        <label>Telefone :</br></label>
+                        <input class="form-control" name="telefoneContato" id="telefoneContato"  maxlength="14" type="text" >
                     </div>
+                    <div class="form-group">
+                      <label>Assunto :</br></label>
+                      <input class="form-control" name="assuntoContato" id="assuntoContato"  maxlength="20" type="text" >
+                  </div>
                     <div class="form-group">
                         <label>Comentários :</br></label>
                         <textarea class="form-control" name="comentarios" id="comentarios" rows="8"></textarea>
                     </div>
                     <div class="text-center">
-                        <button id="btContato" type="button" class="btn btn-primary">Confirmar</button>
+                      <input type="checkbox" name="habi" id="habi" onClick="HabiDsabi()"> Quero abrir um chamado para este assunto.</p>
                     </div>
+                    <div class="text-center">
+                        <input type="button" class="btn btn-primary" name="envia" id="envia" value="Confirmar" >
+                    </div>
+
+
                 </fieldset>
             </form>
             <article class="text-center">
