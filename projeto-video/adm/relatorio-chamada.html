@@ -102,14 +102,13 @@
                     <td><p id="telefone1"></p></td>
                     <td><p id="assunto1"></p></td>
                   </tr>
-                  
                 </tbody>
               </table>
               <div class="row">
               <p>Próximo cliente a ser atendido:</p>
               <p id="next"></p>
               <div class="ml-5">
-              <button type="button" name="btAtende" id="btAtende" >Confirmar Atendimento</button>
+              <button id="btAtende" class="btn btn-info">Confirmar Atendimento</button>
               </div>
               </div>
             </div>
@@ -123,14 +122,12 @@
           <div class="card"class="one">
             <div class="card-body">
               <dl class="dlist-align row">
-                <div id="atendidos">
-                <dt>Chamadas atendidas:</dt>
-                <dd class="text-right ml-3 text-dark" id="cAtendido"></dd>
-                </div>
+                <dt>Chamadas pendentes:</dt>
+                <dd class="text-right text-dark " id="users"></dd>
               </dl>
               <dl class="dlist-align row">
-                <dt>Chamadas pendentes:</dt>
-                <dd class="text-right text-dark " id="cPendente"></dd>
+                <dt>Chamadas atendidas:</dt>
+                <dd class="text-right ml-3 text-dark" id="result"></dd>
               </dl>
             </div>
           </div>
@@ -189,4 +186,5 @@
 </body>
 
 <script src="../js/relatorio-chamada.js"></script>
+
 </html>
