@@ -39,7 +39,7 @@ var filmes = [
 
     ["X-MEN: FÊNIX NEGRA", "feni.jpeg", "Os X-Men são considerados heróis nacionais e o professor Charles Xavier (James McAvoy) agora dispõe de contato direto com o presidente dos Estados Unidos. Quando uma missão espacial enfrenta problemas, o governo convoca a equipe mutante para ajudá-lo. Liderado por Mística (Jennifer Lawrence), os X-Men partem rumo ao espaço em uma equipe composta por Fera (Nicholas Hoult), Jean Grey (Sophie Turner), Ciclope (Tye Sheridan), Tempestade (Alexandra Shipp), Mercúrio (Evan Peters) e Noturno (Kodi Smit-McPhee). Ao tentar resgatar o comandante da missão, Jean Grey fica presa no ônibus espacial e é atingida por uma poderosa força cósmica, que acaba absorvida em seu corpo. Após ser resgatada e retornar à Terra, aos poucos ela percebe que há algo bem estranho dentro de si, o que desperta lembranças de um passado sombrio e, também, o interesse de seres extra-terrestres.", "Ano: 2019", "Categoria: Aventura", "Classificação Indicativa: 12 anos"],
 
-    ["X-MEN: APOCALIPSE", "apo.jpeg", "O primeiro mutante destruidor do mundo, Apocalipse, está de volta disposto a acabar com a humanidade. Professor Xavier conta com Mística, Fera e Mercúrio, além de novos alunos, para impedir o vilão.", "Ano: 2016", "Categoria: Ação, Aventura", "Classificação Indicativa: 12 anos"]
+    ["X-MEN: APOCALIPSE", "apo.jpeg", "O primeiro mutante destruidor do mundo, Apocalipse, está de volta disposto a acabar com a humanidade. Professor Xavier conta com Mística, Fera e Mercúrio, além de novos alunos, para impedir o vilão.", "Ano: 2016", "Categoria: Ação, '''''''''''-Aventura", "Classificação Indicativa: 12 anos"]
 ]
 
 var galeria = document.querySelector("#conteudo")
