@@ -68,12 +68,46 @@ let excluir= document.querySelector('#btExcluir')
 let excluir1= document.querySelector('#btExcluir1')
 let excluir2= document.querySelector('#btExcluir2')
 
-excluir.onclick = function () {
+excluir.onclick = function p () {
     confirm('Você deseja realmente excluir este produto?')
+    if(excluir){
+        document.querySelector('#preco').innerHTML = 'R$0,00'
+    }else{
+        
+    }
 }
-excluir1.onclick = function () {
+
+excluir1.onclick = function p1 () {
     confirm('Você deseja realmente excluir este produto?')
+    if(confirm){
+        document.querySelector('#preco1').innerHTML = 'R$0,00'
+    }else{
+
+    }
 }
-excluir2.onclick = function () {
+excluir2.onclick = function p2 () {
     confirm('Você deseja realmente excluir este produto?')
+    if(confirm){
+        document.querySelector('#preco2').innerHTML = 'R$0,00'
+    }else{
+
+    }
 }
+p ()
+p1 ()
+p2 ()
+
+// let exclusao={
+//     excluir: function(){
+//         produto.style.display = "none"
+//     }
+// }
+
+//  excluir.onclick = function(){
+//      confirm('Você deseja realmente excluir este produto?')
+//      if(alert += true){
+//         exclusao.excluir() 
+//  }else{
+//      null
+//  }
+//  }
