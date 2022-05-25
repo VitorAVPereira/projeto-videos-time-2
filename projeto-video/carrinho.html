@@ -95,12 +95,13 @@
                       <option>3</option>
                       <option>4</option>
                     </select> </td>
-                  <td> <select class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                  <td> <select id="telas" class="form-control">
+                      <option value="tela0_p">0</option>
+                      <option value="tela1_p">1</option>
+                      <option value="tela2_p">2</option>
+                      <option value="tela3_p">3</option>
+                      <option value="tela4_p">4</option>
+                      <option value="tela5_p">5</option>
                     </select> </td>
                   <td>
                     <div class="text-primary"> <var id="preco">R$10,00</var></div>
@@ -117,12 +118,12 @@
                       <option>3</option>
                       <option>4</option>
                     </select> </td>
-                  <td> <select class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                  <td> <select id="telas_1" class="form-control">
+                      <option value="tela1_p1">1</option>
+                      <option value="tela2_p1">2</option>
+                      <option value="tela3_p1">3</option>
+                      <option value="tela4_p1">4</option>
+                      <option value="tela5_p1">5</option>
                     </select> </td>
                   <td>
                     <div class="text-primary"> <var id="preco1">R$15,00</var></div>
@@ -138,12 +139,12 @@
                       <option>2</option>
                       <option>3</option>
                     </select> </td>
-                  <td> <select class="form-control">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                  <td> <select id="telas_2" class="form-control">
+                      <option value="tela1_p2">1</option>
+                      <option value="tela2_p2">2</option>
+                      <option value="tela3_p2">3</option>
+                      <option value="tela4_p2">4</option>
+                      <option value="tela5_p2">5</option>
                     </select> </td>
 
                   <td>
@@ -158,8 +159,8 @@
         </div>
         <div class="text-right mr-5">
           <br />
-          <button id="btLimpar" class="btn btn-primary">Calcular Total</button>
-          <button id="btCalculoT" class="btn btn-primary">Limpar Carrinho</button>
+          <button id="btCalculoT" class="btn btn-primary">Calcular Total</button>
+          <button id="btLimpar" class="btn btn-primary">Limpar Carrinho</button>
         </div>
       </aside>
       <aside>
@@ -177,14 +178,9 @@
 
           </table>
           <div class="resumo text-center">
-
             <p id="nomeDesconto"></p>
-
             <p id="total3"></p>
-
-
-
-            <hr />
+            <hr />E
             <!--Setor de Cupom-->
             <h3>Insira seu cupom: </h3>
 
@@ -196,24 +192,11 @@
                 onclick="validate(document.getElementsByName('text1')[0].value)"></input>
               <hr />
             </div>
-
-
             <button class="btn btn-primary">COMPRAR</button>
-
-
             <hr />
-
-
             <button onclick="window.location.href='produto.html'" class="btn btn-primary">Adicionar mais
               produtos</button>
-
-
-
-
-
-
           </div>
-
         </div>
       </div>
       </aside>
