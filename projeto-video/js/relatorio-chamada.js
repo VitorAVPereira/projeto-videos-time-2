@@ -1,4 +1,3 @@
-
 var i=0
 for (key in localStorage) {
     var ch = localStorage.getItem(key)
@@ -20,35 +19,39 @@ for (key in localStorage) {
     document.querySelector('#assunto1').innerHTML += "<li>" + chArray[3] + "</li>"
     
 }
-    let listaUsers = chArray
-    // console.log(listaUsers)
+
+    let listaUsers = [chArray[0]]
+    console.log(listaUsers)
     let listaResult = []
 
-    function users() {
-        document.querySelector("#nome1").innerHTML = ""
-        for (var i = 0; i < listaUsers.length; i++) {
-            document.querySelector("#nome1").innerHTML += "<li>" + listaUsers[i] + "</li>"
-
-            listaUsers.length > 0 ? document.querySelector("#next").innerHTML = listaUsers[0] : null
-
-
-
-
-           
-            
-        }
-        users()
+function users(){
+    document.querySelector("#users").innerHTML="" 
+for(var i=0;i<listaUsers.length;i++){
+    document.querySelector("#users").innerHTML+="<li>" + listaUsers[i] + "</li>"
     }
-    document.querySelector("#btAtende").onclick = function () {
-        
-                   listaResult.push(listaUsers[0])
-        
-            document.querySelector("#cAtendido").innerHTML = ""
-            for (var i = 0; i < listaResult.length; i++) {
-                document.querySelector("#cAtendido").innerHTML += "<li>" + listaResult[i] + "</li>"
-            }
-            
-        }
+    listaUsers.length > 0 ? document.querySelector("#next").innerHTML=listaUsers[0] : null
+}
 
+users()
 
+document.querySelector("#btAtende").onclick=function(){darBaixa()}
+function darBaixa(){
+    if (listaUsers.length > 0){
+    listaResult.push(listaUsers[0])
+    document.querySelector("#result").innerHTML=""
+for(var i=0;i<listaResult.length;i++){
+    document.querySelector("#result").innerHTML+="<li>" + listaResult[i] + "</li>"
+    }
+listaUsers.shift()
+users()
+} else {
+    document.querySelector("#next").innerHTML='<b>Todos os clientes foram atendidos</b>'
+}
+}
 
+/* localStorage.removeItem(key);
+window.localStorage.removeItem('keyName'); */
+
+/* const MyArray = [chArray[0]];
+const JsonArray = JSON.stringify(MyArray);
+console.log(JsonArray) */
