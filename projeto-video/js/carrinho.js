@@ -15,6 +15,7 @@ let select = document.querySelector("#telas")
 let total=document.querySelector("#total")
 let total2=document.querySelector("#total2")
 let toltal3=document.querySelector("#total3")
+let btCalcular=document.querySelector("#btCalculoT")
 
 let carrinho = {
     Telas: 'Quantidade de Telas ',
@@ -44,7 +45,8 @@ function exibirCategoria(){
         break
     }
 }
-select.addEventListener('change', exibirCategoria)
+btCalcular.addEventListener('click',exibirCategoria)
+//select.addEventListener('change', exibirCategoria)
 
 //Fim do objeto
 
