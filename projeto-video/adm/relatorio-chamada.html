@@ -97,31 +97,18 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><b id="nome"></b></td>
-                    <td><p id="email"></p></td>
-                    <td><p id="telefone"></p></td>
-                    <td><p id="assunto"></p></td>
-                  </tr>
-                  <tr>
                     <td><b id="nome1"></b></td>
                     <td><p id="email1"></p></td>
                     <td><p id="telefone1"></p></td>
                     <td><p id="assunto1"></p></td>
                   </tr>
-                  <tr>
-                    <td><b id="nome2"></b></td>
-                    <td><p id="email2"></p></td>
-                    <td><p id="telefone2"></p></td>
-                    <td><p id="assunto2"></p></td>
-                  </tr>
-                  
                 </tbody>
               </table>
               <div class="row">
               <p>Próximo cliente a ser atendido:</p>
               <p id="next"></p>
               <div class="ml-5">
-              <button type="button" id="btAtende">Confirmar Atendimento</button>
+              <button id="btAtende" class="btn btn-info">Confirmar Atendimento</button>
               </div>
               </div>
             </div>
@@ -135,12 +122,12 @@
           <div class="card"class="one">
             <div class="card-body">
               <dl class="dlist-align row">
-                <dt>Chamadas atendidas:</dt>
-                <dd class="text-right ml-3 text-dark" id="cAtendido"></dd>
+                <dt>Chamadas pendentes:</dt>
+                <dd class="text-right text-dark " id="users"></dd>
               </dl>
               <dl class="dlist-align row">
-                <dt>Chamadas pendentes:</dt>
-                <dd class="text-right text-dark " id="cPendente"></dd>
+                <dt>Chamadas atendidas:</dt>
+                <dd class="text-right ml-3 text-dark" id="result"></dd>
               </dl>
             </div>
           </div>

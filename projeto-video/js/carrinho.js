@@ -63,3 +63,17 @@ sair.onclick = function () {
     location.href = 'index.html'
 }
 localStorage.emailUser ? msgUser() : resetUser()
+
+let excluir= document.querySelector('#btExcluir')
+let excluir1= document.querySelector('#btExcluir1')
+let excluir2= document.querySelector('#btExcluir2')
+
+excluir.onclick = function () {
+    confirm('Você deseja realmente excluir este produto?')
+}
+excluir1.onclick = function () {
+    confirm('Você deseja realmente excluir este produto?')
+}
+excluir2.onclick = function () {
+    confirm('Você deseja realmente excluir este produto?')
+}

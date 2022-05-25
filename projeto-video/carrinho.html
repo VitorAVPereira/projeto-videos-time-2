@@ -60,88 +60,170 @@
   </nav>
 
   <!--Setor de Carrinho-->
-  <div class="row">
-    <hr />
-  </div>
-  <div class="container" class="col-sm-8">
-  </div>
-  <div class="container">
+
+  <h2 class="text-left">Meu Carrinho</h2>
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-9">
-        <h2 class="text-left">Meu Carrinho</h2>
-        <!--Tabela <table> (tabela) <tr> (linha) <td> (coluna)-->
-        <table border="1" width="400">
-          <tr>
-            <th>Produto</th>
-            <th>Quantidade</th>
-            <th>Preço</th>
-          </tr>
-          <tr>
-            <td><img src="..//projeto-video/imagens/filme1.jpeg" width="150"></td>
-            <td>01</td>
-            <td>25,00</td>
-          </tr>
-          <tr>
-            <td><img src="..//projeto-video/imagens/filme2.jpeg" width="150"></td>
-            <td>01</td>
-            <td>25,00</td>
-          </tr>
-          <tr>
-            <td><img src="..//projeto-video/imagens/filme3.jpeg" width="150"></td>
-            <td>01</td>
-            <td>25,00</td>
-          </tr>
+      <aside class="col-lg-9">
+        <div >
+          <div class="table-responsive">
+            <table class="table table-borderless">
+              <thead class="text-primary">
+                <tr class="text-uppercase">
+                  <th scope="col">Produto</th>
+                  <th scope="col" width="120">Quantidade</th>
+                  <th scope="col" width="120">Telas</th>
+                  <th scope="col" width="120">Preço</th>
+                  <th scope="col" class="text-center" width="200"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="produto">
+                    <!-- <figure class="itemside align-items-center">
+                                              <div class="aside"><img src="https://i.imgur.com/1eq5kmC.png"
+                                                      class="img-sm"></div>
+                                              <figcaption class="info"> <a href="#" class="title text-dark"
+                                                      data-abc="true">Tshirt with round nect</a>
+                                                  <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+                                              </figcaption>
+                                          </figure> -->
+                  </td>
+                  <td> <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select> </td>
+                  <td> <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select> </td>
+                  <td>
+                    <div class="text-primary"> <var>R$10.00</var></div>
+                  </td>
+                  <td> <button id="btExcluir" class="btn btn-primary">excluir</button> </td>
+                </tr>
+                <tr>
+                  <td id="produto1">
 
-        </table>
-      </div>
-<!--Tabela <table> (tabela) <tr> (linha) <td> (coluna)-->
-      <div class="col-sm-3">
-        <h2>Resumo do Pedido</h2>        
-        <table border="1" width="320">
-          <tr>
+                  </td>
+                  <td> <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select> </td>
+                  <td> <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select> </td>
+                  <td>
+                    <div class="text-primary"> <var >R$15</var></div>
+                  </td>
+                  <td> <button id="btExcluir1" class="btn btn-primary">excluir</button> </td>
+                </tr>
+                <tr>
+                  <td id="produto2">
 
-            <th id="total2"></th>
-            <th id="total"></th>
-          
+                  </td>
+                  <td> <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                    </select> </td>
+                  <td> <select class="form-control">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select> </td>
 
-          </tr>
+                  <td>
+                    <div class="text-primary"> <var>R$9,00</var> </div>
+                  </td>
 
-        </table>
-        <div class="resumo text-center">
+                  <td><button id="btExcluir2" class="btn btn-primary">excluir</button> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="text-right mr-5">
+          <br />
+          <button id="btLimpar" class="btn btn-primary">limpar carrinho</button>
+        </div>
+      </aside>
+      <aside>
+        <div class="container text-center">
+        <div>
+          <h2>Resumo do Pedido</h2>
+          <table border="1" class="" width="320">
+            <tr>
 
-          <p id="nomeDesconto"></p>
-
-          <p id="total3"></p>
-
-        
-
-          <hr />
-          <!--Setor de Cupom-->
-          <h3>Insira seu cupom</h3>
-                  <input type="number" name="text1"> 
-                  <br />
-          <input type="button" value="Validar Cupom" name="Submit" 
-          onclick="validate(document.getElementsByName('text1')[0].value)"></input>
-
-       
-          <button>COMPRAR</button>
-                     
-                     
-          <hr />
-          
-         
-          <button onclick="window.location.href='produto.html'">Adicionar mais produtos</button>
+              <th id="total2"></th>
+              <th id="total"></th>
 
 
+            </tr>
+
+          </table>
+          <div class="resumo text-center">
+
+            <p id="nomeDesconto"></p>
+
+            <p id="total3"></p>
 
 
 
+            <hr />
+            <!--Setor de Cupom-->
+            <h3>Insira seu cupom: </h3>
+
+            <input type="number" name="text1">
+            <br />
+            <div>
+              <hr />
+              <input class="btn btn-primary" type="button" value="Validar Cupom" name="Submit"
+                onclick="validate(document.getElementsByName('text1')[0].value)"></input>
+              <hr />
+            </div>
+
+
+            <button class="btn btn-primary">COMPRAR</button>
+
+
+            <hr />
+
+
+            <button onclick="window.location.href='produto.html'" class="btn btn-primary">Adicionar mais
+              produtos</button>
+
+
+
+
+
+
+          </div>
 
         </div>
-
       </div>
-
+      </aside>
     </div>
+  </div>
+  <!--Tabela <table> (tabela) <tr> (linha) <td> (coluna)-->
+  </div>
+  <!--Tabela <table> (tabela) <tr> (linha) <td> (coluna)-->
+
+
+  </div>
   </div>
 
   </section>
@@ -155,9 +237,9 @@
     <div class="container">
       <div id="galeria2" class="mt-5 mb-5">
         <div class="row">
-          <div class="col-sm-4"><img src="imagens/filme5.jpeg" class="w-100"> </div>
-          <div class="col-sm-4"><img src="imagens/filme6.jpeg" class="w-100"> </div>
-          <div class="col-sm-4"><img src="imagens/filme7.jpeg" class="w-100"> </div>
+          <div class="col-sm-4"><img src="imagens/avengers.jpg" class="w-100"> </div>
+          <div class="col-sm-4"><img src="imagens/viuvanegra.jpg" class="w-100"> </div>
+          <div class="col-sm-4"><img src="imagens/guerracivil.jpeg" class="w-100"> </div>
         </div>
       </div>
     </div>
