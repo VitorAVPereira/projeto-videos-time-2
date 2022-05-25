@@ -21,7 +21,7 @@ function HabiDsabi() {
         let idChamada=parseInt (Math.floor(Math.random() * (100000 - 9999) + 9999))
         let dados=formC.nomeContato.value+','+formC.emailContato.value+','+formC.telefoneContato.value+','+formC.assuntoContato.value
         localStorage.setItem("Chamada- "+idChamada,dados)
-        console.log(dados[[0]])
+       
         formC.submit()
       }
     }
