@@ -9,9 +9,47 @@ var soma = [
 let calculo = parseInt(soma[0][1] + soma[1][1] + soma[2][1])
 let calculo2 = parseInt(soma[0][0] + soma[1][0] + soma[2][0])
 
-document.querySelector("#total2").innerHTML = "Qtde de filmes: " + calculo2
-document.querySelector("#total").innerHTML = "Valor final: " + calculo + ",00"
-document.querySelector("#total3").innerHTML = "Valor final: " + calculo + ",00"
+//Objetos 
+
+let select = document.querySelector("#telas")
+let total=document.querySelector("#total")
+let total2=document.querySelector("#total2")
+let toltal3=document.querySelector("#total3")
+let btCalcular=document.querySelector("#btCalculoT")
+
+let carrinho = {
+    Telas: 'Quantidade de Telas ',
+    multiplicarTelas:function(valor){
+        var incremento = (calculo * valor).toFixed(2)
+        console.log(incremento)
+        total.innerHTML= 'R$ ' + incremento
+        total2.innerHTML= 'R$ ' + incremento 
+        total3.innerHTML= 'R$ ' + incremento 
+    }
+
+}
+function exibirCategoria(){
+    
+    switch(select.selectedIndex){
+        case 0: carrinho.multiplicarTelas(0)
+        break
+        case 1 : carrinho.multiplicarTelas(1.00)
+        break
+        case 2 : carrinho.multiplicarTelas(1.07)
+        break
+        case 3 : carrinho.multiplicarTelas(1.14)
+        break
+        case 4 : carrinho.multiplicarTelas(1.21)
+        break
+        case 5 : carrinho.multiplicarTelas(1.28)
+        break
+    }
+}
+btCalcular.addEventListener('click',exibirCategoria)
+//select.addEventListener('change', exibirCategoria)
+
+//Fim do objeto
+
 
 let code =[123,456] ;
 function validate(coupon) { 
@@ -68,12 +106,25 @@ let excluir= document.querySelector('#btExcluir')
 let excluir1= document.querySelector('#btExcluir1')
 let excluir2= document.querySelector('#btExcluir2')
 
-excluir.onclick = function () {
+excluir.onclick = function p () {
     confirm('Você deseja realmente excluir este produto?')
+    if(excluir){
+        document.querySelector('#preco').innerHTML = 'R$0,00'
+    }else{
+        
+    }
 }
-excluir1.onclick = function () {
+
+excluir1.onclick = function p1 () {
     confirm('Você deseja realmente excluir este produto?')
+    if(confirm){
+        document.querySelector('#preco1').innerHTML = 'R$0,00'
+    }else{
+
+    }
 }
-excluir2.onclick = function () {
+excluir2.onclick = function p2 () {
     confirm('Você deseja realmente excluir este produto?')
+
 }
+ 
