@@ -29,4 +29,5 @@ function HabiDsabi() {
 
     }
   }
- 
+ let ana = document.getElementById('testep')
+ console.log(ana)
