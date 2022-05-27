@@ -1,57 +1,63 @@
 var i=0
+let listaUsers=[]
+let listaResult=[]
+var chArray=[]
+
+//Busca elementos em localStorage
 for (key in localStorage) {
-    var ch = localStorage.getItem(key)
-    
+
+    //Verifica as chaves
     if(i<localStorage.length){
-        var chArray = ch.split(",")
-    i++
+      
+        //verifica os itens iniciados com a srting 'chamada'
+        if(key.includes('Chamada')){
+            var ch = localStorage.getItem(key)
+            chArray.push(ch.split(","))
+        
+            //Insere as infos no html
+            var p = document.createElement('p')
+            document.querySelector('#nome1').innerHTML += "<li>" + chArray[i][0] + "</li>"
+            document.querySelector('#email1').innerHTML += "<li>" + chArray[i][1] + "</li>"
+            document.querySelector('#telefone1').innerHTML += "<li>" + chArray[i][2] + "</li>"
+            document.querySelector('#assunto1').innerHTML += "<li>" + chArray[i][3] + "</li>"
+            listaUsers.push(chArray[i])
+            i++
+            } 
+    
     }else{
         break
+    }     
+}  
+   
+//evento click do botão atendimento
+document.querySelector("#btAtende").onclick=function(){
+        darBaixa();
+        users()
     }
-    console.log(chArray.length)
-    // console.log(key)
-    // console.log(chArray)
-    
-    var p = document.createElement('p')
-    document.querySelector('#nome1').innerHTML += "<li>" + chArray[0] + "</li>"
-    document.querySelector('#email1').innerHTML += "<li>" + chArray[1] + "</li>"
-    document.querySelector('#telefone1').innerHTML += "<li>" + chArray[2] + "</li>"
-    document.querySelector('#assunto1').innerHTML += "<li>" + chArray[3] + "</li>"
-    
+
+
+    //Remove os itens atendidos
+    function darBaixa(){
+        if (listaUsers.length > 0){
+            listaResult.push(listaUsers[0])
+            listaUsers.shift()
+            document.querySelector("#result").innerHTML=""
+        for(var i=0;i<listaResult.length;i++){
+            document.querySelector("#result").innerHTML+="<li>" + listaResult[i] + "</li>"
+         }
+     }  
 }
-
-    let listaUsers = [chArray[0]]
-    console.log(listaUsers)
-    let listaResult = []
-
-function users(){
-    document.querySelector("#users").innerHTML="" 
-for(var i=0;i<listaUsers.length;i++){
-    document.querySelector("#users").innerHTML+="<li>" + listaUsers[i] + "</li>"
+    //Exibe os itens não atendidos
+    function users(){
+        if (listaUsers.length >= 0){
+             document.querySelector("#users").innerHTML=""
+        for(var i=0;i<listaUsers.length;i++){
+            document.querySelector("#users").innerHTML+="<li>" + listaUsers[i] + "</li>"
+         }
+     } 
+        listaUsers.length == 0 ? document.querySelector("#next").innerHTML='<b>Todos os clientes foram atendidos</b>' :null
+       
     }
-    listaUsers.length > 0 ? document.querySelector("#next").innerHTML=listaUsers[0] : null
-}
 
-users()
-
-document.querySelector("#btAtende").onclick=function(){darBaixa()}
-function darBaixa(){
-    if (listaUsers.length > 0){
-    listaResult.push(listaUsers[0])
-    document.querySelector("#result").innerHTML=""
-for(var i=0;i<listaResult.length;i++){
-    document.querySelector("#result").innerHTML+="<li>" + listaResult[i] + "</li>"
-    }
-listaUsers.shift()
-users()
-} else {
-    document.querySelector("#next").innerHTML='<b>Todos os clientes foram atendidos</b>'
-}
-}
-
-/* localStorage.removeItem(key);
-window.localStorage.removeItem('keyName'); */
-
-/* const MyArray = [chArray[0]];
-const JsonArray = JSON.stringify(MyArray);
-console.log(JsonArray) */
+    //Exibe os itens não atendidos ao carregar a página    
+    users()
