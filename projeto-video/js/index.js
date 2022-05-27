@@ -30,9 +30,9 @@ localStorage.emailUser ? msgUser() : resetUser()
 // }
 
 
-localStorage.setItem("deadpool2","imagens/deadpool.jpeg")
+localStorage.setItem("deadpool2","imagens/deadpool.jpg")
 let imageurl=localStorage.getItem("deadpool2");
-document.getElementById("img1").src="imagens/deadpool.jpeg"
+document.getElementById("img1").src="imagens/deadpool.jpg"
 let imagem= document.querySelector('#filme')
 
 imagem.onclick = function () {
@@ -42,12 +42,24 @@ imagem.onclick = function () {
 }
 
 localStorage.setItem("Homem de Ferro","imagens/homem.jpg")
-let imageurl1=localStorage.getItem("Homem de Ferro");
-document.getElementById("img1").src="imagens/homem.jpg"
-let imagem= document.querySelector('#filme')
+let imageurl2=localStorage.getItem("Homem de Ferro");
+document.getElementById("img2").src="imagens/homem.jpg"
+let imagem2= document.querySelector('#filme1')
 
-imagem.onclick = function () {
-    let chamar = imageurl
+imagem2.onclick = function () {
+    let chamar1 = imageurl2
     
-    return chamar
+    return chamar1
 }
+
+localStorage.setItem("Homem Formiga","imagens/homemf.jpg")
+let imageurl3=localStorage.getItem("Homem de Ferro");
+document.getElementById("img3").src="imagens/homemf.jpg"
+let imagem3= document.querySelector('#filme2')
+
+imagem3.onclick = function () {
+    let chamar3 = imageurl3
+    
+    return chamar3
+}
+
