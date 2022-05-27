@@ -2,6 +2,7 @@ var i=0
 let listaUsers=[]
 let listaResult=[]
 var chArray=[]
+console.log(chArray)
 
 //Busca elementos em localStorage
 for (key in localStorage) {
@@ -20,7 +21,7 @@ for (key in localStorage) {
             document.querySelector('#email1').innerHTML += "<li>" + chArray[i][1] + "</li>"
             document.querySelector('#telefone1').innerHTML += "<li>" + chArray[i][2] + "</li>"
             document.querySelector('#assunto1').innerHTML += "<li>" + chArray[i][3] + "</li>"
-            listaUsers.push(chArray[i])
+            listaUsers.push(chArray[i][0])
             i++
             } 
     
