@@ -10,7 +10,9 @@
         <header class="text-left mb-3">
             <a target="" href="index.html">
             <img class="text-left" src="imagens/primeirasessão.png" width="250"/></a>
+            <h2 class="text-center">Bem-vindo à Primeira Sessão! </h2>
         </header>
+        <br />
           <!--Setor de Navegação Login-->
        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
         <a class="navbar-brand" href="#">Acesse</a>
@@ -40,33 +42,32 @@
 
       <!--SetordeNavegaçãoLogin-->
             <section class="container">
-            <h1 class="text-center">Bem vindo a sua primeiro Sessão! </h1>
-            <p class="text-center">Faça seu login!</p>
-            <form id="formLogin" method="post" action="index.html" class="w-50 mx-auto p-3 mt-5 mb-5" 
+              <form id="formLogin" method="post" action="index.html" class="w-50 mx-auto p-3 mt-5 mb-5" 
                 style="border:1px solid #ccc;border-radius: 12px;">
                     <fieldset>
-                        <legend>Preencha os campos para entrar!</legend>
+                        <legend class="text-center">Faça seu login</legend>
+                        <br />
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email :</label>
                             <input class= form-control name="email" id="email" maxlength="50" required>
                         </div>
                         <div class="form-group">
-                            <label>Senha</label>
+                            <label>Senha :</label>
                             <input type="password" class= form-control name="senha" id="senha" maxlength="50" required>
                         </div>
-                        <div>
-                            <button type="button" id="btLogin" class="btn btn-info mt-4">Pesquisar</button>
+                        <div class ="text-center">
+                            <button type="button" id="btLogin" class="btn btn-primary">Entrar</button>
                         </div>
                 </fieldset>
-            </form>
+              </form>
             <div class= "text-center">
-              <a href= "cadastro.html"> Cadastre-se agora!</a>
+              
             </div>
         </section>
-</br></br></br>
-        <footer class="bg-primary p-4 text-white text-center mt-5">
-            <p>&copy;2022 - Todos os direitos reservados. </p> 
-        </footer> 
-        </body>
+
+       <footer class="bg-primary p-4 text-white text-center mt-4">
+          <p> &copy;2022 - Todos os direitos reservados. </p>
+       </footer>
+      </body>
         <script src="js/login.js"></script>
 </html>
