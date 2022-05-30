@@ -1,86 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Contato Primeira Sessão</title>
-        <meta charset ="utf-8" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-        <!-- <link rel="stylesheet" href="css/estilo.css" type="text/css"/> -->
-    </head>
-    <body class="bgblack text-primary"></body>
-        
-         <header class="text-left">
-           
-            <a href="index.html"> <img src="imagens/primeirasessão.png" width="250"/></a>
-            
-    
-         </header>
-         <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-            <a class="navbar-brand" href="#">Acesse</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href='produto.html'>Produtos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href='promocao.html'>Promoções</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href='carrinho.html'>Carrinho</a>
-                </li>    
-              </ul>
-            </div>  
-          </nav>
-            <section class="container">
-            <h1 class="text-center p-4">Entre em contato conosco. Conheça nossos canais!</h1>
-            <form id="formContato" method="post"  action="" class="w-50 mx-auto p-4 mt-5 mb-5" style="border:1px solid #ccc; border-radius: 12px;">
-                <fieldset>
-                    <legend class="text-center">
-                        Preencha o formulário 
-                    </legend>
-                    <div class="form-group">
-                        <lable>Nome :</br></lable>
-                        <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
 
-                    </div>
-                    <div class="form-group">
-                        <label>Email :</br></label>
-                        <input class="form-control" name="emailContato" id="emailContato" type="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Telefone :</br></label>
-                        <input class="form-control" name="telefoneContato" id="telefoneContato"  maxlength="14" type="text" >
-                    </div>
-                    <div class="form-group">
-                      <label>Assunto :</br></label>
-                      <input class="form-control" name="assuntoContato" id="assuntoContato"  maxlength="20" type="text" >
-                  </div>
-                    <div class="form-group">
-                        <label>Comentários :</br></label>
-                        <textarea class="form-control" name="comentarios" id="comentarios" rows="8"></textarea>
-                    </div>
-                    <div class="text-center">
-                      <input type="checkbox" name="habi" id="habi" onClick="HabiDsabi()"> Quero abrir um chamado para este assunto.</p>
-                    </div>
-                    <div class="text-center">
-                        <input type="button" class="btn btn-primary" name="envia" id="envia" value="Confirmar" >
-                    </div>
+<head>
+  <title>Contato Primeira Sessão</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilo.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="css/estilo.css" type="text/css"/> -->
+</head>
+
+<body class="bgblack text-primary"></body>
+
+<header class="text-left">
+  <a href="index.html"> <img src="imagens/primeirasessão.png" width="250" /></a>
+  <section class="container">
+    <h1 class="text-center p-4">Entre em contato conosco! Conheça nossos canais!</h1>
 
 
-                </fieldset>
-            </form>
-            <article class="text-center">
-<h3>Estamos aqui, perto de você!</h3>
+</header>
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <a class="navbar-brand" href="#">Acesse</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href='produto.html'>Produtos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='promocao.html'>Promoções</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='carrinho.html'>Carrinho</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<section class="container">
+  <form id="formContato" method="post" action="" class="w-50 mx-auto p-4 mt-5 mb-5"
+    style="border:1px solid #ccc; border-radius: 12px;">
+    <fieldset>
+      <legend class="text-center">
+        Preencha o formulário
+      </legend>
+      <br />
+      <div class="form-group">
+        <lable>Nome :</br></lable>
+        <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
 
-            
-        </article>
-        </section>
+      </div>
+      <div class="form-group">
+        <label>Email :</br></label>
+        <input class="form-control" name="emailContato" id="emailContato" type="email" required>
+      </div>
+      <div class="form-group">
+        <label>Telefone :</br></label>
+        <input class="form-control" name="telefoneContato" id="telefoneContato" maxlength="14" type="text">
+      </div>
+      <div class="form-group">
+        <label>Assunto :</br></label>
+        <input class="form-control" name="assuntoContato" id="assuntoContato" maxlength="20" type="text">
+      </div>
+      <div class="form-group">
+        <label>Comentários :</br></label>
+        <textarea class="form-control" name="comentarios" id="comentarios" rows="8"></textarea>
+      </div>
+      <div class="text-center">
+        <input type="checkbox" name="habi" id="habi" onClick="HabiDsabi()"> Quero abrir um chamado para este assunto.
+        </p>
+      </div>
+      <div class="text-center">
+        <input type="button" class="btn btn-primary" name="envia" id="envia" value="Confirmar">
+      </div>
+    </fieldset>
+  </form>
+  <article class="text-center"></article>
+</section>
 
-         <footer class="bg-primary p-4 text-white text-center mt-4">
-            <p> &copy;2022 - Todos os direitos reservados. </p>
-         </footer>
-    </body>
-    <script src="js/contato.js"></script>
+<footer class="bg-primary p-4 text-white text-center mt-4">
+  <p> &copy;2022 - Todos os direitos reservados. </p>
+</footer>
+</body>
+<script src="js/contato.js"></script>
+
 </html>
