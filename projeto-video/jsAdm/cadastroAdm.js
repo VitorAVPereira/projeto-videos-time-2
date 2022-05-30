@@ -11,6 +11,6 @@ document.querySelector("#btContato").onclick=function(){
          formC.submit()
         localStorage.nomeUser=formC.nomeContato.value
         localStorage.emailUser=formC.emailContato.value
-        localStorage.senhaUser=formC.senha.value
+    //  localStorage.senhaUser=formC.senha.value
     }
     }
