@@ -5,9 +5,10 @@ document.querySelector('#envia').onclick=function(){
         alert("Preencha o nome!")
     }else if(formC.emailContato.value == ""){
         alert("Preencha o email!")
+    }else if(formC.telefoneContato.value == ""){
+        alert("Forneça um Telefone!")
     }else if(formC.assuntoContato.value == ""){
         alert("Informe o Assunto!")
-    }else if(formC.assuntoContato.value == ""){
     }else if(formC.comentarios.value == ""){
         alert("Preencha um comentário")}
     else{
