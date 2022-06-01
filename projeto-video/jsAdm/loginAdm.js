@@ -11,7 +11,7 @@ document.querySelector("#btLogin").onclick = function () {
     else {
         formL.submit()
         localStorage.emailUser = formL.email.value
-        localStorage.senhaUser = formL.senha.value
+    //  localStorage.senhaUser = formL.senha.value
 
     }
 }

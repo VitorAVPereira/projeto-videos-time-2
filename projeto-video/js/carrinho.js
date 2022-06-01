@@ -102,29 +102,27 @@ sair.onclick = function () {
 }
 localStorage.emailUser ? msgUser() : resetUser()
 
-let excluir= document.querySelector('#btExcluir')
-let excluir1= document.querySelector('#btExcluir1')
-let excluir2= document.querySelector('#btExcluir2')
+////////
 
-excluir.onclick = function p () {
-    confirm('Você deseja realmente excluir este produto?')
-    if(excluir){
-        document.querySelector('#preco').innerHTML = 'R$0,00'
-    }else{
-        
+function deleteRow(r) {
+    var confir = confirm('Você deseja realmente excluir este produto?') 
+    if(confir==true){
+        var i = r.parentNode.parentNode.rowIndex
+       document.querySelector("#tabela").deleteRow(i)
+       
+  }else{
+     null
+  }
+}
+
+
+function removeTable(exTabela) {
+    var confirma = confirm('Você realmente deseja limpar o carrinho?')
+    let excluTotal = document.querySelector('#exTabela')
+        if(confirma == true){
+            excluTotal.parentNode.removeChild(excluTotal)
+       }else{
+          null
+       }
     }
-}
-
-excluir1.onclick = function p1 () {
-    confirm('Você deseja realmente excluir este produto?')
-    if(confirm){
-        document.querySelector('#preco1').innerHTML = 'R$0,00'
-    }else{
-
-    }
-}
-excluir2.onclick = function p2 () {
-    confirm('Você deseja realmente excluir este produto?')
-
-}
  

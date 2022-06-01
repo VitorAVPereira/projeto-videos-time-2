@@ -67,7 +67,7 @@
       <aside class="col-lg-9">
         <div >
           <div class="table-responsive">
-            <table class="table table-borderless">
+            <table id="tabela" class="table table-borderless">
               <thead class="text-primary">
                 <tr class="text-uppercase">
                   <th scope="col">Produto</th>
@@ -77,7 +77,7 @@
                   <th scope="col" class="text-center" width="200"></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="exTabela">
                 <tr>
                   <td id="produto">
                     <!-- <figure class="itemside align-items-center">
@@ -96,7 +96,6 @@
                       <option>4</option>
                     </select> </td>
                   <td> <select id="telas" class="form-control">
-                      <option value="tela0_p">0</option>
                       <option value="tela1_p">1</option>
                       <option value="tela2_p">2</option>
                       <option value="tela3_p">3</option>
@@ -106,7 +105,9 @@
                   <td>
                     <div class="text-primary"> <var id="preco">R$10,00</var></div>
                   </td>
-                  <td> <button id="btExcluir" class="btn btn-primary">excluir</button> </td>
+                  <td>
+                    <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary" > </input> 
+                  </td>
                 </tr>
                 <tr>
                   <td id="produto1">
@@ -128,7 +129,9 @@
                   <td>
                     <div class="text-primary"> <var id="preco1">R$15,00</var></div>
                   </td>
-                  <td> <button id="btExcluir1" class="btn btn-primary">excluir</button> </td>
+                  <td>
+                    <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary" > </input> 
+                  </td>
                 </tr>
                 <tr>
                   <td id="produto2">
@@ -151,7 +154,9 @@
                     <div class="text-primary"> <var id="preco2">R$9,00</var> </div>
                   </td>
 
-                  <td><button id="btExcluir2" class="btn btn-primary">excluir</button> </td>
+                  <td>
+                    <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary" > </input> 
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -160,7 +165,7 @@
         <div class="text-right mr-5">
           <br />
           <button id="btCalculoT" class="btn btn-primary">Calcular Total</button>
-          <button id="btLimpar" class="btn btn-primary">Limpar Carrinho</button>
+          <input id="btLimpar" value="Limpar carrinho" onclick="removeTable('exTabela')" class="btn btn-primary"></input>
         </div>
       </aside>
       <aside>

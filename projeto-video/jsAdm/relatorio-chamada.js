@@ -1,8 +1,30 @@
+let user=localStorage.emailUser
+let bemVindo=document.querySelector("#bemVindo")
+let entrar=document.querySelector("#entrar")
+let sair=document.querySelector("#sair")
+
+function msgUser(){
+    let nomeUser=user.substring(0,user.indexOf('@'))
+    bemVindo.innerHTML= 'Olá <b>' + nomeUser + '<b/>'
+    entrar.style.display="none"
+}
+function resetUser(){
+    sair.style.display="none"
+}
+sair.onclick=function(){
+    localStorage.removeItem("emailUser")
+    location.href='../adm/indexAdm.html'
+}
+
+localStorage.emailUser ? msgUser() : resetUser()
+
+//=============================================================================================
+
 var i=0
 let listaUsers=[]
 let listaResult=[]
 var chArray=[]
-console.log(chArray)
+//console.log(chArray)
 
 //Busca elementos em localStorage
 for (key in localStorage) {
@@ -29,7 +51,7 @@ for (key in localStorage) {
         break
     }     
 }  
-   
+let btAtende= document.querySelector("#btAtende")
 //evento click do botão atendimento
 document.querySelector("#btAtende").onclick=function(){
         darBaixa();
@@ -39,6 +61,7 @@ document.querySelector("#btAtende").onclick=function(){
 
     //Remove os itens atendidos
     function darBaixa(){
+     /*    var rm = localStorage.removeItem(key) */
         if (listaUsers.length > 0){
             listaResult.push(listaUsers[0])
             listaUsers.shift()
