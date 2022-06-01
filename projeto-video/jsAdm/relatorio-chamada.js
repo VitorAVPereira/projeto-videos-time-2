@@ -36,6 +36,7 @@ for (key in localStorage) {
         if(key.includes('Chamada')){
             var ch = localStorage.getItem(key)
             chArray.push(ch.split(","))
+            console.log(chArray)
         
             //Insere as infos no html
             var p = document.createElement('p')
