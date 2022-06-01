@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    
+    <title>Cadastre-se no Primeira Sessão</title>
+</head>
+    <body style="background-color:#000" class="bgblack text-primary">
+                <header>
+            <div class="text-left">
+            <a target="" href="index.html">
+            <img class="text-left" src="../imagens/primeirasessão.png" width="250"/></a>
+            </div>
+        </header>
+        <section>
+            <div class="container text-center ">
+            <h1 id="testep" name="testep">Bem-vindo à Primeira Sessão! </h1>
+            <h2>Cadastre-se aqui para ter acesso a esta incrível <br />
+                plataforma de streaming!</h2>
+                <br />
+            </div>
+            <!--NAVEGAÇÃO-->
+            <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+                <a class="navbar-brand" href="#">Acesse</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href='login.html'>Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href='produto.html'>Produtos</a>
+                    </li>
+                                   
+                      <li class="nav-item">
+                        <a class="nav-link" href='perfilDoUsuario.html'>Perfil do Usuário</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href='promocao.html'>Promoção</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href='carrinho.html'>Carrinho</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href='contato.html'>Contato</a>
+                      </li>  
+                  </ul>
+                </div>  
+              </nav>
+            <form  method="post" id="formCadastro" action="index.html"class="w-50 mx-auto p-3 mt-5 mb-5" style="border: 1px solid #ccc; border-radius: 12px;">
+                <fieldset>
+                    <div>
+                    <legend class="text-center">
+                        Informe seus dados para prosseguir
+                    </legend>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <lable>Nome : </lable>                        
+                        <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail : </label>
+                        <input class="form-control" name="emailContato" id="emailContato" type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone : </label>                        
+                        <input class="form-control" name="telefoneContato" id="telefoneContato"  maxlength="13" type="number" >
+                    </div>
+                    <div class="form-group">                       
+                        <label>Senha : </label>                
+                       <input class="form-control" name="senha" id="senha" type="password" maxlength="15">
+                    </div>
+                    <div class="form-group">             
+                        
+                        <label>Confirmar senha: </label>
+                       <input class="form-control" name="senhaC" id="senhaC" type="password" maxlength="12">
+                    </div>
+                    <div>                        
+                        <div class="text-center">
+                        <button id="btContato" type="button"  class="btn btn-primary">Confirmar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <footer class="bg-primary p-4 text-white text-center mt-4">
+            <p> &copy;2022 - Todos os direitos reservados. </p>
+         </footer>
+
+        <script src="js/validacao.js"></script>        
+        <script src="js/cadastro.js"></script>
+        <script src="js/contato.js"></script>
+    </body>
+    </html> 
