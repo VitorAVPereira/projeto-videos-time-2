@@ -1,38 +1,32 @@
-
-
+//Inicio de Trailers
 
 let trailerArr=["https://www.youtube.com/embed/RxeD6EOoyYs","https://www.youtube.com/embed/2m1drlOZSDw","https://www.youtube.com/embed/wxN1T1uxQ2g",
 "https://www.youtube.com/embed/_wUjoIp6v8o",
 "https://www.youtube.com/embed/wAmkU6FEKUw","https://www.youtube.com/embed/U2yDAZQL89s","https://www.youtube.com/embed/r0dSJpHUD1k","https://www.youtube.com/embed/w1dIkYegWuQ","https://www.youtube.com/embed/KPND6SgkN7Q"]
 
-
-
-
-
+var randfilmes =[]
+var imagem
 
 function carregarImagem() {
-    let randfilmes=trailerArr[Math.floor(Math.random() * trailerArr.length)];
+  while (randfilmes.length < 4){
+    aleatorio=trailerArr[Math.floor(Math.random() * trailerArr.length)]
+
+    if(randfilmes.indexOf(aleatorio) == -1)
+    randfilmes.push(aleatorio)
     console.log(randfilmes)
-    var imagem = document.getElementById("fml")
-    imagem.src = randfilmes
-  }
-  function carregarImagem1() {
-    let randfilmes=trailerArr[Math.floor(Math.random() * trailerArr.length)];
-    console.log(randfilmes)
-    var imagem = document.getElementById("fml1")
-    imagem.src = randfilmes
-  }
-  function carregarImagem2() {
-    let randfilmes=trailerArr[Math.floor(Math.random() * trailerArr.length)];
-    console.log(randfilmes)
-    var imagem = document.getElementById("fml2")
-    imagem.src = randfilmes
+    imagem = document.getElementById("fml")
+    imagem.src = randfilmes[0]
+    imagem = document.getElementById("fml1")
+    imagem.src = randfilmes[1]
+    imagem = document.getElementById("fml2")
+    imagem.src = randfilmes[2]
+    }
   }
 
   carregarImagem()
-  carregarImagem1()
-  carregarImagem2()
 
+//Fim de Trailers
+// Inicio de saudações
 
   let user=localStorage.emailUser
   let bemVindo=document.querySelector("#bemVindo")
