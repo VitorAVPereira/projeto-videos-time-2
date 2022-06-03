@@ -6,28 +6,54 @@ var soma = [
     [1, 25]
 ]
 
-let calculo = parseInt(soma[0][1] + soma[1][1] + soma[2][1])
-let calculo2 = parseInt(soma[0][0] + soma[1][0] + soma[2][0])
 
 //Objetos 
+//Calculo do incremento de telas
 
 let select = document.querySelector("#telas")
-let total=document.querySelector("#total")
-let total2=document.querySelector("#total2")
-let toltal3=document.querySelector("#total3")
+let select1 = document.querySelector("#telas_1")
+let select2 = document.querySelector("#telas_2")
+let preco=document.querySelector("#preco")
+let preco1=document.querySelector("#preco1")
+let preco2=document.querySelector("#preco2")
+let Total=document.querySelector("#total")
+let Total2=document.querySelector("#total2")
 let btCalcular=document.querySelector("#btCalculoT")
+
+var incremento
+var incremento1
+var incremento2
+var calculo
 
 let carrinho = {
     Telas: 'Quantidade de Telas ',
     multiplicarTelas:function(valor){
-        var incremento = (calculo * valor).toFixed(2)
-        console.log(incremento)
-        total.innerHTML= 'R$ ' + incremento
-        total2.innerHTML= 'R$ ' + incremento 
-        total3.innerHTML= 'R$ ' + incremento 
-    }
+        incremento = (soma[0][1] * valor).toFixed(2)
+        parseInt.incremento
+        preco.innerHTML= 'R$ ' + incremento
+    },
+    multiplicarTelas1:function(valor){
+        incremento1 = (soma[1][1] * valor).toFixed(2)
+        preco1.innerHTML= 'R$ ' + incremento1 
+    },
+    multiplicarTelas2:function(valor){
+        incremento2 = (soma[2][1] * valor).toFixed(2)
+        preco2.innerHTML= 'R$ ' + incremento2
+       
+    },
+    somaTotal:function(){
+        let inc = Number(incremento)
+        let inc1 = Number(incremento1)
+        let inc2 = Number(incremento2)
+        calculo =  inc + inc1 + inc2
 
+        Total.innerHTML=`R$ ${calculo}`
+        Total2.innerHTML=`R$ ${calculo}`
+    }
 }
+
+
+
 function exibirCategoria(){
     
     switch(select.selectedIndex){
@@ -44,9 +70,40 @@ function exibirCategoria(){
         case 5 : carrinho.multiplicarTelas(1.28)
         break
     }
+    switch(select1.selectedIndex){
+        case 0: carrinho.multiplicarTelas1(0)
+        break
+        case 1 : carrinho.multiplicarTelas1(1.00)
+        break
+        case 2 : carrinho.multiplicarTelas1(1.07)
+        break
+        case 3 : carrinho.multiplicarTelas1(1.14)
+        break
+        case 4 : carrinho.multiplicarTelas1(1.21)
+        break
+        case 5 : carrinho.multiplicarTelas1(1.28)
+        break
+    }
+    switch(select2.selectedIndex){
+        case 0: carrinho.multiplicarTelas2(0)
+        break
+        case 1 : carrinho.multiplicarTelas2(1.00)
+        break
+        case 2 : carrinho.multiplicarTelas2(1.07)
+        break
+        case 3 : carrinho.multiplicarTelas2(1.14)
+        break
+        case 4 : carrinho.multiplicarTelas2(1.21)
+        break
+        case 5 : carrinho.multiplicarTelas2(1.28)
+        break
+    }
 }
-btCalcular.addEventListener('click',exibirCategoria)
-//select.addEventListener('change', exibirCategoria)
+select.addEventListener('change', exibirCategoria)
+select1.addEventListener('change', exibirCategoria)
+select2.addEventListener('change', exibirCategoria)
+btCalcular.addEventListener('click',carrinho.somaTotal)
+
 
 //Fim do objeto
 
@@ -70,7 +127,7 @@ function validate(coupon) {
     } 
    else 
     { 
-    window.alert("Sorry, The Coupon Code you entered is invalid. Please check and try again!"); 
+    window.alert("Desculpe, o código do cupom que você digitou é inválido. Por favor verifique e tente novamente!"); 
     } 
    } 
 
