@@ -5,7 +5,7 @@ app.set("view engine","ejs")
 
 app.use(express.static('projeto-videos-time-2'))
 app.use("/imagens",express.static("imagens"))
-
+app.use("/js",express.static("js"))
 
 app.get("/",(req, res) => {
     
