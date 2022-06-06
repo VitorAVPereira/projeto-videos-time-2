@@ -16,7 +16,7 @@
   <header class="text-center">
     <div class=row>
       <div class="col-sm-4 text-left">
-        <a target="" href="index.html">
+        <a target="" href="index">
           <img src="../imagens/primeirasessão.png" width="250"></a>
       </div>
       <div class="col-sm-5">
@@ -24,13 +24,13 @@
       </div>
       <div class="col-sm-3">
         <span id="bemVindo"></span>
-        <a id="entrar" href="login.html">Entrar</a>
+        <a id="entrar" href="login">Entrar</a>
         <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
       </div>
     </div>
     <div class="row">
       <div class="container text-right mr-2">
-        <a id="cadastro" href="cadastro.html">Cadastre-se</a>
+        <a id="cadastro" href="cadastro">Cadastre-se</a>
       </div>
     </div>
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
@@ -41,16 +41,16 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href='carrinho.html'>Carrinho</a>
+            <a class="nav-link" href='carrinho'>Carrinho</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='promocao.html'>Promoções</a>
+            <a class="nav-link" href='promocao'>Promoções</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='produto.html'>Produtos</a>
+            <a class="nav-link" href='produto'>Produtos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='contato.html'>Contato</a>
+            <a class="nav-link" href='contato'>Contato</a>
           </li>
         </ul>
       </div>
@@ -149,7 +149,7 @@ function resetUser() {
 }
 sair.onclick = function () {
     localStorage.removeItem("emailUser")
-    location.href = 'index.html'
+    location.href = 'index'
 }
 localStorage.emailUser ? msgUser() : resetUser()
 

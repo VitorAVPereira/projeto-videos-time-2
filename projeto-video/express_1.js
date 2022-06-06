@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 5000
 
 //Gera as url estáticas das imagens
 app.use(express.static('node'))
@@ -13,39 +13,39 @@ app.get("/",(req,res)=>{
     res.sendFile(`${__dirname}/html/index.html`)
 })
 
-app.get("/index.html",(req,res)=>{
+app.get("/index",(req,res)=>{
    res.sendFile(`${__dirname}/html/index.html`)
 })
 
-app.get("/login.html",(req,res)=>{
+app.get("/login",(req,res)=>{
     res.sendFile(`${__dirname}/html/login.html`)
 })
 
-app.get("/cadastro.html",(req,res)=>{
+app.get("/cadastro",(req,res)=>{
    res.sendFile(`${__dirname}/html/cadastro.html`)
 })
 
-app.get("/produto.html",(req,res)=>{
+app.get("/produto",(req,res)=>{
     res.sendFile(`${__dirname}/html/produto.html`)
  })
 
- app.get("/contato.html",(req,res)=>{
+ app.get("/contato",(req,res)=>{
     res.sendFile(`${__dirname}/html/contato.html`)
  })
 
- app.get("/promocao.html",(req,res)=>{
+ app.get("/promocao",(req,res)=>{
     res.sendFile(`${__dirname}/html/promocao.html`)
  })
 
- app.get("/perfilDoUsuario.html",(req,res)=>{
+ app.get("/perfilDoUsuario",(req,res)=>{
     res.sendFile(`${__dirname}/html/perfilDoUsuario.html`)
  })
 
- app.get("/singleproduto.html",(req,res)=>{
+ app.get("/singleproduto",(req,res)=>{
     res.sendFile(`${__dirname}/html/singleproduto.html`)
  })
 
- app.get("/carrinho.html",(req,res)=>{
+ app.get("/carrinho",(req,res)=>{
    res.sendFile(`${__dirname}/html/carrinho.html`)
 })
 

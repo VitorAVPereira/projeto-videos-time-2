@@ -14,7 +14,7 @@
     <header class="text-center">
       <div class=row>
         <div class="col-sm-4 text-left">
-          <a target="" href="index.html">
+          <a target="" href="index">
             <img src="../imagens/primeirasessão.png" width="250"></a>
         </div>
         <div class="col-sm-5">
@@ -22,13 +22,13 @@
         </div>
         <div class="col-sm-3">
           <span id="bemVindo"></span>
-          <a id="entrar" href="login.html">Entrar</a>
+          <a id="entrar" href="login">Entrar</a>
           <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
         </div>
       </div>
       <div class="row">
         <div class="container text-right mr-2">
-          <a id="cadastro" href="cadastro.html">Cadastre-se</a>
+          <a id="cadastro" href="cadastro">Cadastre-se</a>
         </div>
       </div>
       <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
@@ -39,16 +39,16 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href='carrinho.html'>Carrinho</a>
+            <a class="nav-link" href='carrinho'>Carrinho</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='promocao.html'>Promoções</a>
+            <a class="nav-link" href='promocao'>Promoções</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='produto.html'>Produtos</a>
+            <a class="nav-link" href='produto'>Produtos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href='contato.html'>Contato</a>
+            <a class="nav-link" href='contato'>Contato</a>
           </li>
         </ul>
       </div>
@@ -101,47 +101,47 @@
     <div class="row">
       <div class="col-sm-4">
         <h2 id="titulo">Deadpool 2</h2>
-        <a href="singleproduto.html">
+        <a href="singleproduto">
         <img src="../imagens/deadpool.jpg" class="w-100" id="filme"/></a>
       </div>
       <div class="col-sm-4">
         <h2 id="titulo1">Homem de Ferro</h2>
-        <a href="singleproduto.html">
+        <a href="singleproduto">
         <img src="../imagens/homem.jpg" class="w-100" id="filme1"/></a>
       </div>
       <div class="col-sm-4">
        <h2 id="titulo2">Homem-Formiga e a Vespa</h2>
-        <a href="singleproduto.html">
+        <a href="singleproduto">
         <img src="../imagens/homemf.jpg" class="w-100" id="filme2"/></a>
       </div>
       <div class="col-sm-4">
         <h2 id="titulo3">Capitão América: O Primeiro Vingador</h2>
-        <a href="singleproduto.html">
+        <a href="singleproduto">
         <img src="../imagens/capitao.jpeg" class="w-100" id="filme3"/></a>
       </div>
       <div class="col-sm-4">
         <h2 id="titulo4">X-MEN Dias de Um Futuro Esquecido</h2>
-        <a href="singleproduto.html">
+        <a href="singleproduto">
         <img src="../imagens/xmen.jpg" class="w-100" id="filme4"/></a>
       </div>
       <div class="col-sm-4">
         <h2 id="titulo4">Homem de Ferro 3</h2>
-        <a href="singleproduto.html">
+        <a href="singleproduto">
         <img src="../imagens/ironman.jpg" class="w-100" id="filme5"/></a>
       </div>
       <div class="col-sm-4">
        <h2 id="titulo5">Capitã Marvel</h2>
-       <a href="singleproduto.html">
+       <a href="singleproduto">
         <img src="../imagens/captain.jpeg" class="w-100" id="filme6"/></a>
       </div>
       <div class="col-sm-4">
        <h2 id="titulo6">Homem-Formiga</h2>
-       <a href="singleproduto.html">
+       <a href="singleproduto">
         <img src="../imagens/formiga.jpeg" class="w-100" id="filme7"/></a>
       </div>
       <div class="col-sm-4">
        <h2 id="titulo7">Doutor estranho</h2>
-       <a href="singleproduto.html">
+       <a href="singleproduto">
         <img src="../imagens/estranho.jpg" class="w-100" id="filme8"/></a>
       </div>
     </div>
@@ -200,7 +200,7 @@ function resetUser() {
 }
 sair.onclick = function () {
     localStorage.removeItem("emailUser")
-    location.href = 'index.html'
+    location.href = 'index'
 }
 localStorage.emailUser ? msgUser() : resetUser()
   
