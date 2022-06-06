@@ -1,0 +1,27 @@
+{
+  "name": "projeto-videos-time-2",
+  "version": "1.0.0",
+  "description": "projeto de streaming t2",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon express_ejs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorAmaralPereira/projeto-videos-time-2.git"
+  },
+  "author": "time-2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitorAmaralPereira/projeto-videos-time-2/issues"
+  },
+  "homepage": "https://github.com/VitorAmaralPereira/projeto-videos-time-2#readme"
+}
