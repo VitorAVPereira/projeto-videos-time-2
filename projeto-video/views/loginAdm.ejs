@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login Adm | Primeira Sessão</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/estilo.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<body class="text-primary">
+  <header class="text-left mb-3">
+    <img class="text-left" src="../imagens/ps.png" width="250" />
+  </header>
+  <h1 class="text-center">Página do Administrador</h1>
+  <br />
+
+
+  <!--Setor de Navegação Login-->
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <a class="navbar-brand" href="#">Acesse</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    </div>
+  </nav>
+  <br />
+
+  <!--SetordeNavegaçãoLogin-->
+
+  <section class="container">
+    <form id="formLogin" method="post" action="indexAdm" class="w-50 mx-auto p-3 mt-5 mb-5"
+      style="border:1px solid #ccc;border-radius: 12px;">
+      <fieldset>
+        <legend class="text-center">Login</legend>
+        <br />
+        <div class="form-group">
+          <label>Email :</label>
+          <input class=form-control name="email" id="email" maxlength="50" required>
+        </div>
+        <div class="form-group">
+          <label>Senha :</label>
+          <input type="password" class=form-control name="senha" id="senha" maxlength="50" required>
+        </div>
+        <br />
+        <div class="text-center">
+          <select name="nivel" class="btn btn-primary">
+            <option value="1">ADM</option>
+            <option value="2">ADM MASTER</option>
+          </select>
+        </div>
+        <br />
+        <div class="text-center">
+          <button type="button" id="btLogin" class="btn btn-primary">Entrar</button>
+        </div>
+      </fieldset>
+    </form>
+  </section>
+
+  <footer class="bg-primary p-4 text-white text-center mt-5">
+    <p> &copy;2022 - Todos os direitos reservados. </p>
+  </footer>
+  <script src="../jsAdm/loginAdm.js"></script>
+
+</body>
+
+
+</html>
