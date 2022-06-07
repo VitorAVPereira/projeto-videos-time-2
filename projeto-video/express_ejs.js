@@ -10,6 +10,7 @@ app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
 
 const consulta = await db.selectFilmes()
+const consulta1 = await db.selectFilmes1()
 console.log(consulta[0])
 
 app.get("/",(req, res) => {
@@ -60,8 +61,8 @@ app.get("/perfilDoUsuario",(req, res) => {
 
 app.get("/produto",(req, res) => {
     
-   res.render(`produto`)
-   
+   res.render(`produto`,{
+   filmes: consulta1})
 })
 
 app.get("/promocao",(req, res) => {
