@@ -1,11 +1,16 @@
-const express = require('express')
-const app = express()
-const port = 8000
+(async () => {
+   const express = require('express')
+   const app = express()
+   const db = require("./db.js")
+   const port = 8000
 app.set("view engine","ejs")
 
 app.use(express.static('projeto-videos-time-2'))
 app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
+
+const consulta = await db.selectFilmes1()
+console.log(consulta[0])
 
 app.get("/",(req, res) => {
     
@@ -15,7 +20,7 @@ app.get("/",(req, res) => {
 
 app.get("/index",(req, res) => {
     
-   res.render(`index`)
+   res.render(`index`,{titulo:"Alugue seu filme favorito!"})
    
 })
  
@@ -74,4 +79,5 @@ app.get("/singleproduto",(req, res) => {
 })
 
 app.listen(port,()=> console.log ("Servidor rodando com nodemon no servidor 8000"))
+})()
 
