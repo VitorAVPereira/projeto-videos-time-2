@@ -14,13 +14,17 @@ console.log(consulta[0])
 
 app.get("/",(req, res) => {
     
-    res.render(`index`,{titulo:"Alugue seu filme favorito!"})
+    res.render(`index`,{
+       titulo:"Alugue seu filme favorito!",
+       filmes:consulta})
     
 })
 
 app.get("/index",(req, res) => {
     
-   res.render(`index`,{titulo:"Alugue seu filme favorito!"})
+   res.render(`index`,{
+      titulo:"Alugue seu filme favorito!",
+      filmes:consulta})
    
 })
  
