@@ -13,42 +13,65 @@ app.get("/",(req, res) => {
     
 })
 
-app.get("/index",(req,res)=>{
-    res.sendFile(`${__dirname}/html/index.html`)
- })
+app.get("/index",(req, res) => {
+    
+   res.render(`index`)
+   
+})
  
- app.get("/login",(req,res)=>{
-     res.sendFile(`${__dirname}/html/login.html`)
- })
+app.get("/cadastro",(req, res) => {
+    
+   res.render(`cadastro`)
+   
+})
  
- app.get("/cadastro",(req,res)=>{
-    res.sendFile(`${__dirname}/html/cadastro.html`)
- })
- 
- app.get("/produto",(req,res)=>{
-     res.sendFile(`${__dirname}/html/produto.html`)
-  })
- 
-  app.get("/contato",(req,res)=>{
-     res.sendFile(`${__dirname}/html/contato.html`)
-  })
- 
-  app.get("/promocao",(req,res)=>{
-     res.sendFile(`${__dirname}/html/promocao.html`)
-  })
- 
-  app.get("/perfilDoUsuario",(req,res)=>{
-     res.sendFile(`${__dirname}/html/perfilDoUsuario.html`)
-  })
- 
-  app.get("/singleproduto",(req,res)=>{
-     res.sendFile(`${__dirname}/html/singleproduto.html`)
-  })
- 
-  app.get("/carrinho",(req,res)=>{
-    res.sendFile(`${__dirname}/html/carrinho.html`)
- })
- 
+app.get("/carrinho",(req, res) => {
+    
+   res.render(`carrinho`)
+   
+})
 
-app.listen(port,()=> console.log ("Servidor rodando com nodemon "))
+app.get("/contato",(req, res) => {
+    
+   res.render(`contato`)
+   
+})
+
+app.get("/login",(req, res) => {
+    
+   res.render(`login`)
+   
+})
+
+app.get("/perfilDoUsuario",(req, res) => {
+    
+   res.render(`perfilDoUsuario`)
+   
+})
+
+app.get("/produto",(req, res) => {
+    
+   res.render(`produto`)
+   
+})
+
+app.get("/promocao",(req, res) => {
+    
+   res.render(`promocao`)
+   
+})
+
+app.get("/singleprefer",(req, res) => {
+    
+   res.render(`singleprefer`)
+   
+})
+
+app.get("/singleproduto",(req, res) => {
+    
+   res.render(`singleproduto`)
+   
+})
+
+app.listen(port,()=> console.log ("Servidor rodando com nodemon no servidor 8000"))
 
