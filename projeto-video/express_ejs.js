@@ -9,7 +9,7 @@ app.use(express.static('projeto-videos-time-2'))
 app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
 
-const consulta = await db.selectFilmes1()
+const consulta = await db.selectFilmes()
 console.log(consulta[0])
 
 app.get("/",(req, res) => {

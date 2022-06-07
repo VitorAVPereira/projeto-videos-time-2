@@ -22,23 +22,21 @@ async function selectFilmes(){
 
 // selectFilmes()
 
-// async function selectFilmes1(){
-//     const conectado = await conecta()
-//     const [rows] = await conectado.query("SELECT titulo,sinopse FROM filmes")
-//     // console.log(rows)
-//     return rows
-// }
+async function selectFilmes1(){
+    const conectado1 = await conecta()
+    const [rows] = await conectado1.query("SELECT titulo,sinopse FROM filmes")
+    // console.log(rows)
+    return rows
+}
 
 // selectFilmes1()
 
-// async function selectFilmes2(){
-//     const conectado = await conecta()
-//     const [rows] = await conectado.query("SELECT titulo,genero,ano,classificacao,sinopse FROM filmes")
-//     // console.log(rows)
-//     return rows
-// }
+async function selectFilmes2(){
+    const conectado = await conecta()
+    const [rows] = await conectado.query("SELECT titulo,genero,ano,classificacao,sinopse FROM filmes")
+    // console.log(rows)
+    return rows
+}
 
 // selectFilmes2()
-module.exports = {selectFilmes}
-// module.exports = {selectFilmes1}
-// module.exports = {selectFilmes2}
+module.exports = {selectFilmes,selectFilmes1,selectFilmes2}
