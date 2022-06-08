@@ -11,6 +11,7 @@ app.use("/js",express.static("js"))
 
 const consulta = await db.selectFilmes()
 const consulta1 = await db.selectFilmes1()
+const consulta2 = await db.selectFilmes2()
 console.log(consulta[0])
 
 app.get("/",(req, res) => {
@@ -67,7 +68,9 @@ app.get("/produto",(req, res) => {
 
 app.get("/promocao",(req, res) => {
     
-   res.render(`promocao`)
+   res.render(`promocao`),{
+      promo:consulta2
+   }
    
 })
 
@@ -79,7 +82,10 @@ app.get("/singleprefer",(req, res) => {
 
 app.get("/singleproduto",(req, res) => {
     
-   res.render(`singleproduto`)
+   res.render(`singleproduto`,{
+      produto:consulta2
+   })
+
    
 })
 

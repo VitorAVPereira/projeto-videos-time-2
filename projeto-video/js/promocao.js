@@ -42,30 +42,30 @@ var filmes = [
     ["X-MEN: APOCALIPSE", "apo.jpeg", "O primeiro mutante destruidor do mundo, Apocalipse, está de volta disposto a acabar com a humanidade. Professor Xavier conta com Mística, Fera e Mercúrio, além de novos alunos, para impedir o vilão.", "Ano: 2016", "Categoria: Ação, '''''''''''-Aventura", "Classificação Indicativa: 12 anos"]
 ]
 
-var galeria = document.querySelector("#conteudo")
+// var galeria = document.querySelector("#conteudo")
 
 
-for (var i = 0; i < filmes.length; i++) {
-    var descricao = (filmes[i][2]).substring(0, 90)
+// for (var i = 0; i < filmes.length; i++) {
+//     var descricao = (filmes[i][2]).substring(0, 90)
 
-    var div = document.createElement('div');
+//     var div = document.createElement('div');
 
-    div.className = 'col-sm-4'
+//     div.className = 'col-sm-4'
 
-    var conteudo = document.createElement('div')
-    conteudo.className = 'row'
+//     var conteudo = document.createElement('div')
+//     conteudo.className = 'row'
 
-    conteudo.innerHTML += '<h3 class="col-sm-12 mt-4"> ' + filmes[i][0] + '</h3>'
+//     conteudo.innerHTML += '<h3 class="col-sm-12 mt-4"> ' + filmes[i][0] + '</h3>'
 
-    conteudo.innerHTML += '<div class="col-sm-5 mt-4"><a href="singleproduto" class="col-"><img src="../imagens/' + filmes[i][1] + '" class="w-100"/></a></div>'
+//     conteudo.innerHTML += '<div class="col-sm-5 mt-4"><a href="singleproduto" class="col-"><img src="../imagens/' + filmes[i][1] + '" class="w-100"/></a></div>'
 
 
-    conteudo.innerHTML += '<div class="col-sm-7 mt-4"> <p>' + filmes[i][4] + "</br>" + filmes[i][3] + "</br>" + "</br>" + filmes[i][5] + "<br />" + "</br>" + descricao + '<a> LER MAIS...</a>' + '</p></div>'
+//     conteudo.innerHTML += '<div class="col-sm-7 mt-4"> <p>' + filmes[i][4] + "</br>" + filmes[i][3] + "</br>" + "</br>" + filmes[i][5] + "<br />" + "</br>" + descricao + '<a> LER MAIS...</a>' + '</p></div>'
 
-    div.appendChild(conteudo)
+//     div.appendChild(conteudo)
 
-    galeria.appendChild(div)
-}
+//     galeria.appendChild(div)
+// }
 let user = localStorage.emailUser
     let bemVindo = document.querySelector("#bemVindo")
     let entrar = document.querySelector("#entrar")

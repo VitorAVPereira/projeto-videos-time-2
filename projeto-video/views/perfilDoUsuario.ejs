@@ -6,15 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     
-    <title>Perfil de Usuário</title>
+    <title>Seu Perfil</title>
 </head>
-    <body style="background-color:#000" class="bgblack text-primary">
+    <body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="bgblack text-primary">
+
+      <style>
+        .img {
+          
+          border-radius: 4px;
+          padding: 5px;
+          width: 200px;
+          height: 495px;
+         
+        } 
+        .body {
+          font-weight: bold;
+        }
+        .p {
+          font-size: 50px;
+        }
+        .pMenor {
+          font-size: 20px;
+        }
+        .alignR{
+          text-align: right;
+          cursor:pointer;text-decoration:underline
+        }
+      </style>
+
         <header class="text-center" ><div class="row"><div class="col-sm-2">  <a href="index" class="col-">  <img class="text-left" src="../imagens/primeirasessão.png" width="250"/> </a>  </div>  <div class="col-sm-10 col-tm-5">    
-          <h2>Perfil do usuário</h2></div></div>
+          <h2 class="p text-center">Seu Perfil</h2></div></div>
         </header>
         <div class="alert alert-primary text-center">
-          <strong><div class="spinner-grow text-primary"></div>FELIZ ANNIVERSARIO  <div class="spinner-grow text-primary"></div><div id="nomeA"></div></strong> <a href="carrinho"> Não perde tempo para comemorar hoje</a> 
-          <button type="button" class="btn btn-primary" onclick="displayCode()">Só copia e cola sua supresa</button>
+          <strong><div class="spinner-grow text-primary"></div>FELIZ ANIVERSÁRIO  <div class="spinner-grow text-primary"></div><div id="nomeA"></div></strong> <br /> <a href="carrinho"> NÃO PERCA TEMPO E COMEMORE JÁ</a> <hr />
+          <button type="button" class="btn btn-primary" onclick="displayCode()">copie e cola sua supresa</button>
 
           <p id="demo"></p>
         </div>
@@ -55,15 +80,25 @@
             <!--Lista nao ordenada-->
       
         <article class="container text-primary text-center"><div id="conteudo">
-            <h3></h3>
-            <p id="nomeUsu"></p>
-            <p id="emailUsu"></p>
-            <p id="telUsu"></p>
-            <p id="idadeUsu"></p>
-            <p id="preferenciaUsu"></p>
-            <p id="dataUso"></p>
-            <p id="tipoUsu"></p>
-            <p id="valorUsu"></p>
+            <h3 class="p body"></h3>
+            <br />
+
+            <p class="body pMenor" id="nomeUsu"></p>
+            <br />
+            <p class="body pMenor" id="emailUsu"></p>
+            <br />
+            <p class="body pMenor" id="telUsu"></p>
+            <br />
+            <p class="body pMenor" id="idadeUsu"></p>
+            <br />
+            <p class="body pMenor" id="preferenciaUsu"></p>
+            <br />
+            <p class="body pMenor" id="dataUso"></p>
+            <br />
+            <p class="body pMenor" id="tipoUsu"></p>
+            <br />
+            <p class="body pMenor" id="valorUsu"></p>
+            <br />
             </div>
         </article>
         </section>

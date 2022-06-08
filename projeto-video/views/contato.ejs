@@ -8,14 +8,38 @@
     
     <title>Contato</title>
 </head>
-<body style="background-color:#000" class="bgblack text-primary">
-
+<body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="text-primary">
+  <style>
+    .img {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 200px;
+      height: 495px;
+     
+    } 
+    .body {
+      font-weight: bold;
+    }
+    .p {
+      font-size: 50px;
+    }
+    .alignR{
+      text-align: right;
+      cursor:pointer;text-decoration:underline
+    }
+  </style>
 <header class="text-left">
+  <div class="row">
+    <div class="col-sm-6 text-left">
   <a href="index"> <img src="../imagens/primeirasessão.png" width="250" /></a>
+    </div>
+
   <section class="container">
-    <h1 class="text-center p-4">Entre em contato conosco! Conheça nossos canais!</h1>
-
-
+    <div clas="col-sm-6">
+    <h1 class="text-center p-4 p">Entre em contato conosco! <br />Conheça nossos canais!</h1>
+    </div>
+  </div>
 </header>
     <!--NAVEGAÇÃO-->
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
@@ -52,7 +76,7 @@
   <form id="formContato" method="post" action="" class="w-50 mx-auto p-4 mt-5 mb-5"
     style="border:1px solid #ccc; border-radius: 12px;">
     <fieldset>
-      <legend class="text-center">
+      <legend class="text-center body">
         Preencha o formulário
       </legend>
       <br />

@@ -8,11 +8,31 @@
     
     <title>Login</title>
 </head>
-    <body style="background-color:#000" class="bgblack text-primary">
+    <body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="text-primary">
+      <style>
+        .img {
+          
+          border-radius: 4px;
+          padding: 5px;
+          width: 200px;
+          height: 495px;
+         
+        } 
+        .body {
+          font-weight: bold;
+        }
+        .p {
+          font-size: 50px;
+        }
+        .alignR{
+          text-align: right;
+          cursor:pointer;text-decoration:underline
+        }
+      </style>
         <header class="text-left mb-3">
             <a target="" href="./index">
             <img class="text-left" src="../imagens/primeirasessão.png" width="250"/></a>
-            <h2 class="text-center">Bem-vindo à Primeira Sessão! </h2>
+            <h2 class="text-center p">Bem-vindo à Primeira Sessão! </h2>
         </header>
         <br />
             <!--NAVEGAÇÃO-->
@@ -51,7 +71,7 @@
               <form id="formLogin" method="post" action="index" class="w-50 mx-auto p-3 mt-5 mb-5" 
                 style="border:1px solid #ccc;border-radius: 12px;">
                     <fieldset>
-                        <legend class="text-center">Faça seu login</legend>
+                        <legend class="text-center body">Faça seu login</legend>
                         <br />
                         <div class="form-group">
                             <label>Email :</label>

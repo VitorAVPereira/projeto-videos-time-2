@@ -10,8 +10,35 @@
   <title>Produtos</title>
 </head>
 
-<body style="background-color:#000" class="bgblack text-primary">
-
+<body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="text-primary">
+  <style>
+    .img {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 200px;
+      height: 495px;
+     
+    } 
+    .imgMenor {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 190px;
+      height: 275px;
+     
+    } 
+    .body {
+      font-weight: bold;
+    }
+    .p {
+      font-size: 50px;
+    }
+    .alignR{
+      text-align: right;
+      cursor:pointer;text-decoration:underline
+    }
+  </style>
   <header class="text-center">
     <div class=row>
       <div class="col-sm-4 text-left">
@@ -91,35 +118,35 @@
         <div class="row">
 
           <div class="col-sm-6">
-            <h3> <%=filmes[1].titulo%> </h3>
+            <h3 class="body"> <%=filmes[1].titulo%> </h3>
             <div class="row">
-              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme1.jpeg" class="w-100"></a>
+              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme1.jpeg" class="imgMenor"></a>
               </div>
               <p class="col-sm-8"> <%=filmes[1].sinopse%> </p>
             </div>
           </div>
  
           <div class="col-sm-6">
-            <h3><%=filmes[10].titulo%></h3>
+            <h3 class="body"><%=filmes[10].titulo%></h3>
             <div class="row">
-              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme.jpeg" class="w-100"></a></div>
+              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme.jpeg" class="imgMenor"></a></div>
               <p class="col-sm-8 "> <%=filmes[10].sinopse%> </p>
             </div>
           </div>
 
           <div class="col-sm-6 mt-6">
-            <h3><%=filmes[2].titulo%></h3>
+            <h3 class="body"><%=filmes[2].titulo%></h3>
             <div class="row">
-              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme3.jpeg" class="w-100"></a>
+              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme3.jpeg" class="imgMenor"></a>
               </div>
               <p class="col-sm-8"> <%=filmes[2].sinopse%> </p>
             </div>
           </div>
 
           <div class="col-sm-6 mt-6">
-            <h3><%=filmes[3].titulo%></h3>
+            <h3 class="body"><%=filmes[3].titulo%></h3>
             <div class="row">
-              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme4.jpeg" class="w-100"></a>
+              <div class="col-sm-4"><a href="singleproduto"> <img src="imagens/filme4.jpeg" class="imgMenor"></a>
               </div>
               <p class="col-sm-8"> <%=filmes[3].sinopse%> </p>
             </div>
