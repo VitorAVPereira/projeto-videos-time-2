@@ -1,108 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    
-    <title>Promoções</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+  <title>Promoções</title>
 </head>
-<body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="text-primary">
-  
+
+<body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))"
+  class="text-primary">
+
   <style>
     .img {
-      
+
       border-radius: 4px;
       padding: 5px;
       width: 200px;
       height: 495px;
-     
-    } 
+
+    }
+
     .imgMenor {
-      
+
       border-radius: 4px;
       padding: 5px;
       width: 190px;
       height: 275px;
-     
-    } 
+
+    }
+
     .body {
       font-weight: bold;
     }
+
     .p {
       font-size: 50px;
     }
-    .alignR{
+
+    .alignR {
       text-align: right;
-      cursor:pointer;text-decoration:underline
+      cursor: pointer;
+      text-decoration: underline
     }
   </style>
 
   <header class="">
-        
-          <div class="row">
-            <div class="col-sm-4 text-left">
-              <a target="" href="index">
-              <img src="../imagens/primeirasessão.png" width="250">
-              </a>
-            </div>
-            <div class="col-sm-4 mt-5">
-              <h2 class="p">Promoções</h2>
-            </div>
-            <div class="col-sm-4 alignR">
-              <span id="bemVindo"></span>
-              <a id="entrar" class="alignR text-right" href="login">Entrar</a>
-              <a class="alignR" id="sair">Sair</a>
-            </div>
-          </div>
-        </header>
-      
-        
-          <div class="alignR">
-            <a id="cadastro" href="cadastro">Cadastre-se</a>
-          </div>
-        
-        </div>
-</header>
 
-      <!--NAVEGAÇÃO-->
-      <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-        <a class="navbar-brand" href="#">Acesse</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href='cadastro'>Cadastro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href='login'>Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href='perfilDoUsuario'>Perfil do Usuário</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href='produto'>Produtos</a>
-            </li>                                  
-          
-              <li class="nav-item">
-                <a class="nav-link" href='carrinho'>Carrinho</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href='contato'>Contato</a>
-              </li>  
-          </ul>
-        </div>  
-      </nav>
-  <article class="">
-    <div id="conteudo" class="row">
-      
-      <p></p>
-      <p></p>
+    <div class="row">
+      <div class="col-sm-4 text-left">
+        <a target="" href="index">
+          <img src="../imagens/primeirasessão.png" width="250">
+        </a>
+      </div>
+      <div class="col-sm-4 mt-5">
+        <h2 class="p">Promoções</h2>
+      </div>
+      <div class="col-sm-4 alignR">
+        <span id="bemVindo"></span>
+        <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+        <a class="alignR" id="sair">Sair</a>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="alignR">
+    <a id="cadastro" href="cadastro">Cadastre-se</a>
+  </div>
+
+  </div>
+  </header>
+
+  <!--NAVEGAÇÃO-->
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <a class="navbar-brand" href="#">Acesse</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href='cadastro'>Cadastro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='login'>Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='perfilDoUsuario'>Perfil do Usuário</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='produto'>Produtos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href='carrinho'>Carrinho</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='contato'>Contato</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <article class="container mt-5">
+
+    <div class="row">
+      <% promo.forEach((item)=> { %>
+        <div class="col-md-4">
+
+          <div class="row">
+            <img class="col-sm-6 imgMenor" src="../imagens/<%=item.imagens%>">
+            <div class="col-sm-6">
+              <h4>
+                <%=item.titulo%>
+              </h4>
+              <p>Gênero: <%=item.genero%>
+              </p>
+              <p>Ano: <%=item.ano%>
+              </p>
+              <p>Indicação: <%=item.classificacao%>
+              </p>
+              <p>
+                <%=item.sinopse%>
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+        <% }) %>
     </div>
   </article>
+
   <footer class="bg-primary p-4 text-white text-center mt-4">
     <p> &copy;2022 - Todos os direitos reservados. </p>
   </footer>
