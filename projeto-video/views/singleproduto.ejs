@@ -10,7 +10,7 @@
   <title>Produto Single</title>
 </head>
 
-<body style="background-color:#000" class="bgblack text-primary">
+<body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="text-primary">
 
   <!-- Setor cabeçalho -->
   <header class="text-center">
@@ -59,15 +59,39 @@
       <hr />
     </div>
     <div class="container" class="col-sm-8">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer egestas elit a porttitor eleifend. Maecenas
-        varius elementum mattis. Ut imperdiet hendrerit libero non imperdiet. Mauris sodales eros ipsum, condimentum
-        rhoncus nunc consequat quis. Ut orci massa, ultricies eu urna in, pretium accumsan dui. Curabitur ac dignissim
-        dolor, ut bibendum odio. Donec ornare dapibus ipsum, in scelerisque odio sollicitudin in.
-
-      </p>
+     
+      <h2 class="p mr-5"><%=galeria[0].titulo%></h2>
+      
     </div>
   </header>
+
+  <style>
+    .img {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 350px;
+      height: 495px;
+     
+    } 
+    .body {
+      font-weight: bold;
+    }
+    .p {
+      font-size: 50px;
+    }
+    .pMenor {
+      font-size: 25px;
+    }
+    .alignR{
+      text-align: right;
+      cursor:pointer;text-decoration:underline
+    }
+    .iframeCenter{
+      align-content: center;
+    }
+    
+  </style>
 
   <section class="container">
     <hr>
@@ -75,10 +99,19 @@
 
     <div id="singleProduto" class="mt-5 mb-5">
       <div class="row">
+      <div class="col-sm-12">
+        <h2 class="pMenor body">Trailer:</h2>
+        <iframe width="1000" height="550" src="<%=galeria[0].trailer%>"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+
+      </div>
+    </div>
+      <div class="row">
         <div class="col-sm-7 mt-5">
 
-          <h2><%=produto[0].titulo%></h2>
-          <p class="col-sm-10 "><%=produto[0].titulo%> - <%=produto[0].ano%> </p>
+          <p class="col-sm-10 "><p class="pMenor body"><%=galeria[0].titulo%></p> <p class="text-white"><%=galeria[0].sinopse%></p> (<%=galeria[0].ano%>)</p>
 
         </div>
 
@@ -86,17 +119,10 @@
 
 
           <div class="col-sm-6">
-            <img src="../imagens/panter.jpg" width="500" />
+            <img class="img" src="../imagens/<%=galeria[0].imagens%>" />
           </div>
 
-          <div class="col-sm-6">
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/wL4a4MafSjQ"
-              title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen></iframe>
-
-          </div>
+          
         </div>
 
 

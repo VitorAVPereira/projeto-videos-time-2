@@ -15,28 +15,16 @@ async function conecta(){
 
 async function selectFilmes(){
     const conectado = await conecta()
-    const [rows] = await conectado.query("SELECT titulo FROM filmes")
-    // console.log(rows)
+    const [rows] = await conectado.query("SELECT * FROM filmes ORDER BY filmes_id ASC")
+    //console.log(rows)
     return rows
 }
 
-// selectFilmes()
-
-async function selectFilmes1(){
-    const conectado1 = await conecta()
-    const [rows] = await conectado1.query("SELECT titulo,sinopse FROM filmes")
-    // console.log(rows)
-    return rows
-}
-
-// selectFilmes1()
-
-async function selectFilmes2(){
+async function selectSingle(id){
     const conectado = await conecta()
-    const [rows] = await conectado.query("SELECT titulo,genero,ano,classificacao,sinopse FROM filmes")
-    // console.log(rows)
+    const values = [id]
+    const [rows] = await conectado.query("SELECT * FROM filmes where filmes_id=?",values)
+    //console.log(rows)
     return rows
 }
-
-// selectFilmes2()
-module.exports = {selectFilmes,selectFilmes1,selectFilmes2}
+module.exports = {selectFilmes,selectSingle}
