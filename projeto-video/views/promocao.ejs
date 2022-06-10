@@ -27,8 +27,8 @@
 
       border-radius: 4px;
       padding: 5px;
-      width: 190px;
-      height: 275px;
+      width: 500px;
+      height: 400px;
 
     }
 
@@ -44,6 +44,10 @@
       text-align: right;
       cursor: pointer;
       text-decoration: underline
+    }
+
+    .textB {
+      color: white;
     }
   </style>
 
@@ -108,25 +112,34 @@
   <article class="container mt-5">
 
     <div class="row">
-      <% promo.forEach((item)=> { %>
+      <% galeria.forEach((item)=> { %>
         <div class="col-md-4">
 
           <div class="row">
-            <img class="col-sm-6 imgMenor" src="../imagens/<%=item.imagens%>">
-            <div class="col-sm-6">
-              <h4>
-                <%=item.titulo%>
-              </h4>
-              <p>Gênero: <%=item.genero%>
+            <h4 class="col-sm-10 mt-5 mb-5 body">
+              <%=item.titulo%>
+            </h4>
+            <a href="/single?id=<%=item.filmes_id%>">
+            <img class="col-sm-9 imgMenor " src="../imagens/<%=item.imagens%>">
+           
+            <div class="col-sm-8">
+              
+            
+              <p class="textB">
+                Gênero: <%=item.genero%>
               </p>
-              <p>Ano: <%=item.ano%>
+              <p class="textB">
+                Ano: <%=item.ano%>
               </p>
-              <p>Indicação: <%=item.classificacao%>
+              <p class="textB">
+                Indicação: <%=item.classificacao%>
               </p>
-              <p>
-                <%=item.sinopse%>
+              <p class="textB">
+                <%=item.sinopse.substring(0,90)%> ...
               </p>
+            </a>
             </div>
+           
           </div>
 
 
