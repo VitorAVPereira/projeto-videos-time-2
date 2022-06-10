@@ -5,6 +5,12 @@
    const bodyParser = require("body-parser")
    const port = 8000
    const url = require ("url")
+ 
+   const bodyParser = require ("body-parser")
+
+   app.use(bodyParser.urlencoded({extended:false}))
+   app.use(bodyParser.json())
+
 app.set("view engine","ejs")
 
 app.use(bodyParser.urlencoded({extended:false}))
@@ -82,6 +88,19 @@ app.get("/produto",(req, res) => {
    filmes:consulta})
 })
 
+app.get("/singleprefer",(req, res) => {
+    
+   res.render(`singleprefer`)
+   
+})
+
+
+app.get("/addProduto",(req, res) => {
+    
+   res.render(`addProduto`)
+   
+})  
+
 app.get("/promocao",async(req, res) => {
    const consultaPromo = await db.selectPromo()
    res.render(`promocao`,{
@@ -90,12 +109,21 @@ app.get("/promocao",async(req, res) => {
    
 })
 
-app.get("/singleprefer",(req, res) => {
-    
-   res.render(`singleprefer`)
-   
-})
 
+app.post("/addProduto", async (req, res) => {
+   const info=req.body
+   await db.insertProduto({
+      titulo:info.cad_titulo,
+      genero:info.cad_genero,
+      ano:info.cad_ano,
+      sinopse:info.cad_sinopse,
+      classificacao:info.cad_class,
+      imagens:info.cad_img,
+      trailer:info.cad_trailer
+   })
+   res.redirect("/promocao")
+
+  
 app.get("/atualiza-promo",async(req,res)=>{
          
    let infoUrl = req.url
@@ -127,8 +155,8 @@ app.get("/single",async(req, res) => {
          // init: consultaInit
  
       })
-
    })
+  
 // app.get("/singleproduto",async(req,res)=>{
 //    let infoUrl = req.url
 //    let urlProp = url.parse(infoUrl, true)
