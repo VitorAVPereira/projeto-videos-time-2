@@ -35,6 +35,20 @@ async function updatePromo(promo,id) {
     return await conectado.query("UPDATE filmes set promo=? where filmes_id=?",values)
 }
 
+async function updatePref(id) {
+    const conectado = await conecta()
+    const values = [id]
+    //console.log(rows)
+    return await conectado.query("UPDATE filmes set pref=1 where filmes_id=?",values)
+}
+
+async function selectPref() {
+    const conectado = await conecta()
+    //console.log(rows)
+    const [rows] = await conectado.query("SELECT * FROM filmes where pref=1 ORDER BY filmes_id asc")
+    return rows
+}
+
 async function selectPromo() {
     const conectado = await conecta()
     const [rows] = await conectado.query("SELECT * FROM filmes where promo=1")
@@ -51,10 +65,15 @@ async function insertCadastro(usuario) {
     return rows
 }
 
+
+
+
 module.exports = {
     selectFilmes,
     selectSingle,
     updatePromo,
     selectPromo,
-    insertCadastro
+    insertCadastro,
+    updatePref,
+    selectPref
 }
