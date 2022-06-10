@@ -6,11 +6,6 @@
    const port = 8000
    const url = require ("url")
  
-   const bodyParser = require ("body-parser")
-
-   app.use(bodyParser.urlencoded({extended:false}))
-   app.use(bodyParser.json())
-
 app.set("view engine","ejs")
 
 app.use(bodyParser.urlencoded({extended:false}))
@@ -122,7 +117,7 @@ app.post("/addProduto", async (req, res) => {
       trailer:info.cad_trailer
    })
    res.redirect("/promocao")
-
+})
   
 app.get("/atualiza-promo",async(req,res)=>{
          
