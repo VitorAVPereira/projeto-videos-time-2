@@ -2,8 +2,8 @@ async function conecta(){
     const mysql = require("mysql2/promise")
     const conn = await mysql.createConnection({
         host: "localhost",
-        user: "Ni28",
-        password: "Nikolle6414#@!",
+        user: "root",
+        password: "Roque123$#@!",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
@@ -27,4 +27,16 @@ async function selectSingle(id){
     //console.log(rows)
     return rows
 }
-module.exports = {selectFilmes,selectSingle}
+
+async function insertProduto(filmes) {
+    const conectado = await conecta()
+    const values = [filmes.titulo, filmes.genero, filmes.ano, filmes.sinopse, filmes.classificacao, filmes.imagens, filmes.trailer]
+    const [rows] =
+        await conectado.query("INSERT INTO filmes (titulo,genero,ano,sinopse,classificacao,imagens,trailer)VALUES (?,?,?,?,?,?,?)", values)
+    console.log('Insert ok ')
+    return rows
+}
+
+//insertProduto({titulo:"teste",genero:"teste",ano:"2001",sinopse:"teste",classificacao:"teste",imagens:"teste",trailer:"teste"})
+
+module.exports = {selectFilmes,selectSingle,insertProduto}
