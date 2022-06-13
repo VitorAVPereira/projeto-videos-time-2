@@ -14,25 +14,28 @@ app.use(express.static('projeto-videos-time-2'))
 app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
 app.use("/adm", express.static("adm"))
+
 const consulta = await db.selectFilmes()
+const updatePref = await db.updatePref()
+const selectPref = await db.selectPref()
+
 console.log(consulta[0])
 
 
+
 app.get("/",(req, res) => {
-    
     res.render(`index`,{
        titulo:"Alugue seu filme favorito!",
        filmes:consulta,
-       galeria:consulta})
+       pref:selectPref})
     
 })
 
 app.get("/index",(req, res) => {
-    
    res.render(`index`,{
       titulo:"Alugue seu filme favorito!",
       filmes:consulta,
-      galeria:consulta})
+      pref:selectPref})
 })
  
 app.post("/cadastro",async (req,res)=>{
@@ -143,11 +146,10 @@ app.get("/single",async(req, res) => {
    let urlProp = url.parse(infoUrl, true)
    let q = urlProp.query
    const consultaSingle = await db.selectSingle(q.id)
-   // const consultaInit = await db.selectSingle(7)
+   await db.updatePref(q.id)
    res.render(`singleproduto`, {
          filmes: consulta,
          galeria: consultaSingle,
-         // init: consultaInit
  
       })
    })
@@ -164,6 +166,7 @@ app.get("/single",async(req, res) => {
 //        init: consultaInit
 //    })
 // })
+
 
 app.listen(port,()=> console.log ("Servidor rodando com nodemon no servidor 8000"))
 })()
