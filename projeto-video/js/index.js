@@ -20,7 +20,7 @@ function resetUser() {
 }
 sair.onclick = function () {
     localStorage.removeItem("emailUser")
-    location.href = 'index'
+    location.href = 'index.html'
 }
 localStorage.emailUser ? msgUser() : resetUser()
 
@@ -37,15 +37,15 @@ localStorage.emailUser ? msgUser() : resetUser()
 
 let imgArray = []
 let conteudo = [
-    ["imagens/deadpool.jpg", "Deadpool 2"],
-    ["imagens/homem.jpg", "Homem de Ferro"],
-    ["imagens/homemf.jpg", "Homem-Formiga e a Vespa"],
-    ["imagens/capitao.jpeg", "Capitão América - O Primeiro Vingador"],
-    ["imagens/xmen.jpg", "X-Men Dias de um Futuro Esquecido"],
-    ["imagens/ironman.jpg", "Homem de Ferro 3"],
-    ["imagens/captain.jpeg", "Capitã Marvel"],
-    ["imagens/formiga.jpeg", "Homem-Formiga"],
-    ["imagens/estranho.jpg", "Doutor Estranho"]
+    ["../imagens/deadpool.jpg", "Deadpool 2"],
+    ["../imagens/homem.jpg", "Homem de Ferro"],
+    ["../imagens/homemf.jpg", "Homem-Formiga e a Vespa"],
+    ["../imagens/capitao.jpeg", "Capitão América - O Primeiro Vingador"],
+    ["../imagens/xmen.jpg", "X-Men Dias de um Futuro Esquecido"],
+    ["../imagens/ironman.jpg", "Homem de Ferro 3"],
+    ["../imagens/captain.jpeg", "Capitã Marvel"],
+    ["../imagens/formiga.jpeg", "Homem-Formiga"],
+    ["../imagens/estranho.jpg", "Doutor Estranho"]
 ]
 
 n = 0
