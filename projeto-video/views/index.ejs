@@ -1,50 +1,37 @@
- <!--HEADER-->
- <%- include('header.ejs') %>
- <style>
-  .img {
-    
-    border-radius: 4px;
-    padding: 5px;
-    width: 200px;
-    height: 495px;
-   
-  } 
-  .body {
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-  }
-  
- 
-  .p {
-    font-size: 50px;
-    font-family: 'Roboto', sans-serif;
-  }
-  .alignR{
-    text-align: right;
-    cursor:pointer;text-decoration:underline
-  }
- </style>
+<!--
+Projeto Videos Online
+Parte do curso Javascript Programmer
+Time 02- Index
+-->
+<!-- ============= HEADER ================ -->
+<%- include('header.ejs')%>
+<!-- ========= FIM HEADER ============= -->
+<!-- ======= MENU DO PROJETO ======== -->
   <header class="text-center">
     <div class="row">
       <div class="col-sm-4 text-left">
         <img src="../imagens/primeirasessão.png" width="250">
       </div>
       <div class="col-sm-4 mt-5">
-        <h2 style="font: size 100%;font-family: 'Righteous', cursive;"><%=titulo%></h2>
+        <h2 style="font: size 100%;"><%=titulo%></h2>
       </div>
       <div class="col-sm-4 alignR">
         <span id="bemVindo"></span>
-
+        <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+        <a class="alignR" id="sair">Sair</a>
       </div>
     </div>
-  </header>  
+  </header>
+
+  
     <div class="alignR">
       <a id="cadastro" href="cadastro">Cadastre-se</a>
-    </div> 
+    </div>
+  
   </div>
-  <!--NAV-->
-  <%- include('nav.ejs') %>
-    
+  <%- include('nav.ejs')%>
+<!-- =============== FIM DO MENU =============== -->
+<!-- =============== Conteúdo ================== -->
   <div class="row">
     <hr />
   </div>
@@ -55,7 +42,26 @@
   </div>
   <div class="container">
  
-        
+        <style>
+          .img {
+            
+            border-radius: 4px;
+            padding: 5px;
+            width: 200px;
+            height: 495px;
+           
+          } 
+          .body {
+            font-weight: bold;
+          }
+          .p {
+            font-size: 50px;
+          }
+          .alignR{
+            text-align: right;
+            cursor:pointer;text-decoration:underline
+          }
+        </style>
         <div class="row">
           <% filmes.forEach((item)=> { %>
             <div class="col-md-4">
@@ -73,8 +79,6 @@
             <% }) %>
         </div>
       </div>
-
-  <!-- Setor de rodapé -->
   <hr />
   <section>
     <div class="container mx-auto">
@@ -92,8 +96,10 @@
       </div>
     </div>
   </section>
-  <%- include('footer.ejs') %>
-  
+<!-- =============== Fim do Conteúdo ================== -->
+<!-- =============== FOOTER ================== -->
+<%- include('footer.ejs')%>
+<!-- =============== Fim FOOTER ================== -->
 </body>
 <script src="../js/index.js"></script>
 
