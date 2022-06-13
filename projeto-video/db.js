@@ -2,8 +2,8 @@ async function conecta(){
     const mysql = require("mysql2/promise")
     const conn = await mysql.createConnection({
         host: "localhost",
-        user: "v19",
-        password: "Sendokai123$",
+        user: "root",
+        password: "Roque123$#@!",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
@@ -27,6 +27,14 @@ async function selectSingle(id){
     //console.log(rows)
     return rows
 }
+
+
+async function insertProduto(filmes) {
+    const conectado = await conecta()
+    const values = [filmes.titulo, filmes.genero, filmes.ano, filmes.sinopse, filmes.classificacao, filmes.imagens, filmes.trailer]
+    const [rows] =
+        await conectado.query("INSERT INTO filmes (titulo,genero,ano,sinopse,classificacao,imagens,trailer)VALUES (?,?,?,?,?,?,?)", values)
+    }
 
 async function updatePromo(promo,id) {
     const conectado = await conecta()
@@ -60,7 +68,7 @@ async function insertCadastro(usuario) {
     const conectado = await conecta()
     const values = [usuario.nome, usuario.email, usuario.telefone, usuario.senha,usuario.conf_senha]
     const [rows] =
-        await conectado.query("INSERT INTO usuario (nome,email,telefone,senha,conf_senha)VALUES (?,?,?,?,?)", values)
+    await conectado.query("INSERT INTO usuario (nome,email,telefone,senha,conf_senha)VALUES (?,?,?,?,?)", values)
     console.log('Insert ok ')
     return rows
 }
@@ -75,5 +83,7 @@ module.exports = {
     selectPromo,
     insertCadastro,
     updatePref,
-    selectPref
+    selectPref,
+    insertProduto
 }
+

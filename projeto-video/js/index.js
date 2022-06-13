@@ -16,7 +16,8 @@ function resetUser() {
 }
 sair.onclick = function () {
     localStorage.removeItem("emailUser")
-    location.href = '../adm/indexAdm.html'
+
+    location.href = 'index'
 }
 
 localStorage.emailUser ? msgUser() : resetUser()

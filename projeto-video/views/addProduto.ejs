@@ -1,0 +1,42 @@
+<%- include("header.ejs") %>
+    <%- include("nav.ejs") %>
+
+        <form action="" method="POST">
+            <div class="form-group">
+                <label for="cad_nome">Nome</label>
+                <input type="text" class="form-control col-lg-9" id="cad_titulo" placeholder="Insira o titulo aqui"
+                    name="cad_titulo">
+            </div>
+            <div class="form-group">
+                <label for="cad_sobrenome">Genero</label>
+                <input type="text" class="form-control col-lg-9" id="cad_genero" placeholder="Insira o genero aqui"
+                    name="cad_genero">
+            </div>
+            <div class="form-group">
+                <label for="cad_email">Ano</label>
+                <input type="text" class="form-control col-lg-9" id="cad_ano" name="cad_ano"
+                    placeholder="Insira o ano aqui">
+            </div>
+            <div class="form-group">
+                <label for="cad_sinopse">Sinopse</label>
+                <textarea name="cad_sinopse" class="form-control col-lg-9"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="cad_email">Classificação</label>
+                <input type="text" class="form-control col-lg-9" id="cad_class" name="cad_class"
+                    placeholder="Insira Classificação aqui">
+            </div>
+            <div class="form-group">
+                <label for="cad_email">Imagem</label>
+                <input type="text" class="form-control col-lg-9" id="cad_img" name="cad_img"
+                    placeholder="Insira a Imagem aqui">
+            </div>
+            <div class="form-group">
+                <label for="cad_email">Trailer</label>
+                <input type="text" class="form-control col-lg-9" id="cad_trailer" name="cad_trailer"
+                    placeholder="Insira o trailer aqui">
+            </div>
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </form>
+
+        <%- include("footer.ejs") %>
