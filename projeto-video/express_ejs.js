@@ -87,7 +87,7 @@ app.post("/contato",async(req,res)=>{
    assunto:info.assuntoContato,
    comentarios:info.comentarios
 })
-   res.redirect("/sucessocontato")
+   res.redirect("/index")
 })
 
 
