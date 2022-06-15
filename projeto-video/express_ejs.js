@@ -40,6 +40,12 @@ app.get("/index",async(req, res) => {
       pref:selectPref})
 })
  
+app.get("/cadastro",async(req, res) => {
+    
+   res.render(`cadastro`)
+   
+})
+
 app.post("/cadastro",async (req,res)=>{
    const info = req.body
    await db.insertCadastro({
@@ -47,16 +53,12 @@ app.post("/cadastro",async (req,res)=>{
        email:info.emailContato,
        telefone:info.telefoneContato,
        senha:info.senha,
-       conf_senha:info.senhaC
+       conf_senha:info.conf_senha
    })      
    res.redirect('/index')
 })
 
-app.get("/cadastro",(req, res) => {
-    
-   res.render(`cadastro`)
-   
-})
+
  
 app.get("/carrinho",(req, res) => {
     
@@ -74,6 +76,14 @@ app.get("/login",(req, res) => {
     
    res.render(`login`)
    
+})
+
+app.post("/login", async (req, res) => {
+   let info = req.body
+   let consultaUsers = await db.selectUsers(info.email, info.senha)
+   consultaUsers == "" ? res.send("Usuário não encontrado!") : res.redirect("/")
+   const s = req.session
+   consultaUsers != "" ? s.nome=info.nome : null
 })
 
 app.get("/perfilDoUsuario",(req, res) => {
@@ -155,6 +165,8 @@ app.get("/single",async(req, res) => {
  
       })
    })
+
+   
   
 // app.get("/singleproduto",async(req,res)=>{
 //    let infoUrl = req.url
