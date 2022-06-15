@@ -66,11 +66,30 @@ app.get("/carrinho",(req, res) => {
    
 })
 
-app.get("/contato",(req, res) => {
-    
-   res.render(`contato`)
-   
+app.get("/contato",async(req,res)=>{
+   let infoUrl = req.url
+   let urlProp = url.parse(infoUrl,true)
+   let q = urlProp.query
+  const consultaContato = await db.selectSingle(q.id)
+  const consultaInit = await db.selectSingle(4)
+  res.render(`contato`,{
+      filmes:consulta,
+      galeria: consultaInit
+  })
 })
+
+app.post("/contato",async(req,res)=>{
+   const info=req.body
+   await db.insertContato({
+   nome:info.nomeContato,
+   email:info.emailContato,
+   telefone:info.telefoneContato,
+   assunto:info.assuntoContato,
+   comentarios:info.comentarios
+})
+   res.redirect("/index")
+})
+
 
 app.get("/login",(req, res) => {
     
