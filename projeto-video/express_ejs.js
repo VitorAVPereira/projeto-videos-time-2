@@ -17,13 +17,14 @@ app.use("/adm", express.static("adm"))
 
 const consulta = await db.selectFilmes()
 const updatePref = await db.updatePref()
-const selectPref = await db.selectPref()
+// const selectPref = await db.selectPref()
 
 console.log(consulta[0])
 
 
 
-app.get("/",(req, res) => {
+app.get("/",async(req, res) => {
+   const selectPref = await db.selectPref()
     res.render(`index`,{
        titulo:"Alugue seu filme favorito!",
        filmes:consulta,
@@ -31,7 +32,8 @@ app.get("/",(req, res) => {
     
 })
 
-app.get("/index",(req, res) => {
+app.get("/index",async(req, res) => {
+   const selectPref = await db.selectPref()
    res.render(`index`,{
       titulo:"Alugue seu filme favorito!",
       filmes:consulta,
