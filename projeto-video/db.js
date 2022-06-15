@@ -69,7 +69,13 @@ async function insertCadastro(usuario) {
     const values = [usuario.nome, usuario.email, usuario.telefone, usuario.senha,usuario.conf_senha]
     const [rows] =
     await conectado.query("INSERT INTO usuario (nome,email,telefone,senha,conf_senha)VALUES (?,?,?,?,?)", values)
-    console.log('Insert ok ')
+    return rows
+}
+
+async function selectUsers(email,senha) {
+    const conectado = await conecta()
+    const values = [email,senha]
+    const [rows] = await conectado.query("SELECT * FROM usuario Where email=? AND senha=?", values)
     return rows
 }
 
@@ -81,6 +87,7 @@ module.exports = {
     selectSingle,
     updatePromo,
     selectPromo,
+    selectUsers,
     insertCadastro,
     updatePref,
     selectPref,
