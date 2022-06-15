@@ -48,5 +48,10 @@ app.get("/produto",(req,res)=>{
  app.get("/carrinho",(req,res)=>{
    res.sendFile(`${__dirname}/html/carrinho.html`)
 })
+app.get("/sucessocontato",(req,res)=>{
+   res.sendFile(`${__dirname}/html/sucessocontato.html`)
+})
+
+
 
 app.listen(port,() => console.log(`Servidor rodando na porta ${port} - ${__dirname}`))

@@ -3,7 +3,7 @@
    const app = express()
    const db = require("./db.js")
    const bodyParser = require("body-parser")
-   const port = 8000
+   const port = 8040
    const url = require ("url")
  
 app.set("view engine","ejs")
@@ -17,13 +17,14 @@ app.use("/adm", express.static("adm"))
 
 const consulta = await db.selectFilmes()
 const updatePref = await db.updatePref()
-const selectPref = await db.selectPref()
+// const selectPref = await db.selectPref()
 
 console.log(consulta[0])
 
 
 
-app.get("/",(req, res) => {
+app.get("/",async(req, res) => {
+   const selectPref = await db.selectPref()
     res.render(`index`,{
        titulo:"Alugue seu filme favorito!",
        filmes:consulta,
@@ -31,13 +32,20 @@ app.get("/",(req, res) => {
     
 })
 
-app.get("/index",(req, res) => {
+app.get("/index",async(req, res) => {
+   const selectPref = await db.selectPref()
    res.render(`index`,{
       titulo:"Alugue seu filme favorito!",
       filmes:consulta,
       pref:selectPref})
 })
  
+app.get("/cadastro",async(req, res) => {
+    
+   res.render(`cadastro`)
+   
+})
+
 app.post("/cadastro",async (req,res)=>{
    const info = req.body
    await db.insertCadastro({
@@ -45,16 +53,12 @@ app.post("/cadastro",async (req,res)=>{
        email:info.emailContato,
        telefone:info.telefoneContato,
        senha:info.senha,
-       conf_senha:info.senhaC
+       conf_senha:info.conf_senha
    })      
    res.redirect('/index')
 })
 
-app.get("/cadastro",(req, res) => {
-    
-   res.render(`cadastro`)
-   
-})
+
  
 app.get("/carrinho",(req, res) => {
     
@@ -62,16 +66,43 @@ app.get("/carrinho",(req, res) => {
    
 })
 
-app.get("/contato",(req, res) => {
-    
-   res.render(`contato`)
-   
+app.get("/contato",async(req,res)=>{
+   let infoUrl = req.url
+   let urlProp = url.parse(infoUrl,true)
+   let q = urlProp.query
+  const consultaContato = await db.selectSingle(q.id)
+  const consultaInit = await db.selectSingle(4)
+  res.render(`contato`,{
+      filmes:consulta,
+      galeria: consultaInit
+  })
 })
+
+app.post("/contato",async(req,res)=>{
+   const info=req.body
+   await db.insertContato({
+   nome:info.nomeContato,
+   email:info.emailContato,
+   telefone:info.telefoneContato,
+   assunto:info.assuntoContato,
+   comentarios:info.comentarios
+})
+   res.redirect("/sucessocontato")
+})
+
 
 app.get("/login",(req, res) => {
     
    res.render(`login`)
    
+})
+
+app.post("/login", async (req, res) => {
+   let info = req.body
+   let consultaUsers = await db.selectUsers(info.email, info.senha)
+   consultaUsers == "" ? res.send("Usuário não encontrado!") : res.redirect("/")
+   const s = req.session
+   consultaUsers != "" ? s.nome=info.nome : null
 })
 
 app.get("/perfilDoUsuario",(req, res) => {
@@ -153,6 +184,8 @@ app.get("/single",async(req, res) => {
  
       })
    })
+
+   
   
 // app.get("/singleproduto",async(req,res)=>{
 //    let infoUrl = req.url

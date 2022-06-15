@@ -27,23 +27,11 @@ Time 02- Cadastro
           cursor:pointer;text-decoration:underline
         }
       </style>
-                <header>
-            <div class="text-left">
-            <a target="" href="index">
-            <img class="text-left" src="../imagens/primeirasessão.png" width="250"/></a>
-            </div>
-        </header>
-        <section>
-            <div class="container text-center ">
-            <h1 class="p" id="testep" name="testep">Bem-vindo à Primeira Sessão! </h1>
-            <h2>Cadastre-se aqui para ter acesso a esta incrível <br />
-                plataforma de streaming!</h2>
-                <br />
-            </div>
+           <%- include('topo.ejs')%>
             <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
-            <form  method="get" id="formCadastro" action="index"class="w-50 mx-auto p-3 mt-5 mb-5" style="border: 1px solid #ccc; border-radius: 12px;">
+    <form  method="POST" id="formCadastro" action="" class="w-50 mx-auto p-3 mt-5 mb-5" style="border: 1px solid #ccc; border-radius: 12px;">
                 <fieldset>
                     <div>
                     <legend class="text-center">
@@ -70,11 +58,11 @@ Time 02- Cadastro
                     <div class="form-group">             
                         
                         <label>Confirmar senha: </label>
-                       <input class="form-control" name="senhaC" id="senhaC" type="password" maxlength="12">
+                       <input class="form-control" name="conf_senha" id="conf_senha" type="password" maxlength="12">
                     </div>
                     <div>                        
                         <div class="text-center">
-                        <button id="btContato" type="button"  class="btn btn-primary">Confirmar</button>
+                        <button id="btContato" type="submit"  class="btn btn-primary">Confirmar</button>
                         </div>
                     </div>
                 </fieldset>

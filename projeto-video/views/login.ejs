@@ -27,18 +27,14 @@ Time 02- Login
           cursor:pointer;text-decoration:underline
         }
       </style>
-        <header class="text-left mb-3">
-            <a target="" href="./index">
-            <img class="text-left" src="../imagens/primeirasessão.png" width="250"/></a>
-            <h2 class="text-center p">Bem-vindo à Primeira Sessão! </h2>
-        </header>
+       <%- include('topo.ejs')%>
         <br />
             
         <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
             <section class="container">
-              <form id="formLogin" method="post" action="index" class="w-50 mx-auto p-3 mt-5 mb-5" 
+              <form id="formLogin" method="post" action="" class="w-50 mx-auto p-3 mt-5 mb-5" 
                 style="border:1px solid #ccc;border-radius: 12px;">
                     <fieldset>
                         <legend class="text-center body">Faça seu login</legend>
@@ -52,7 +48,7 @@ Time 02- Login
                             <input type="password" class= form-control name="senha" id="senha" maxlength="50" required>
                         </div>
                         <div class ="text-center">
-                            <button type="button" id="btLogin" class="btn btn-primary">Entrar</button>
+                            <button type="submit" id="btLogin" class="btn btn-primary">Entrar</button>
                         </div>
                 </fieldset>
               </form>
