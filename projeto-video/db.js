@@ -100,6 +100,6 @@ module.exports = {
     updatePref,
     selectPref,
     insertProduto,
-    insertContato
+    insertContato,
 }
 
