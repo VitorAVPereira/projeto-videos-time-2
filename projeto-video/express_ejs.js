@@ -60,12 +60,31 @@ app.post("/cadastro",async (req,res)=>{
 
 
  
-app.get("/carrinho",(req, res) => {
-    
-   res.render(`carrinho`)
+app.get("/carrinho",async(req, res) => {
+   const consultaCarrinho = await db.selectCarrinho()
+      res.render(`carrinho`,{
+      carrinho:consultaCarrinho
+   })
+   })
+   app.post("/carrinho",async(req,res)=>{
+      const info = req.body
+      await db.insertCarrinho({
+         titulo:info.titulo,
+         qtd: info.qtd,
+         ano: info.ano,
+         valor:info.valor
    
-})
+      })
+      res.send(req.body)
+   })  
+   app.post("/delete-carrinho",async(req,res)=>{
+      const info = req.body
+      await db.deleteCarrinho(info.id)
+      res.send(info)
+   })
 
+   
+   
 app.get("/contato",async(req,res)=>{
    let infoUrl = req.url
    let urlProp = url.parse(infoUrl,true)
