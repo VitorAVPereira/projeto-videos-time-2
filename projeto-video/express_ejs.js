@@ -3,7 +3,7 @@
    const app = express()
    const db = require("./db.js")
    const bodyParser = require("body-parser")
-   const port = 8060
+   const port = 8000
    const url = require ("url")
  
 app.set("view engine","ejs")
@@ -42,9 +42,7 @@ app.get("/index",async(req, res) => {
  
 app.get("/cadastro",async(req, res) => {
     
-   res.render(`cadastro`,{
-   titulo:"Alugue seu filme favorito!",
-   })
+   res.render(`cadastro`)
    
 })
 
@@ -62,13 +60,31 @@ app.post("/cadastro",async (req,res)=>{
 
 
  
-app.get("/carrinho",(req, res) => {
-    
-   res.render(`carrinho`,{
-   titulo:"Alugue seu filme favorito!",
+app.get("/carrinho",async(req, res) => {
+   const consultaCarrinho = await db.selectCarrinho()
+      res.render(`carrinho`,{
+      carrinho:consultaCarrinho
    })
-})
+   })
+   app.post("/carrinho",async(req,res)=>{
+      const info = req.body
+      await db.insertCarrinho({
+         titulo:info.titulo,
+         qtd: info.qtd,
+         ano: info.ano,
+         valor:info.valor
+   
+      })
+      res.send(req.body)
+   })  
+   app.post("/delete-carrinho",async(req,res)=>{
+      const info = req.body
+      await db.deleteCarrinho(info.id)
+      res.send(info)
+   })
 
+   
+   
 app.get("/contato",async(req,res)=>{
    let infoUrl = req.url
    let urlProp = url.parse(infoUrl,true)
@@ -76,7 +92,6 @@ app.get("/contato",async(req,res)=>{
   const consultaContato = await db.selectSingle(q.id)
   const consultaInit = await db.selectSingle(4)
   res.render(`contato`,{
-   titulo:"Alugue seu filme favorito!",
       filmes:consulta,
       galeria: consultaInit
   })
@@ -97,9 +112,7 @@ app.post("/contato",async(req,res)=>{
 
 app.get("/login",(req, res) => {
     
-   res.render(`login`,{
-      titulo:"Alugue seu filme favorito!",
-   })
+   res.render(`login`)
    
 })
 
@@ -113,22 +126,19 @@ app.post("/login", async (req, res) => {
 
 app.get("/perfilDoUsuario",(req, res) => {
     
-   res.render(`perfilDoUsuario`,{
-      titulo:"Alugue seu filme favorito!",
-   })
+   res.render(`perfilDoUsuario`)
    
 })
 
 app.get("/produto",(req, res) => {
     
    res.render(`produto`,{
-   titulo:"Alugue seu filme favorito!",
    filmes:consulta})
 })
 
 app.get("/singleprefer",(req, res) => {
-    res.render(`singleprefer`,{
-      titulo:"Alugue seu filme favorito!",})
+    
+   res.render(`singleprefer`)
    
 })
 
@@ -142,7 +152,6 @@ app.get("/addProduto",(req, res) => {
 app.get("/promocao",async(req, res) => {
    const consultaPromo = await db.selectPromo()
    res.render(`promocao`,{
-      titulo:"Alugue seu filme favorito!",
          filmes:consulta,
          galeria:consultaPromo})
    
@@ -189,8 +198,6 @@ app.get("/single",async(req, res) => {
    const consultaSingle = await db.selectSingle(q.id)
    await db.updatePref(q.id)
    res.render(`singleproduto`, {
-      
-         titulo:"Alugue seu filme favorito!",
          filmes: consulta,
          galeria: consultaSingle,
  

@@ -87,6 +87,25 @@ async function insertContato(contato){
     return rows
 }
 
+async function insertCarrinho(filmes) {
+    const conectado = await conecta()
+    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor]
+    const [rows] =
+        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor)VALUES (?,?,?,?)", values)
+}
+async function selectCarrinho() {
+    const conectado = await conecta()
+    const [rows] = await conectado.query("SELECT * FROM carrinho ORDER BY carrinho_id DESC")
+    return rows
+}
+
+async function deleteCarrinho(id) {
+    const conectado = await conecta();
+    const values = [id]
+    return await conectado.query("DELETE FROM carrinho Where carrinho_id=?", values)
+}
+
+
 
 
 
@@ -101,5 +120,8 @@ module.exports = {
     selectPref,
     insertProduto,
     insertContato,
+    insertCarrinho,
+    selectCarrinho,
+    deleteCarrinho
 }
 
