@@ -8,28 +8,61 @@
   <title>Primeira Sessão - Home</title>
 </head>
 
-<body style="background-color:#000" class="bgblack text-primary">
+<body  style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="bgblack text-primary">
 
   <header class="text-center">
-    <div class=row>
+    <div class="row">
       <div class="col-sm-4 text-left">
         <img src="../imagens/primeirasessão.png" width="250">
       </div>
-      <div class="col-sm-5">
-        <h2 style="font: size 100%;">Onde você acessa antes de Todos!</h2>
+      <div class="col-sm-4 mt-5">
+        <h2 class="p">Assita seus filmes favoritos!</h2>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4 alignR">
         <span id="bemVindo"></span>
-        <a id="entrar" href="login.html">Entrar</a>
-        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
+        <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+        <a class="alignR" id="sair" href="index">Sair</a>
       </div>
     </div>
   </header>
 
-  <div class="container text-right mr-2">
-    <a id="cadastro" href="cadastro.html">Cadastre-se</a>
+  
+    <div class="alignR">
+      <a id="cadastro" href="cadastro">Cadastre-se</a>
+    </div>
+  
   </div>
-  </div>
+  </header>
+
+  <style>
+    .img {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 360px;
+      height: 495px;
+     
+    } 
+    .imgMenor {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 300px;
+      height: 400px;
+     
+    } 
+    .body {
+      font-weight: bold;
+    }
+    .p {
+      font-size: 50px;
+    }
+    .alignR{
+      text-align: right;
+      cursor:pointer;text-decoration:underline
+    }
+  </style>
+
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="#">Acesse</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -59,60 +92,66 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <h2 id="titulo">Deadpool 2</h2>
+        <h2 id="titulo body" >Deadpool 2</h2>
+        <br />
         <a href="singleproduto.html">
-          <img src="../imagens/deadpool.jpg" id="img0" class="w-100" /> </a>
+          <img src="../imagens/deadpool.jpg" id="img0" class="img " /> </a>
       </div>
 
       <div class="col-sm-4">
-        <h2 id="titulo1">Homem de Ferro</h2>
+        <h2 id="titulo1 body">Homem de Ferro</h2>
+        <br />
         <a href="singleproduto.html">
-          <img src="../imagens/homem.jpg" id="img1" class="w-100" /> </a>
+          <img src="../imagens/homem.jpg" id="img1" class="img" /> </a>
       </div>
 
       <div class="col-sm-4">
-        <h2 id="titulo2">Homem-Formiga e a Vespa</h2>
+        <h2 id="titulo2 body">Homem-Formiga e a Vespa</h2>
         <a href="singleproduto.html">
-          <img src="../imagens/homemf.jpeg" id="img2" class="w-100" /></a>
-
-      </div>
-
-      <div class="col-sm-4">
-        <h2 id="titulo3">Capitão América: O Primeiro Vingador</h2>
-        <a href="singleproduto.html">
-          <img src="../imagens/capitao.jpeg" id="img3" class="w-100" /></a>
-      </div>
-
-      <div class="col-sm-4">
-        <h2 id="titulo4">X-MEN Dias de Um Futuro Esquecido</h2>
-        <a href="singleproduto.html">
-          <img src="../imagens/xmen.jpg" id="img4" class="w-100" /> </a>
-      </div>
-
-      <div class="col-sm-4">
-        <h2 id="titulo4">Homem de Ferro 3</h2>
-        <a href="singleproduto.html">
-          <img src="../imagens/ironman.jpg" id="img5" class="w-100" /> </a>
-      </div>
-
-      <div class="col-sm-4">
-        <h2 id="titulo5">Capitã Marvel</h2>
-        <a href="singleproduto.html">
-          <img src="../imagens/captain.jpeg" id="img6" class="w-100" /> </a>
-      </div>
-
-      <div class="col-sm-4">
-        <h2 id="titulo6">Homem-Formiga</h2>
-        <a href="singleproduto.html">
-          <img src="../imagens/formiga.jpeg" id="img7" class="w-100" /> </a>
-
+          <img src="../imagens/homemf.jpeg" id="img2" class="img " /></a>
 
       </div>
 
       <div class="col-sm-4">
-        <h2 id="titulo7">Doutor estranho</h2>
+        <h2 id="titulo3 body">Capitão América: O Primeiro Vingador</h2>
         <a href="singleproduto.html">
-          <img src="../imagens/estranho.jpg" id="img8" class="w-100"> </a>
+          <img src="../imagens/capitao.jpeg" id="img3" class="img" /></a>
+      </div>
+
+      <div class="col-sm-4">
+        <h2 id="titulo4 body">X-MEN Dias de Um Futuro Esquecido</h2>
+        <a href="singleproduto.html">
+          <img src="../imagens/xmen.jpg" id="img4" class="img" /> </a>
+      </div>
+
+      <div class="col-sm-4">
+        <h2 id="titulo4 body">Homem de Ferro 3</h2>
+        <br />
+        <a href="singleproduto.html">
+          <img src="../imagens/ironman.jpg" id="img5" class="img" /> </a>
+      </div>
+
+      <div class="col-sm-4">
+        <h2 id="titulo5 body">Capitã Marvel</h2>
+        <br />
+        <a href="singleproduto.html">
+          <img src="../imagens/captain.jpeg" id="img6" class="img" /> </a>
+      </div>
+
+      <div class="col-sm-4">
+        <h2 id="titulo6 body">Homem-Formiga</h2>
+        <br />
+        <a href="singleproduto.html">
+          <img src="../imagens/formiga.jpeg" id="img7" class="img" /> </a>
+
+
+      </div>
+
+      <div class="col-sm-4">
+        <h2 id="titulo7 body">Doutor estranho</h2>
+        <br />
+        <a href="singleproduto.html">
+          <img src="../imagens/estranho.jpg" id="img8" class="img"> </a>
       </div>
 
     </div>
