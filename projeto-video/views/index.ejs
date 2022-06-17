@@ -7,9 +7,28 @@ Time 02- Index
 <%- include('header.ejs')%>
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
- 
-<%- include('topo.ejs')%>
-    
+  <header class="text-center">
+    <div class="row">
+      <div class="col-sm-4 text-left">
+        <img src="../imagens/primeirasessão.png" width="250">
+      </div>
+      <div class="col-sm-4 mt-5">
+        <h2 style="font: size 100%;"><%=titulo%></h2>
+      </div>
+      <div class="col-sm-4 alignR">
+        <span id="bemVindo"></span>
+        <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+        <a class="alignR" id="sair" href="index">Sair</a>
+      </div>
+    </div>
+  </header>
+
+  
+    <div class="alignR">
+      <a id="cadastro" href="cadastro">Cadastre-se</a>
+    </div>
+  
+  </div>
   <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
@@ -17,7 +36,7 @@ Time 02- Index
     <hr />
   </div>
   <div class="container" class="col-sm-8">
-    <p class="p" style="font-size: 35px ;font-family: 'Righteous', cursive;">
+    <p class="p">
    FILMES:
     </p>
   </div>
@@ -62,6 +81,7 @@ Time 02- Index
                 <img class="col-sm-12 img" src="../imagens/<%=item.imagens%>">
               </div>
               </a>
+              <button data-id="<%=item.filmes_id%>" data-titulo="<%=item.titulo%>" data-ano="<%=item.ano%>"  class="btn btn-primary bt-produto">Adicionar ao carrinho</button>
     
     
             </div>
@@ -93,6 +113,28 @@ Time 02- Index
       </div>
     </div>
   </section>
+  <script>
+    $().ready(function(){
+      console.log("jquery funfando...")
+      $('.bt-produto').click(function(){
+          let dataid = $(this).attr("data-id")
+          let dataTitulo = $(this).attr("data-titulo")
+          let dataAno = $(this).attr("data-ano")
+          $.post ("/carrinho",
+          {
+            filmes_id:dataid,
+            titulo: dataTitulo,
+            qtd: 1,
+            ano: dataAno,
+            valor:23
+          },
+          function (data,status)
+          {
+            location.href = "/carrinho"
+          },"json")
+      })
+    })
+  </script>
 
 <!-- =============== Fim do Conteúdo ================== -->
 <!-- =============== FOOTER ================== -->

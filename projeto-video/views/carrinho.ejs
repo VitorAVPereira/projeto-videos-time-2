@@ -36,7 +36,25 @@ Time 02- Carrinho
 </style>
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
-<%- include('topo.ejs')%>
+  <header class="text-center">
+    <div class=row>
+      <div class="col-sm-4 text-left">
+        <a target="" href="index">
+          <img src="../imagens/primeirasessão.png" width="250"></a>
+      </div>
+      <div class="col-sm-5">
+        <h2 style="font: size 100%;">Onde você acessa antes de Todos!</h2>
+      </div>
+      <div class="col-sm-3">
+        <span id="bemVindo"></span>
+        <a id="entrar" href="login">Entrar</a>
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
+      </div>
+      <div class="container text-right mr-2">
+        <a id="cadastro" href="cadastro">Cadastre-se</a>
+      </div>
+    </div>
+  </header>
 
   <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
@@ -45,138 +63,41 @@ Time 02- Carrinho
   <section>
     <div>
       <div class="row">
-        <aside class="container-sm" class="col-lg-8" class="w-50 mx-auto  mt-3 mb-3 ">
-          <h2 class="text-left ">Meu Carrinho</h2>
-          <div>
-            <div>
-              <table id="tabela" class="table-bordered table" cellspacing="0">
-                <thead class="text-primary">
-                  <tr class="text-uppercase">
-                    <th scope="col">Produto</th>
-                    <th scope="col" width="120">Telas</th>
-                    <th scope="col" width="120">Preço</th>
-                    <th scope="col" class="text-center" width="200"></th>
-                  </tr>
-                </thead>
-                <tbody id="exTabela">
-                  <tr>
-                    <td id="produto">
-
-                      <!-- <figure class="itemside align-items-center">
-<div class="aside"><img src="https://i.imgur.com/1eq5kmC.png"
-class="img-sm"></div>
-<figcaption class="info"> <a href="#" class="title text-dark"
-data-abc="true">Tshirt with round nect</a>
-<p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
-</figcaption>
-</figure> -->
-
-                    </td>
-                    <td> 
-                      <select id="telas" class="form-control">
-                        <option value="tela0_p">0</option>
-                        <option value="tela1_p">1</option>
-                        <option value="tela2_p">2</option>
-                        <option value="tela3_p">3</option>
-                        <option value="tela4_p">4</option>
-                        <option value="tela5_p">5</option>
-                      </select> 
-                    </td>
-                    <td>
-                      <div class="text-primary"> 
-                        <var id="preco">R$0,00</var>
-                      </div>
-                    </td>
-                    <td>
-                      <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary"> </input>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td id="produto1">
-                    </td>
-                    <td> 
-                      <select id="telas_1" class="form-control">
-                        <option value="tela0_p1">0</option>
-                        <option value="tela1_p1">1</option>
-                        <option value="tela2_p1">2</option>
-                        <option value="tela3_p1">3</option>
-                        <option value="tela4_p1">4</option>
-                        <option value="tela5_p1">5</option>
-                      </select>
-                    </td>
-                    <td>
-                      <div class="text-primary"> 
-                        <var id="preco1">R$0,00</var>
-                      </div>
-                    </td>
-                    <td>
-                      <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary"> </input>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td id="produto2">
-                    </td>
-                    <td> 
-                      <select id="telas_2" class="form-control">
-                        <option value="tela0_p2">0</option>
-                        <option value="tela1_p2">1</option>
-                        <option value="tela2_p2">2</option>
-                        <option value="tela3_p2">3</option>
-                        <option value="tela4_p2">4</option>
-                        <option value="tela5_p2">5</option>
-                      </select> 
-                    </td>
-                    <td>
-                      <div class="text-primary"> 
-                        <var id="preco2">R$0,00</var> 
-                      </div>
-                    </td>
-                    <td>
-                      <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary"> </input>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        <div class="col-md-12 col-sm-12 col-lg-8">
+          <div class="card col-sm-10 col-lg-10">
+               <div class="card-body">
+                 
+                  <h4 class="card-title">Meu Carrinho</h4>
+                  
+               <div class="row mb-3">
+                 
+                 
+                   <div class="col-sm-6 col-lg-4">Titulo</div>
+                   <div class="col-sm-6 col-lg-2">Qtd</div>
+                   <div class="col-sm-6 col-lg-3">Ano</div>
+                   <div class="col-sm-6 col-lg-2">Valor</div>
+               </div>
+               <%
+               total=0
+               carrinho.forEach((item)=>{
+               total += parseFloat(item.valor)
+                %>
+               <div class="row mb-3">
+                  <div class="col-sm-6 col-lg-3"><%=item.titulo%></div>
+                  <div class="col-sm-6 col-lg-3"><%=item.qtd%></div>
+                  <div class="col-sm-6 col-lg-3"> <%=item.ano%></div>
+                  <div class="col-sm-6 col-lg-3">R$<%=item.valor%></div>
+                  <button class="btn btn-warning bt-carrinho" data-id="<%=item.carrinho_id%>">Excluir</button>
+              </div>
+              <%})%>
+              </div>
           </div>
-          <div class="text-right mr-5">
-            <br />
-            <button id="btCalculoT" class="btn btn-primary">Calcular Total</button>
-            <input id="btLimpar" value="Limpar carrinho" onclick="removeTable('exTabela')"
-              class="btn btn-primary"></input>
-          </div>
-        </aside>
-        <aside class="col-lg-4">
-          <div class="w-50 mx-auto p-3 mt-3 mb-3" style="border:1px solid #ccc;border-radius: 8px;">
-            <table border="1" class="container text-center">
-              <tr>
-                <h2 class="text-center">Resumo do Pedido</h2>
-                <td id="total2"></td>
-                <td id="total"></td>
-              </tr>
-            </table>
-            <p id="nomeDesconto"></p>
-            <p id="total3"></p>
-          </div>
-          <hr />
-          <div class="w-50 mx-auto p-3 mt-3 mb-3" style="border:1px solid #ccc;border-radius: 8px;">
-           
-            <h3>Insira seu cupom: </h3>
-            <input type="number" name="text1">
-            <br />
-            <div>
-              <hr />
-              <input class="btn btn-primary" type="button" value="Validar Cupom" name="Submit"
-                onclick="validate(document.getElementsByName('text1')[0].value)"></input>
-              <hr />
-            </div>
-            <button class="btn btn-primary">COMPRAR</button>
-            <hr />
-            <button onclick="window.location.href='produto'" class="btn btn-primary">Adicionar mais
-              produtos</button>
-          </div>
-        </aside>
       </div>
+
+      <div class="card col-sm-2 col-lg-2">
+        <h4>Resumo</h4>
+        <div class="text-right mt-5 font-weight-bold"> Total: R$<%=total.toFixed(2)%> </div>
+    </div>
     </div>
   </section>
   <section>
@@ -190,9 +111,28 @@ data-abc="true">Tshirt with round nect</a>
     </div>
   </section>
 <!-- =============== Fim do Conteúdo ================== -->
+
+<script>
+  $().ready(function(){
+      console.log("jquery funfando...")
+      $('.bt-carrinho').click(function(){ //função do clique
+              let dataid = $(this).attr("data-id") //variavel que recebe o dta-id dos livros
+
+            $.post('/delete-carrinho',
+            { //função para postar o livro escolhido pelo clique para o carrinho
+              id:dataid,
+            },
+            function (data,status)
+            {
+                location.href = "/carrinho" //app.get
+
+            },"json")
+          })
+  })
+</script>
+
 <!-- =============== FOOTER ================== -->
 <%- include('footer.ejs')%>
 <!-- =============== Fim FOOTER ================== -->
 </body>
-<script src="../js/carrinho.js"></script>
 </html>
