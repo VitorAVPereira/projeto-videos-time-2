@@ -1,6 +1,26 @@
 <%- include("header.ejs") %>
     <%- include("nav.ejs") %>
 
+        <header>
+            <div class="row">
+            <div class="col-sm-4">
+                <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
+            </div>
+            <br />
+            <div class="text-center col-sm-4 p-5 mb-2">
+                <h2>Área do Administrador</h2>
+            </div>
+            <div class="col-sm-3">
+                <span id="bemVindo">Adm: <%=info.user%></span>
+                <%if (info.user) { %>
+                
+                <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
+                <% } else { %>
+                <a id="entrar" href="loginAdm">Entrar</a>
+                <% } %>
+            </div>
+        </header>
+
         <form action="" method="POST">
             <div class="form-group">
                 <label for="cad_nome">Nome</label>
