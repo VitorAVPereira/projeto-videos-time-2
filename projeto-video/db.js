@@ -2,8 +2,26 @@ async function conecta(){
     const mysql = require("mysql2/promise")
     const conn = await mysql.createConnection({
         host: "localhost",
-        user: "Ni28",
-        password: "Nikolle6414#@!",
+        user: "v19",
+        password: "Sendokai123$",
+        database:"projeto_video"
+    })
+    console.log("mySQL conectado!")
+    global.connection = conn
+    return connection
+}
+
+const { builtinModules } = require("module")
+const { getMaxListeners } = require("process")
+const session = require("express-session")
+const mysqlSession = require("express-mysql-session")(session)
+
+async function conecta(){
+    const mysql = require("mysql2/promise")
+    const conn = await mysql.createConnection({
+        host: "localhost",
+        user: "v19",
+        password: "Sendokai123$",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
@@ -12,6 +30,24 @@ async function conecta(){
 }
 
 // conecta()
+
+
+async function makeSession(app,opt){
+    
+    const dia = 1000 * 60 * 60 * 24;
+    const min15 = 1000 * 60 * 60 / 4;
+    const conectado = await conecta()
+
+    const  sessionStore = new mysqlSession(opt,conectado)
+    app.use(session({
+        secret: "hrgfgrfrty84fwir767",
+        saveUninitialized:true,
+        store:sessionStore,
+        cookie: { maxAge: dia},
+        resave: false 
+    }))
+
+}
 
 async function selectFilmes(){
     const conectado = await conecta()
@@ -89,9 +125,9 @@ async function insertContato(contato){
 
 async function insertCarrinho(filmes) {
     const conectado = await conecta()
-    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor,filmes.filmes_id]
+    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor]
     const [rows] =
-        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor,filmes_id)VALUES (?,?,?,?,?)", values)
+        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor)VALUES (?,?,?,?)", values)
 }
 async function selectCarrinho() {
     const conectado = await conecta()
@@ -105,14 +141,36 @@ async function deleteCarrinho(id) {
     return await conectado.query("DELETE FROM carrinho Where carrinho_id=?", values)
 }
 
+async function updateLoginAdm(adm,email) {
+    const conectado = await conecta()
+    const values = [adm,email]
+    //console.log(rows)
+    return await conectado.query("UPDATE usuario set adm=? where usuario_id=?",values)
+}
 
+async function selectLoginAdm(email,senha) {
+    const conectado = await conecta()
+    const values = [email,senha]
+    const [rows] = await conectado.query("SELECT * FROM usuario Where email=? AND senha=? AND adm=1",values)
+    //console.log(rows)
+    return rows
+}
 
+async function insertCadastroAdm(usuario) {
+    const conectado = await conecta()
+    const values = [usuario.nome, usuario.email, usuario.senha, usuario.conf_senha]
+    const [rows] =
+    await conectado.query("INSERT INTO usuario (nome,email,senha,conf_senha,adm)VALUES (?,?,?,?,1)", values)
+    return rows
+}
 
 
 module.exports = {
     selectFilmes,
     selectSingle,
+    selectLoginAdm,
     updatePromo,
+    updateLoginAdm,
     selectPromo,
     selectUsers,
     insertCadastro,
@@ -121,7 +179,8 @@ module.exports = {
     insertProduto,
     insertContato,
     insertCarrinho,
+    insertCadastroAdm,
     selectCarrinho,
-    deleteCarrinho
+    deleteCarrinho,
+    makeSession
 }
-
