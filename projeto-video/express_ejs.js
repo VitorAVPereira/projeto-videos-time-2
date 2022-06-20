@@ -40,9 +40,10 @@ app.get("/index",async(req, res) => {
       pref:selectPref})
 })
  
-app.get("/cadastro",async(req, res) => {
-    
-   res.render(`cadastro`)
+app.get("/cadastro",async(req, res) => {   
+   res.render(`cadastro`,{
+   titulo:"Cadastre-se em nosso site!",
+   })
    
 })
 
@@ -63,6 +64,7 @@ app.post("/cadastro",async (req,res)=>{
 app.get("/carrinho",async(req, res) => {
    const consultaCarrinho = await db.selectCarrinho()
       res.render(`carrinho`,{
+      titulo:"Garanta já a sua sessão!",
       carrinho:consultaCarrinho
    })
    })
@@ -93,6 +95,7 @@ app.get("/contato",async(req,res)=>{
   const consultaContato = await db.selectSingle(q.id)
   const consultaInit = await db.selectSingle(4)
   res.render(`contato`,{
+      titulo:"A gente quer te ouvir",
       filmes:consulta,
       galeria: consultaInit
   })
@@ -113,7 +116,9 @@ app.post("/contato",async(req,res)=>{
 
 app.get("/login",(req, res) => {
     
-   res.render(`login`)
+   res.render(`login`,{
+   titulo:"Vamos começar? Entre no nosso site aqui",
+   })
    
 })
 
@@ -127,19 +132,24 @@ app.post("/login", async (req, res) => {
 
 app.get("/perfilDoUsuario",(req, res) => {
     
-   res.render(`perfilDoUsuario`)
+   res.render(`perfilDoUsuario`,{
+   titulo:"Sua sessão, suas regras!",
+   })
    
 })
 
 app.get("/produto",(req, res) => {
     
    res.render(`produto`,{
+   titulo:"Tem tudo para todas as idades",
    filmes:consulta})
 })
 
 app.get("/singleprefer",(req, res) => {
     
-   res.render(`singleprefer`)
+   res.render(`singleprefer`,{
+   titulo:"Seus preferidos estão aqui!",
+   })
    
 })
 
@@ -153,6 +163,7 @@ app.get("/addProduto",(req, res) => {
 app.get("/promocao",async(req, res) => {
    const consultaPromo = await db.selectPromo()
    res.render(`promocao`,{
+         titulo:"É promoção que você quer?!",
          filmes:consulta,
          galeria:consultaPromo})
    
@@ -199,6 +210,7 @@ app.get("/single",async(req, res) => {
    const consultaSingle = await db.selectSingle(q.id)
    await db.updatePref(q.id)
    res.render(`singleproduto`, {
+         titulo:"Tem tudo pra todas as idades!",
          filmes: consulta,
          galeria: consultaSingle,
  
