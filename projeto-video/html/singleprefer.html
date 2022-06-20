@@ -13,26 +13,31 @@
 <body style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="bgblack text-primary">
 
   <!-- Setor Cabeçalho -->
-  <header class="text-center">
-    <div class=row>
-      <div class="col-sm-4 text-left">
-        <a target="" href="index.html">
-          <img src="../imagens/primeirasessão.png" width="250"></a>
+ 
+    <header class="text-center">
+      <div class="row">
+        <div class="col-sm-4 text-left">
+          <a href="index.html">
+          <img src="../imagens/primeirasessão.png" width="250">
+        </a>
+        </div>
+        <div class="col-sm-4 mt-5">
+          <h2 class="p">Meu Perfil</h2>
+        </div>
+        <div class="col-sm-4 alignR">
+          <span id="bemVindo"></span>
+          <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+          <a class="alignR" id="sair" href="index">Sair</a>
+        </div>
       </div>
-      <div class="col-sm-5">
-        <h2 style="font: size 100%;">Onde você acessa antes de Todos!</h2>
+  
+    
+      <div class="alignR">
+        <a id="cadastro" href="cadastro">Cadastre-se</a>
       </div>
-      <div class="col-sm-3">
-        <span id="bemVindo"></span>
-        <a id="entrar" href="login.html">Entrar</a>
-        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
-      </div>
+    
     </div>
-    <div class="row">
-      <div class="container text-right mr-2">
-        <a id="cadastro" href="cadastro.html">Cadastre-se</a>
-      </div>
-    </div>
+    </header>
     <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
       <a class="navbar-brand" href="#">Acesse</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -62,7 +67,7 @@
           <div class="col-sm-12" class="content">
 
             <h2 id="tituloPrefer" class="text-left">Pantera Negra</h2>
-            <p class="text-left">Pantera Negra; 2018; Direção:Ryan Coogler. </p>
+            <p class="text-left">Pantera Negra; <br /> 2018; <br /> Direção: Ryan Coogler. </p>
 
           </div>
         </div>
@@ -98,7 +103,6 @@
         Aqui vai a sinopse alimentada pela posição do array salva em LOCALSTORAGE
       </p>
     </div>
-  </header>
 
   <style>
     .img {
