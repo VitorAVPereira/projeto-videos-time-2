@@ -81,7 +81,7 @@ Time 02- Index
                 <img class="col-sm-12 img" src="../imagens/<%=item.imagens%>">
               </div>
               </a>
-              <button data-id="<%=item.filmes_id%>" data-titulo="<%=item.titulo%>" data-ano="<%=item.ano%>"  class="btn btn-primary bt-produto">Adicionar ao carrinho</button>
+              
     
     
             </div>
@@ -113,28 +113,6 @@ Time 02- Index
       </div>
     </div>
   </section>
-  <script>
-    $().ready(function(){
-      console.log("jquery funfando...")
-      $('.bt-produto').click(function(){
-          let dataid = $(this).attr("data-id")
-          let dataTitulo = $(this).attr("data-titulo")
-          let dataAno = $(this).attr("data-ano")
-          $.post ("/carrinho",
-          {
-            filmes_id:dataid,
-            titulo: dataTitulo,
-            qtd: 1,
-            ano: dataAno,
-            valor:23
-          },
-          function (data,status)
-          {
-            location.href = "/carrinho"
-          },"json")
-      })
-    })
-  </script>
 
 <!-- =============== Fim do Conteúdo ================== -->
 <!-- =============== FOOTER ================== -->
