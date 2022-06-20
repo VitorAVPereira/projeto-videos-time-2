@@ -18,18 +18,25 @@ Time 02- Cadastro Admin
 <body class="text-primary">
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
-    <header class="text-center">
-        <div class=row>
-            <div class="col-sm-9 text-left">
-                <a href="indexAdm">
-                    <img src="../imagens/ps.png" width="250"></a>
-            </div>
-            <div class="col-sm-3">
-                <span id="bemVindo"></span>
-                <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
-            </div>
-        </div>
-    </header>
+<header>
+    <div class="row">
+      <div class="col-sm-4">
+        <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
+      </div>
+      <br />
+      <div class="text-center col-sm-4 p-5 mb-2">
+        <h2>Área do Administrador</h2>
+      </div>
+      <div class="col-sm-3">
+        <span id="bemVindo">Adm: <%=info.user%></span>
+        <%if (info.user) { %>
+        
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
+        <% } else { %>
+          <a id="entrar" href="loginAdm">Entrar</a>
+          <% } %>
+      </div>
+  </header>
     <section>
         <div class="container text-center ">
             <h1>Bem-vindo! </h1>
@@ -54,7 +61,7 @@ Time 02- Cadastro Admin
         </nav>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
-        <form method="post" id="formCadastro" action="indexAdm" class="w-50 mx-auto p-3 mt-5 mb-5"
+        <form method="post" id="formCadastro" action="" class="w-50 mx-auto p-3 mt-5 mb-5"
             style="border: 1px solid #ccc; border-radius: 12px;">
             <fieldset>
                 <div>
@@ -81,7 +88,7 @@ Time 02- Cadastro Admin
                 </div>
                 <div>
                     <div class="text-center">
-                        <button id="btContato" type="button" class="btn btn-primary">Confirmar</button>
+                        <button id="btContato" type="submit" class="btn btn-primary">Confirmar</button>
                         <select name="nível" class="btn btn-primary">
                             <option value="1">ADM</option>
                             <option value="2">ADM MASTER</option>
