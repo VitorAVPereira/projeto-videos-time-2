@@ -26,9 +26,13 @@ Time 02- Index Admin
         <h2>Área do Administrador</h2>
       </div>
       <div class="col-sm-3">
-        <span id="bemVindo"></span>
-        <a id="entrar" href="loginAdm">Entrar</a>
-        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
+        <span id="bemVindo">Adm: <%=info.user%></span>
+        <%if (info.user) { %>
+        
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
+        <% } else { %>
+          <a id="entrar" href="loginAdm">Entrar</a>
+          <% } %>
       </div>
   </header>
   <section id="1">
@@ -54,6 +58,9 @@ Time 02- Index Admin
 
         </ul>
       </div>
+  
+        
+  
     </nav>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
