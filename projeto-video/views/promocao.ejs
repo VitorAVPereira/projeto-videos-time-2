@@ -41,25 +41,31 @@ Time 02- Promocao
     }
   </style>
 
-  <header class="">
-
-    <div class="row">
-      <div class="col-sm-4 text-left">
-        <a target="" href="index">
-          <img src="../imagens/primeirasessão.png" width="250">
-        </a>
-      </div>
-      <div class="col-sm-4 mt-5">
-        <h2 class="p">Promoções</h2>
-      </div>
-      <div class="col-sm-4 alignR">
-        <span id="bemVindo"></span>
-        <a id="entrar" class="alignR text-right" href="login">Entrar</a>
-        <a class="alignR" id="sair">Sair</a>
-      </div>
+<header class="text-center">
+  <div class="row">
+    <div class="col-sm-4 text-left">
+      <img src="../imagens/primeirasessão.png" width="250">
     </div>
-  </header>
+    <div class="col-sm-4 mt-5">
+      <h2 style="font: size 100%;"><%=titulo%></h2>
+    </div>
+    <div class="col-sm-4 alignR">
+      <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
+      <% if (info.user) { %>
+        <a class="alignR" id="sair" href="index">Sair</a>
+        <% } else { %>
+      <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+          <% } %>
+    </div>
+  </div>
+</header>
 
+
+  <div class="alignR">
+    <a id="cadastro" href="cadastro">Cadastre-se</a>
+  </div>
+
+</div>
 
   <div class="alignR">
     <a id="cadastro" href="cadastro">Cadastre-se</a>
