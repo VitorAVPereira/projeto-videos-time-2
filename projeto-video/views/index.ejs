@@ -16,17 +16,27 @@ Time 02- Index
         <h2 style="font: size 100%;"><%=titulo%></h2>
       </div>
       <div class="col-sm-4 alignR">
-        <span id="bemVindo"></span>
+        <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
+        <% if (info.user) { %>
+          <a class="alignR" id="sair" href="index">Sair</a>
+          <% } else { %>
         <a id="entrar" class="alignR text-right" href="login">Entrar</a>
-        <a class="alignR" id="sair" href="index">Sair</a>
+        <% } %>
       </div>
     </div>
+   
   </header>
 
-  
+   <%if(info.user) { %>
     <div class="alignR">
-      <a id="cadastro" href="cadastro">Cadastre-se</a>
+     
     </div>
+    <% } else { %>
+      <div class="alignR">
+        <a id="cadastro" href="cadastro"></a>
+      </div>
+      <% }  %>
+    
   
   </div>
   <%- include('nav.ejs')%>
