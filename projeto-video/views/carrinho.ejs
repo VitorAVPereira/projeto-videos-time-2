@@ -58,51 +58,103 @@ Time 02- Carrinho
 
   <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
+
+
+
 <!-- =============== Conteúdo ================== -->
+
+<!--================ Carrinho ===================-->
   <br />
-  <section>
-    <div>
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-lg-8">
-          <div class="card col-sm-10 col-lg-10">
-               <div class="card-body">
-                 
-                  <h4 class="card-title">Meu Carrinho</h4>
+  <div>
+  <div class="row">
+    <div class="container-sm" class="col-md-8" class="w-50 mx-auto p- mt-3 mb-3 " >
+      <section >
+       
+          <table class="table-bordered table text-white" cellspacing="0" >
+                  <h4 class="text-left ">Meu Carrinho</h4>
+                  <thead class="text-primary">
+                  <tr class="text-uppercase">
                   
-               <div class="row mb-3">
-                 
-                 
-                   <div class="col-sm-6 col-lg-4">Titulo</div>
-                   <div class="col-sm-6 col-lg-2">Qtd</div>
-                   <div class="col-sm-6 col-lg-3">Ano</div>
-                   <div class="col-sm-6 col-lg-2">Valor</div>
-               </div>
+                  <th scope="col">Titulo</th>
+                  <th scope="col" width="120">Telas</th>
+                  <th scope="col" width="120">Ano</th>
+                  <th scope="col" width="120">Valor</th>
+                  <th scope="col" class="text-center" width="200"></th>
+              </tr>
+            </thead>
+          
                <%
                total=0
                carrinho.forEach((item)=>{
                total += parseFloat(item.valor)
                 %>
-               <div class="row mb-3">
-                  <div class="col-sm-6 col-lg-3"><%=item.titulo%></div>
-                  <div class="col-sm-6 col-lg-3"><%=item.qtd%></div>
-                  <div class="col-sm-6 col-lg-3"> <%=item.ano%></div>
-                  <div class="col-sm-6 col-lg-3">R$<%=item.valor%></div>
-                  <button class="btn btn-warning bt-carrinho" data-id="<%=item.carrinho_id%>">Excluir</button>
-              </div>
-              <%})%>
-              </div>
-          </div>
-      </div>
 
-      <div class="card col-sm-2 col-lg-2">
-        <h4>Resumo</h4>
-        <div class="text-right mt-5 font-weight-bold"> Total: R$<%=total.toFixed(2)%> </div>
-    </div>
-    </div>
+                <tr>
+                <td><%=item.titulo%> </td>
+                <td><%=item.qtd%></td>
+                  <th><%=item.ano%></th>
+                  
+                  <td  id="preco" data-valor="<%=item.valor%>"> <%=item.valor%> </td>
+                
+                  <td>
+                    <button class="btn btn-warning bt-carrinho" data-id="<%=item.carrinho_id%>">Excluir</button>
+                  </td>
+                  </tr>
+              <%})%>
+    
+    </table>
+ </div>
+
+
+<!--================ Fim do Carrinho ===================-->
+
+<!--================= Total, Cupom e Botões =================-->
+
+<div class="col-md-4 text-right mr-5">
+        <aside >
+          <div class="w-50 mx-auto p-3 mt-3 mb-3" style="border:1px solid #ccc;border-radius: 8px;">
+            <table border="1" class="container text-center">
+              <tr>
+                <h2 class="text-center">Resumo do Pedido</h2>
+                <div class="text-center mt-5 font-weight-bold" id="total"> Total: R$<%=total.toFixed(2)%> </div>
+              </tr>
+            </table>
+            <p id="nomeDesconto"></p>
+            <p id="total3"></p>
+          </div>
+          <hr />
+          <div class="w-50 mx-auto p-3 mt-3 mb-3" style="border:1px solid #ccc;border-radius: 8px;">
+
+            <!--Setor de Cupom-->
+           
+            <h3>Insira seu cupom: </h3>
+            <input type="number" name="text1">
+            <br />
+            <div>
+              <hr />
+              <input class="btn btn-primary" type="button" value="Validar Cupom" name="Submit"
+                onclick="validate(document.getElementsByName('text1')[0].value)"></input>
+              <hr />
+            </div>
+            <button class="btn btn-primary">COMPRAR</button>
+            <hr />
+            <button onclick="window.location.href='/index'" class="btn btn-primary">Adicionar mais
+              produtos</button>
+          </div>
+        </aside>
   </section>
-  <section>
+
+</div> 
+
+<!--================= Total, Cupom e Botões =================-->
+
+
+
+<!--========= Imagens Rodape ==========================-->
+
+  <section class="container">
     <div id="galeria2" class="text-center">
-      <div class="row mx-auto mt-3 mb-3 ">
+      <div class="row" class=" mx-auto mt-3 mb-3 ">
         <div class="col-sm-4"><img src="../imagens/avengers.jpg" class="imgMenor"> </div>
         <div class="col-sm-4"><img src="../imagens/viuvanegra.jpg" class="imgMenor"> </div>
         <div class="col-sm-4"><img src="../imagens/guerracivil.jpeg" class="imgMenor"> </div>
@@ -110,9 +162,19 @@ Time 02- Carrinho
     </div>
     </div>
   </section>
+
+
+<!--========= FIM  Imagens Rodape ==========================-->
+
+
+
 <!-- =============== Fim do Conteúdo ================== -->
 
 <script>
+
+
+
+//// carrinho - botão de deletar
   $().ready(function(){
       console.log("jquery funfando...")
       $('.bt-carrinho').click(function(){ //função do clique
@@ -129,6 +191,32 @@ Time 02- Carrinho
             },"json")
           })
   })
+  /////// carrinho - botão de deletar FIM
+
+////////////carrinho cupom
+let code =[123,456] ;
+function validate(coupon) { 
+   // let code =[123,456] ;
+  
+  
+ 
+   
+   if (code[0]==coupon) 
+    { 
+    window.alert("Código de cupom aceito! Clique no botão comprar!"); 
+    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.10))
+    } 
+     else if (code[1]==coupon) 
+    { 
+    window.alert("Código de cupom aceito! Clique no botão comprar"); 
+    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.20))
+    } 
+   else 
+    { 
+    window.alert("Desculpe, o código do cupom que você digitou é inválido. Por favor verifique e tente novamente!"); 
+    } 
+   } 
+
 </script>
 
 <!-- =============== FOOTER ================== -->

@@ -60,7 +60,7 @@ for (var i = 0; i < filmes.length; i++) {
     conteudo.innerHTML += '<div class="col-sm-5 mt-4"><a href="singleproduto" class="col-"><img src="../imagens/' + filmes[i][1] + '" class="w-100"/></a></div>'
 
 
-    conteudo.innerHTML += '<div class="col-sm-7 mt-4"> <p>' + filmes[i][4] + "</br>" + filmes[i][3] + "</br>" + "</br>" + filmes[i][5] + "<br />" + "</br>" + descricao + '<a> LER MAIS...</a>' + '</p></div>'
+    conteudo.innerHTML += '<div class="col-sm-7 mt-4"> <p>' + filmes[i][4] + "</br>" + filmes[i][3] + "</br>" + "</br>" + filmes[i][5] + "<br />" + "</br>" + descricao + '<a> ...</a>' + '</p></div>'
 
     div.appendChild(conteudo)
 

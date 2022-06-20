@@ -53,19 +53,19 @@ for(var i=0;i<9;i++){
     var bt = document.querySelector("#img"+i)
     bt.index=i
     bt.onclick=function(){
-       
+    //     if(n>15){ 
+    //     localStorage.removeItem('img'+imgArray[0]);
+    //     // console.log(imgArray)
+    //     imgArray.shift()
+    //     // console.log(imgArray)
+    //     n++
+    // }
+        
        
         
         pref=(this.index + "," +conteudo[this.index][0] + "," + conteudo[this.index][1]).split(',')
         imgArray.push(pref)
         localStorage.setItem('img'+this.index,pref)
-        console.log(pref)
-       
-        // if(localStorage.length>2){ 
-        //     localStorage.removeItem('img'+pref);
-        //     imgArray.shift()
-        //     console.log(pref[0])
-        // }
         leitura()
         }
     }
@@ -76,12 +76,12 @@ for(var i=0;i<9;i++){
     //Quando carrega a página
     function leitura(){
     document.querySelector("#a").innerHTML=""
-    for(var i=0;i<3;i++){
+    for(var i=0;i<10;i++){
         if (localStorage.getItem('img'+i)){
             var result = localStorage.getItem('img'+i).split(',')
             console.log(result)
             
-            document.querySelector("#a").innerHTML += `<img id="imagem0" width="260" src="${result[1]}" />`
+            document.querySelector("#a").innerHTML += `<img id="imagem0" class="imgMenor" src="${result[1]}" />`
             // document.querySelector("#a1").innerHTML+= `<img id="imagem1" width="260" src="${result[1]}" />`
             // document.querySelector("#a2").innerHTML+= `<img id="imagem2" width="260" src="${result[1]}" />`
         }

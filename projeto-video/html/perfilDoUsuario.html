@@ -13,12 +13,27 @@
 <body  style="background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgba(19, 43, 225, 0.903))" class="bgblack text-primary">
   <header class="text-center">
     <div class="row">
-      <div class="col-sm-2"> <a href="index.html" class="col-"> <img class="text-left"
-            src="../imagens/primeirasessão.png" width="250" /> </a> </div>
-      <div class="col-sm-10 col-tm-5">
-        <h2>Perfil do usuário</h2>
+      <div class="col-sm-4 text-left">
+        <a href="index.html">
+        <img src="../imagens/primeirasessão.png" width="250">
+      </a>
+      </div>
+      <div class="col-sm-4 mt-5">
+        <h2 class="p">Meu Perfil</h2>
+      </div>
+      <div class="col-sm-4 alignR">
+        <span id="bemVindo"></span>
+        <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+        <a class="alignR" id="sair" href="index">Sair</a>
       </div>
     </div>
+
+  
+    <div class="alignR">
+      <a id="cadastro" href="cadastro">Cadastre-se</a>
+    </div>
+  
+  </div>
   </header>
 
   <style>
@@ -42,7 +57,7 @@
       font-weight: bold;
     }
     .p {
-      font-size: 50px;
+      font-size: 30px;
     }
     .alignR{
       text-align: right;
@@ -51,15 +66,12 @@
   </style>
 
   
-  <div class="alert alert-primary text-center">
-    <strong>
-      <div class="spinner-grow text-primary"></div>FELIZ ANNIVERSARIO <div class="spinner-grow text-primary"></div>
-      <div id="nomeA"></div>
-    </strong> <a href="carrinho"> Não perde tempo para comemorar hoje</a>
-    <button type="button" class="btn btn-primary" onclick="displayCode()">Só copia e cola sua supresa</button>
+        <div class="alert alert-primary text-center">
+          <strong><div class="spinner-grow text-primary"></div><h1 class="p">FELIZ ANIVERSÁRIO! </h1> <div class="spinner-grow text-primary"></div><div id="nomeA"></div></strong> <br /> <a href="carrinho.html"> NÃO PERCA TEMPO E COMEMORE JÁ!</a> <hr />
+          <button type="button" class="btn btn-primary" onclick="displayCode()">copie e cola seu cupom de desconto</button>
 
-    <p id="demo"></p>
-  </div>
+          <p id="demo"></p>
+        </div>
   <!--NAVEGAÇÃO-->
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="#">Acesse</a>
@@ -99,14 +111,14 @@
     <article class="container text-primary text-center">
       <div id="conteudo">
         <h3></h3>
-        <p id="nomeUsu"></p>
-        <p id="emailUsu"></p>
-        <p id="telUsu"></p>
-        <p id="idadeUsu"></p>
-        <p id="preferenciaUsu"></p>
-        <p id="dataUso"></p>
-        <p id="tipoUsu"></p>
-        <p id="valorUsu"></p>
+        <p class="body" id="nomeUsu"></p>
+        <p class="body" id="emailUsu"></p>
+        <p class="body" id="telUsu"></p>
+        <p class="body" id="idadeUsu"></p>
+        <p class="body" id="preferenciaUsu"></p>
+        <p class="body" id="dataUso"></p>
+        <p class="body" id="tipoUsu"></p>
+        <p class="body" id="valorUsu"></p>
       </div>
     </article>
   </section>
