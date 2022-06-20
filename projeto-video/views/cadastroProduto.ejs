@@ -17,24 +17,25 @@ Time 02- Cadastro Produto
 <body class="text-primary">
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
-    <header>
-        <div class="row">
-            <div class="col-sm-4">
-                <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
-            </div>
-
-
-            <div class="container text-center ">
-
-                <h1>Bem-vindo! </h1>
-
-                <h2>Cadastre abaixo um novo produto</h2>
-                <br />
-            </div>
-        </div>
-
-        </div>
-    </header>
+<header>
+    <div class="row">
+      <div class="col-sm-4">
+        <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
+      </div>
+      <br />
+      <div class="text-center col-sm-4 p-5 mb-2">
+        <h2>Cadastre um Novo Produto</h2>
+      </div>
+      <div class="col-sm-3">
+        <span id="bemVindo">Adm: <%=info.user%></span>
+        <%if (info.user) { %>
+        
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
+        <% } else { %>
+          <a id="entrar" href="loginAdm">Entrar</a>
+          <% } %>
+      </div>
+  </header>
     <section>
         <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
             <a class="navbar-brand" href="#">Acesse</a>
