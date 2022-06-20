@@ -1,4 +1,5 @@
 (async () => {
+   const session = require ("express-session")
    const express = require('express')
    const app = express()
    const db = require("./db.js")
@@ -15,6 +16,44 @@ app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
 app.use("/adm", express.static("adm"))
 
+
+const options ={
+   expiration: 10800000,
+   createDatabaseTable: true,
+   schema: {
+       tableName: 'session_tbl',
+       columnNames: {
+           session_id: 'session_id',
+           expires: 'expires',
+           data: 'data'
+       }
+   }  
+}
+
+function checkFirst(req, res, next) {
+   if (!req.session.userInfo) {
+     res.redirect('/promocao');
+   } else {
+     next();
+   }
+ }
+
+function checkAuth(req, res, next) {
+   if (!req.session.userInfo) {
+     res.send('Você não está autorizado para acessar esta página');
+   } else {
+     next();
+   }
+ }
+
+await db.makeSession(app,options,session)
+
+
+var userInfo=''
+app.locals.info = {
+user:userInfo
+}
+
 const consulta = await db.selectFilmes()
 const updatePref = await db.updatePref()
 // const selectPref = await db.selectPref()
@@ -23,7 +62,32 @@ console.log(consulta[0])
 
 
 
-app.get("/",async(req, res) => {
+app.get("/login",(req, res) => {
+   res.render('login',{
+      titulo:"Alugue seu filme favorito!"
+   })
+})
+
+app.use('/logout', function (req, res) {
+   req.app.locals.info = {}
+   req.session.destroy()
+   res.clearCookie('connect.sid', { path: '/' });
+   res.redirect("/login") 
+
+})
+
+app.post("/login", async (req,res)=>{
+   const {email,senha} = req.body
+   const logado = await db.selectUsers(email,senha)
+   if(logado != ""){
+   req.session.userInfo = email
+   userInfo = req.session.userInfo
+   req.app.locals.info.user= userInfo
+   res.redirect('/')
+   } else {res.send("<h2>Login ou senha não conferem</h2>")}
+})
+
+app.get("/",checkFirst,async(req, res) => {
    const selectPref = await db.selectPref()
     res.render(`index`,{
        titulo:"Alugue seu filme favorito!",
@@ -60,7 +124,7 @@ app.post("/cadastro",async (req,res)=>{
 
 
  
-app.get("/carrinho",async(req, res) => {
+app.get("/carrinho",checkAuth,async(req, res) => {
    const consultaCarrinho = await db.selectCarrinho()
       res.render(`carrinho`,{
       carrinho:consultaCarrinho
@@ -72,8 +136,7 @@ app.get("/carrinho",async(req, res) => {
          titulo:info.titulo,
          qtd: info.qtd,
          ano: info.ano,
-         valor:info.valor,
-         filmes_id: info.filmes_id
+         valor:info.valor
    
       })
       res.send(req.body)
@@ -110,20 +173,6 @@ app.post("/contato",async(req,res)=>{
    res.redirect("/index")
 })
 
-
-app.get("/login",(req, res) => {
-    
-   res.render(`login`)
-   
-})
-
-app.post("/login", async (req, res) => {
-   let info = req.body
-   let consultaUsers = await db.selectUsers(info.email, info.senha)
-   consultaUsers == "" ? res.send("Usuário não encontrado!") : res.redirect("/")
-   const s = req.session
-   consultaUsers != "" ? s.nome=info.nome : null
-})
 
 app.get("/perfilDoUsuario",(req, res) => {
     
@@ -204,17 +253,88 @@ app.get("/single",async(req, res) => {
  
       })
    })
-   app.post("/singleproduto",async(req,res)=>{
-      const info = req.body
-       await db.insertCarrinho({
-         qtd: info.qtdTelas
+
+   //Adm Login 
+
+   app.get("/loginAdm",async(req, res) => {
+      const consultaPromo = await db.selectLoginAdm()
+      res.render(`loginAdm`,{
+            filmes:consulta,
+            galeria:consultaPromo})
+      
+   })
+
+   app.post("/loginAdm", async (req, res) => {
+      const {email,senha} = req.body
+      let consultaUsers = await db.selectLoginAdm(email,senha)
+      if(consultaUsers != ""){
+         req.session.userInfo = email
+         userInfo = req.session.userInfo
+         req.app.locals.info.user= userInfo
+         res.redirect('/indexAdm')
+         } else {res.send("<h2>Acesso de Adm negado</h2>")}
       })
-      res.redirect("/carrinho")
-   }) 
-   
 
 
+   app.use('/logoutAdm', function (req, res) {
+         req.app.locals.info = {}
+         req.session.destroy()
+         res.clearCookie('connect.sid', { path: '/' });
+         res.redirect("/loginAdm") 
+
+      })
+
+   app.get("/",(req, res) => {
+    
+      res.render(`indexAdm`,{titulo:"Alugue seu filme favorito!"})
+      
+  })
+  
+  app.get("/indexAdm",(req, res) => {
+      
+     res.render(`indexAdm`)
+     
+  })
    
+  app.get("/cadastroAdm",(req, res) => {
+      
+     res.render(`cadastroAdm`)
+     
+  })
+
+  app.post("/cadastroAdm", async (req, res) => {
+   const info=req.body
+   await db.insertCadastroAdm({
+     nome:info.nomeContato,
+     email:info.emailContato,
+     senha:info.senha,
+     conf_senha:info.senhaC
+   })
+   res.redirect("/indexAdm")
+})
+  
+  app.get("/cadastroProduto",(req, res) => {
+      
+     res.render(`cadastroProduto`)
+     
+  })
+
+  
+  
+  app.get("/relatorio-chamada",(req, res) => {
+      
+     res.render(`relatorio-chamada`)
+     
+  })
+  
+  app.get("/relatorio",(req, res) => {
+      
+     res.render(`relatorio`)
+     
+  })
+
+  
+  
   
 // app.get("/singleproduto",async(req,res)=>{
 //    let infoUrl = req.url
@@ -232,4 +352,3 @@ app.get("/single",async(req, res) => {
 
 app.listen(port,()=> console.log ("Servidor rodando com nodemon no servidor 8000"))
 })()
-
