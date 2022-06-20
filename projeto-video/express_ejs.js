@@ -74,7 +74,8 @@ app.get("/carrinho",async(req, res) => {
          titulo:info.titulo,
          qtd: info.qtd,
          ano: info.ano,
-         valor:info.valor
+         valor:info.valor,
+         filmes_id: info.filmes_id
    
       })
       res.send(req.body)
@@ -215,6 +216,15 @@ app.get("/single",async(req, res) => {
  
       })
    })
+   app.post("/singleproduto",async(req,res)=>{
+      const info = req.body
+       await db.insertCarrinho({
+         qtd: info.qtdTelas
+      })
+      res.redirect("/carrinho")
+   }) 
+   
+
 
    
   

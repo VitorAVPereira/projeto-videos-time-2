@@ -89,9 +89,9 @@ async function insertContato(contato){
 
 async function insertCarrinho(filmes) {
     const conectado = await conecta()
-    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor]
+    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor,filmes.filmes_id]
     const [rows] =
-        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor)VALUES (?,?,?,?)", values)
+        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor,filmes_id)VALUES (?,?,?,?,?)", values)
 }
 async function selectCarrinho() {
     const conectado = await conecta()
