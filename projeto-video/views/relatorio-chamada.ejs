@@ -98,21 +98,23 @@ Time 02- Relatorio Chamada
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <table class="table" cellspacing="0">
                 <thead>
-                  <tr>
-                    <th>Cliente</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Assunto</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr>
-                    <td><b id="nome1"></b></td>
-                    <td><p id="email1"></p></td>
-                    <td><p id="telefone1"></p></td>
-                    <td><p id="assunto1"></p></td>
-                  </tr>
-                </tbody>
+                      <%
+                 chamada.forEach((item)=>{
+                  %>
+  
+                  <tr>
+                  <td><%=item.nome%> </td>
+                  <td><%=item.email%></td>
+                  <th><%=item.telefone%></th>
+                  <th><%=item.assunto%></th>
+                    
+                
+                    </tr>
+                <%})%>
+                  </tbody>
+                </thead>
               </table>
               <div class="row">
               <p>Próximo cliente a ser atendido:</p>

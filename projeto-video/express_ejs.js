@@ -332,8 +332,13 @@ app.get("/single",async(req, res) => {
      res.render(`relatorio`)
      
   })
-
-  
+  app.get("/relatorio-chamada",async(req, res) => {
+   const consultaChamada = await db.selectRelatorioChamada()
+      res.render(`relatorio-chamada`,{
+      titulo:"Garanta já a sua sessão!",
+      chamada:consultaChamada
+   })
+   })
   
   
 // app.get("/singleproduto",async(req,res)=>{
