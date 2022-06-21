@@ -163,6 +163,14 @@ async function insertCadastroAdm(usuario) {
     await conectado.query("INSERT INTO usuario (nome,email,senha,conf_senha,adm)VALUES (?,?,?,?,1)", values)
     return rows
 }
+db.js
+
+async function selectRelatorioChamada(){
+    const conectado = await conecta()
+    const [rows] = await conectado.query("SELECT * FROM contato ORDER BY contato_id DESC")
+    //console.log(rows)
+    return rows
+}
 
 
 module.exports = {
@@ -182,5 +190,6 @@ module.exports = {
     insertCadastroAdm,
     selectCarrinho,
     deleteCarrinho,
-    makeSession
+    makeSession,
+    selectRelatorioChamada
 }
