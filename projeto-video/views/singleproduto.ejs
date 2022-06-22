@@ -27,9 +27,15 @@ Time 02- Single Produto
 </header>
 
 
+<%if(info.user) { %>
   <div class="alignR">
-    <a id="cadastro" href="cadastro">Cadastre-se</a>
+   
   </div>
+  <% } else { %>
+    <div class="alignR">
+      <a id="cadastro" href="cadastro"></a>
+    </div>
+    <% }  %>
 
 </div>
     <%- include('nav.ejs')%>

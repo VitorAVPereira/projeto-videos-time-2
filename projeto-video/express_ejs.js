@@ -16,6 +16,8 @@ app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
 app.use("/adm", express.static("adm"))
 
+app.locals.idProd=''
+
 
 const options ={
    expiration: 10800000,
@@ -192,10 +194,11 @@ app.get("/singleprefer",(req, res) => {
    
 })
 
+// ==========================ADM===============================
 
 app.get("/addProduto",(req, res) => {
     
-   res.render(`addProduto`)
+   res.render(`adm/addProduto`)
    
 })  
 
@@ -240,6 +243,36 @@ app.get("/upd-promo", (req, res) => {
    })
 })
 
+app.get("/relatorio-produto", async (req, res) => {
+   const selectFilmes = await db.selectFilmes() 
+   res.render(`adm/relatorio-produto`,{
+   titulo:"Alugue seu filme favorito!",
+   filmes: selectFilmes,
+ 
+   })
+})
+
+app.get("/atualiza_produtos",async(req, res) => {
+   const produto = await db.selectSingle(req.app.locals.idProd)  
+   res.render('adm/atualiza_produtos',{
+       galeria:consulta,
+       id:req.app.locals.idProd,
+       produtoDaVez:produto
+   })
+})
+
+app.post("/atualiza_produtos",(req, res) => { 
+   req.app.locals.idProd = req.body.id
+   res.send('Produto Exibido com Sucesso')
+})
+
+app.post("/atualiza-filme",async(req, res) => { 
+   //titulo,genero,ano,classificacao,imagens,trailer,id
+   const b = req.body
+   await db.updateProduto(b.titulo,b.genero,b.ano,b.sinopse,b.classificacao,b.imagens,b.trailer,b.id)
+   res.send('Produto Atualizado com Sucesso')
+})
+
 app.get("/single",async(req, res) => {
 
    let infoUrl = req.url
@@ -258,7 +291,7 @@ app.get("/single",async(req, res) => {
 
    app.get("/loginAdm",async(req, res) => {
       const consultaPromo = await db.selectLoginAdm()
-      res.render(`loginAdm`,{
+      res.render(`adm/loginAdm`,{
             filmes:consulta,
             galeria:consultaPromo})
       
@@ -271,7 +304,7 @@ app.get("/single",async(req, res) => {
          req.session.userInfo = email
          userInfo = req.session.userInfo
          req.app.locals.info.user= userInfo
-         res.redirect('/indexAdm')
+         res.redirect('adm/indexAdm')
          } else {res.send("<h2>Acesso de Adm negado</h2>")}
       })
 
@@ -280,25 +313,25 @@ app.get("/single",async(req, res) => {
          req.app.locals.info = {}
          req.session.destroy()
          res.clearCookie('connect.sid', { path: '/' });
-         res.redirect("/loginAdm") 
+         res.redirect("adm/loginAdm") 
 
       })
 
    app.get("/",(req, res) => {
     
-      res.render(`indexAdm`,{titulo:"Alugue seu filme favorito!"})
+      res.render(`adm/indexAdm`,{titulo:"Alugue seu filme favorito!"})
       
   })
   
   app.get("/indexAdm",(req, res) => {
       
-     res.render(`indexAdm`)
+     res.render(`adm/indexAdm`)
      
   })
    
   app.get("/cadastroAdm",(req, res) => {
       
-     res.render(`cadastroAdm`)
+     res.render(`adm/cadastroAdm`)
      
   })
 
@@ -310,12 +343,12 @@ app.get("/single",async(req, res) => {
      senha:info.senha,
      conf_senha:info.senhaC
    })
-   res.redirect("/indexAdm")
+   res.redirect("adm/indexAdm")
 })
   
   app.get("/cadastroProduto",(req, res) => {
       
-     res.render(`cadastroProduto`)
+     res.render(`adm/cadastroProduto`)
      
   })
 
@@ -325,12 +358,12 @@ app.get("/single",async(req, res) => {
   
   app.get("/relatorio",(req, res) => {
       
-     res.render(`relatorio`)
+     res.render(`adm/relatorio`)
      
   })
   app.get("/relatorio-chamada",async(req, res) => {
    const consultaChamada = await db.selectRelatorioChamada()
-      res.render(`relatorio-chamada`,{
+      res.render(`adm/relatorio-chamada`,{
       titulo:"Garanta já a sua sessão!",
       chamada:consultaChamada
    })

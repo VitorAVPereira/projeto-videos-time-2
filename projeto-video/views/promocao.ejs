@@ -61,9 +61,15 @@ Time 02- Promocao
 </header>
 
 
+<%if(info.user) { %>
   <div class="alignR">
-    <a id="cadastro" href="cadastro">Cadastre-se</a>
+   
   </div>
+  <% } else { %>
+    <div class="alignR">
+      <a id="cadastro" href="cadastro"></a>
+    </div>
+    <% }  %>
 
 </div>
 
