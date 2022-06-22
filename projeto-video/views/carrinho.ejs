@@ -109,6 +109,7 @@ Time 02- Carrinho
               <%})%>
     
     </table>
+    <button class="btn btn-warning bt-limpa" data-limpa="<%=carrinho%>" > Limpar carrinho </button>
  </div>
 
 
@@ -180,15 +181,15 @@ Time 02- Carrinho
 
 
 
-//// carrinho - botão de deletar
+//// carrinho - botão de deletar coluna
   $().ready(function(){
       console.log("jquery funfando...")
-      $('.bt-carrinho').click(function(){ //função do clique
-              let dataid = $(this).attr("data-id") //variavel que recebe o dta-id dos livros
+      $('.bt-carrinho').click(function(){
+              let datalim = $(this).attr("data-limpa") 
 
             $.post('/delete-carrinho',
-            { //função para postar o livro escolhido pelo clique para o carrinho
-              id:dataid,
+            { 
+              id:datalim,
             },
             function (data,status)
             {
@@ -198,6 +199,26 @@ Time 02- Carrinho
           })
   })
   /////// carrinho - botão de deletar FIM
+
+  ////// LIMPAR CARRINHO
+  $().ready(function(){
+      console.log("jquery funfando...")
+      $('.bt-limpa').click(function(){ 
+              let dataid = $(this).attr("data-id") 
+
+            $.post('/delete-carrinho',
+            { 
+              id:dataid,
+            },
+            function (data,status)
+            {
+                location.href = "/carrinho" //app.get
+
+            },"json")
+          })
+  })
+
+////////FIM LIMPAR CARRINHO
 
 ////////////carrinho cupom
 let code =[123,456] ;
