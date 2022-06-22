@@ -16,19 +16,6 @@ const { getMaxListeners } = require("process")
 const session = require("express-session")
 const mysqlSession = require("express-mysql-session")(session)
 
-async function conecta(){
-    const mysql = require("mysql2/promise")
-    const conn = await mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Carol0626$#@!",
-        database:"projeto_video"
-    })
-    console.log("mySQL conectado!")
-    global.connection = conn
-    return connection
-}
-
 // conecta()
 
 
