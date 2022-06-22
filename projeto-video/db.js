@@ -110,11 +110,14 @@ async function insertContato(contato){
     return rows
 }
 
+
+
+//////////////////////carrrinho
 async function insertCarrinho(filmes) {
     const conectado = await conecta()
-    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor]
+    const values = [filmes.titulo, filmes.qtd, filmes.ano, filmes.valor, filmes.filmes_id]
     const [rows] =
-        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor)VALUES (?,?,?,?)", values)
+        await conectado.query("INSERT INTO carrinho (titulo,qtd,ano,valor,filmes_id)VALUES (?,?,?,?,?)", values)
 }
 async function selectCarrinho() {
     const conectado = await conecta()
@@ -127,6 +130,15 @@ async function deleteCarrinho(id) {
     const values = [id]
     return await conectado.query("DELETE FROM carrinho Where carrinho_id=?", values)
 }
+
+async function deleteallCarrinho() {
+    const conectado = await conecta();
+    return await conectado.query("TRUNCATE TABLE carrinho")
+}
+
+////////////
+
+
 
 async function updateLoginAdm(adm,email) {
     const conectado = await conecta()
@@ -183,5 +195,6 @@ module.exports = {
     selectCarrinho,
     deleteCarrinho,
     makeSession,
-    selectRelatorioChamada
+    selectRelatorioChamada,
+    deleteallCarrinho
 }

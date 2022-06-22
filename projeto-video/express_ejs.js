@@ -138,7 +138,8 @@ app.get("/carrinho",checkAuth,async(req, res) => {
          titulo:info.titulo,
          qtd: info.qtd,
          ano: info.ano,
-         valor:info.valor
+         valor:info.valor,
+         filmes_id:info.filmes_id
    
       })
       res.send(req.body)
@@ -146,6 +147,7 @@ app.get("/carrinho",checkAuth,async(req, res) => {
    app.post("/delete-carrinho",async(req,res)=>{
       const info = req.body
       await db.deleteCarrinho(info.id)
+      await db.deleteallCarrinho()
       res.send(info)
    })
 
