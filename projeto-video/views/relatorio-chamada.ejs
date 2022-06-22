@@ -30,25 +30,22 @@ Time 02- Relatorio Chamada
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
 
-<header>
-  <div class="row">
-    <div class="col-sm-4">
-      <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
-    </div>
-    <br />
-    <div class="text-center col-sm-4 p-5 mb-2">
-      <h2>Área do Administrador</h2>
-    </div>
-    <div class="col-sm-3">
-      <span id="bemVindo">Adm: <%=info.user%></span>
-      <%if (info.user) { %>
-      
-      <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
-      <% } else { %>
+  <header class="text-center">
+    <div class=row>
+      <div class="col-sm-4 text-left">
+        <a target="" href="../html/index">
+          <img src="../imagens/ps.png" width="250"></a>
+      </div>
+      <div class="col-sm-5">
+        <h2 style="font: size 100%;">Onde você acessa antes de Todos!</h2>
+      </div>
+      <div class="col-sm-3">
+        <span id="bemVindo"></span>
         <a id="entrar" href="loginAdm">Entrar</a>
-        <% } %>
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
+      </div>
     </div>
-</header>
+  </header>
   <section>
 
   </section>
@@ -98,23 +95,29 @@ Time 02- Relatorio Chamada
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <table class="table" cellspacing="0">
                 <thead>
-                <tbody>
                   <tr>
-                      <%
-                 chamada.forEach((item)=>{
-                  %>
-  
-                  <tr>
-                  <td><%=item.nome%> </td>
-                  <td><%=item.email%></td>
-                  <th><%=item.telefone%></th>
-                  <th><%=item.assunto%></th>
-                    
-                
-                    </tr>
-                <%})%>
-                  </tbody>
+                    <th>Cliente</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Assunto</th>
+                  </tr>
                 </thead>
+                <tbody>
+                  
+                <%
+               chamada.forEach((item)=>{
+                %>
+
+                <tr>
+                <td><%=item.nome%> </td>
+                <td><%=item.email%></td>
+                <th><%=item.telefone%></th>
+                <th><%=item.assunto%></th>
+                  
+              
+                  </tr>
+              <%})%>
+                </tbody>
               </table>
               <div class="row">
               <p>Próximo cliente a ser atendido:</p>

@@ -2,8 +2,8 @@ async function conecta(){
     const mysql = require("mysql2/promise")
     const conn = await mysql.createConnection({
         host: "localhost",
-        user: "v19",
-        password: "Sendokai123$",
+        user: "root",
+        password: "Carol0626$#@!",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
@@ -20,8 +20,8 @@ async function conecta(){
     const mysql = require("mysql2/promise")
     const conn = await mysql.createConnection({
         host: "localhost",
-        user: "v19",
-        password: "Sendokai123$",
+        user: "root",
+        password: "Carol0626$#@!",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
@@ -163,8 +163,6 @@ async function insertCadastroAdm(usuario) {
     await conectado.query("INSERT INTO usuario (nome,email,senha,conf_senha,adm)VALUES (?,?,?,?,1)", values)
     return rows
 }
-db.js
-
 async function selectRelatorioChamada(){
     const conectado = await conecta()
     const [rows] = await conectado.query("SELECT * FROM contato ORDER BY contato_id DESC")

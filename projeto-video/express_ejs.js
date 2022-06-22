@@ -321,11 +321,7 @@ app.get("/single",async(req, res) => {
 
   
   
-  app.get("/relatorio-chamada",(req, res) => {
-      
-     res.render(`relatorio-chamada`)
-     
-  })
+  
   
   app.get("/relatorio",(req, res) => {
       
