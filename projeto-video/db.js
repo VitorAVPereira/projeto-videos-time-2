@@ -1,16 +1,3 @@
-async function conecta(){
-    const mysql = require("mysql2/promise")
-    const conn = await mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Carol0626$#@!",
-        database:"projeto_video"
-    })
-    console.log("mySQL conectado!")
-    global.connection = conn
-    return connection
-}
-
 const { builtinModules } = require("module")
 const { getMaxListeners } = require("process")
 const session = require("express-session")
@@ -20,8 +7,8 @@ async function conecta(){
     const mysql = require("mysql2/promise")
     const conn = await mysql.createConnection({
         host: "localhost",
-        user: "root",
-        password: "Carol0626$#@!",
+        user: "leodemorais",
+        password: "M@3xim975",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
