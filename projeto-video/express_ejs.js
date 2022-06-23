@@ -178,9 +178,15 @@ app.post("/contato",async(req,res)=>{
 })
 
 
-app.get("/perfilDoUsuario",(req, res) => {
+app.get("/perfilDoUsuario",checkAuth,async(req, res) => {
     
-   res.render(`perfilDoUsuario`)
+   let infoUrl = req.url
+   let urlProp = url.parse(infoUrl, true)
+   let q = urlProp.query
+   const perfil = await db.perfilDoUsuario( req.app.locals.info.user)
+   res.render(`perfilDoUsuario`,{
+      user:perfil
+   })
    
 })
 

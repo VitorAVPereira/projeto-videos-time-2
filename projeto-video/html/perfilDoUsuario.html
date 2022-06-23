@@ -38,6 +38,16 @@
   </header>
 
   <style>
+            .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+#center {
+  text-align: center;
+}
     .img {
       
       border-radius: 4px;
@@ -67,12 +77,12 @@
   </style>
 
   
-        <div class="alert alert-primary text-center">
-          <strong><div class="spinner-grow text-primary"></div><h1 class="p">FELIZ ANIVERSÁRIO! </h1> <div class="spinner-grow text-primary"></div><div id="nomeA"></div></strong> <br /> <a href="carrinho.html"> NÃO PERCA TEMPO E COMEMORE JÁ!</a> <hr />
-          <button type="button" class="btn btn-primary" onclick="displayCode()">copie e cola seu cupom de desconto</button>
+<div class="alert alert-primary text-center">
+  <div class="spinner-grow text-primary"></div> <div class="spinner-grow text-primary"></div><div id="nomeA"></div><h2 id="cupom">  Já usou seu descontou hoje?</h2><hr />
+  <button type="button" class="btn btn-primary" ">copie e cola sua supresa</button>
 
-          <p id="demo"></p>
-        </div>
+  
+</div>
   <!--NAVEGAÇÃO-->
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="#">Acesse</a>
@@ -101,18 +111,19 @@
 
     <hr />
     <!--Lista nao ordenada-->
-
+    <div id="center"> <img src="../imagens/img_avatar.png" alt="Avatar" class="avatar "></div>
+    <hr/>
+    <p id="demo" class="text-center" ></p>
     <article class="container text-primary text-center">
       <div id="conteudo">
         <h3></h3>
         <p class="body" id="nomeUsu"></p>
         <p class="body" id="emailUsu"></p>
         <p class="body" id="telUsu"></p>
-        <p class="body" id="idadeUsu"></p>
+        
         <p class="body" id="preferenciaUsu"></p>
         <p class="body" id="dataUso"></p>
-        <p class="body" id="tipoUsu"></p>
-        <p class="body" id="valorUsu"></p>
+      
       </div>
     </article>
   </section>
@@ -121,6 +132,8 @@
     <p> &copy;2022 - Todos os direitos reservados. </p>
   </footer>
 </body>
-<script src="../js/perfilDoUsuario.js"></script>
+<script src="../js/perfilDoUsuario.js">
+
+</script>
 
 </html>
