@@ -29,11 +29,10 @@ let videos='{"tipo":"Bem vindo(a)!","idade":35,"preferencia":"Comedia","dataInic
 let videosJSON= JSON.parse(videos)
 let conteudo=document.querySelector("#conteudo")
 let h3=document.querySelector("#conteudo h3")
-let idadeUsu=document.querySelector("#idadeUsu")
+
 let preferenciaUsu=document.querySelector("#preferenciaUsu")
 let dataUso=document.querySelector("#dataUso")
-let tipoUsu=document.querySelector("#tipoUsu")
-let valorUsu=document.querySelector("#valorUsu")
+
 let nome=localStorage.nomeUser
 
 let nomeUsu=document.querySelector("#nomeUsu")
@@ -54,16 +53,18 @@ let telUsu=document.querySelector("#telUsu")
     
 
 
-
-
-
 h3.innerHTML=videosJSON.tipo
-idadeUsu.innerHTML="Idade: "+videosJSON.idade
+
 preferenciaUsu.innerHTML="Preferencia: "+videosJSON.preferencia
 dataUso.innerHTML="Data Do Inicio: "+videosJSON.dataInicio
-tipoUsu.innerHTML="Tipo de Assinatura: "+videosJSON.tipoAssinatura
-valorUsu.innerHTML="Valor: "+videosJSON.valor+" R$"
 
+var today=new Date()
+  var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    document.getElementById("demo").innerHTML="Hoje :"+date
+    
+document.querySelector('button').onclick=function(){
+  document.querySelector('#cupom').innerHTML="123"
+}
 
 /*let user=localStorage.emailUser
 let bemVindo=document.querySelector("#bemVindo")
