@@ -6,6 +6,6 @@ document.querySelector("#btLogin").onclick=function(){
         alert ("Coloque sua Senha!")}
     else{
          formL.submit()
-         localStorage.emailUser=formL.email.value
+         localStorage.emailUser=formL.email.value 
     }
     }

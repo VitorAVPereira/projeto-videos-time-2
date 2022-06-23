@@ -1,9 +1,10 @@
 (async () => {
+   const session = require ("express-session")
    const express = require('express')
    const app = express()
    const db = require("./db.js")
    const bodyParser = require("body-parser")
-   const port = 8003
+   const port = 8000
    const url = require ("url")
  
 app.set("view engine","ejs")
@@ -15,6 +16,46 @@ app.use("/imagens",express.static("imagens"))
 app.use("/js",express.static("js"))
 app.use("/adm", express.static("adm"))
 
+app.locals.idProd=''
+
+
+const options ={
+   expiration: 10800000,
+   createDatabaseTable: true,
+   schema: {
+       tableName: 'session_tbl',
+       columnNames: {
+           session_id: 'session_id',
+           expires: 'expires',
+           data: 'data'
+       }
+   }  
+}
+
+function checkFirst(req, res, next) {
+   if (!req.session.userInfo) {
+     res.redirect('/promocao');
+   } else {
+     next();
+   }
+ }
+
+function checkAuth(req, res, next) {
+   if (!req.session.userInfo) {
+     res.send('Você não está autorizado para acessar esta página');
+   } else {
+     next();
+   }
+ }
+
+await db.makeSession(app,options,session)
+
+
+var userInfo=''
+app.locals.info = {
+user:userInfo
+}
+
 const consulta = await db.selectFilmes()
 const updatePref = await db.updatePref()
 // const selectPref = await db.selectPref()
@@ -23,7 +64,32 @@ console.log(consulta[0])
 
 
 
-app.get("/",async(req, res) => {
+app.get("/login",(req, res) => {
+   res.render('login',{
+      titulo:"Alugue seu filme favorito!"
+   })
+})
+
+app.use('/logout', function (req, res) {
+   req.app.locals.info = {}
+   req.session.destroy()
+   res.clearCookie('connect.sid', { path: '/' });
+   res.redirect("/login") 
+
+})
+
+app.post("/login", async (req,res)=>{
+   const {email,senha} = req.body
+   const logado = await db.selectUsers(email,senha)
+   if(logado != ""){
+   req.session.userInfo = email
+   userInfo = req.session.userInfo
+   req.app.locals.info.user= userInfo
+   res.redirect('/')
+   } else {res.send("<h2>Login ou senha não conferem</h2>")}
+})
+
+app.get("/",checkFirst,async(req, res) => {
    const selectPref = await db.selectPref()
     res.render(`index`,{
        titulo:"Alugue seu filme favorito!",
@@ -40,10 +106,9 @@ app.get("/index",async(req, res) => {
       pref:selectPref})
 })
  
-app.get("/cadastro",async(req, res) => {   
-   res.render(`cadastro`,{
-   titulo:"Cadastre-se em nosso site!",
-   })
+app.get("/cadastro",async(req, res) => {
+    
+   res.render(`cadastro`)
    
 })
 
@@ -61,10 +126,9 @@ app.post("/cadastro",async (req,res)=>{
 
 
  
-app.get("/carrinho",async(req, res) => {
+app.get("/carrinho",checkAuth,async(req, res) => {
    const consultaCarrinho = await db.selectCarrinho()
       res.render(`carrinho`,{
-      titulo:"Garanta já a sua sessão!",
       carrinho:consultaCarrinho
    })
    })
@@ -75,7 +139,7 @@ app.get("/carrinho",async(req, res) => {
          qtd: info.qtd,
          ano: info.ano,
          valor:info.valor,
-         filmes_id: info.filmes_id
+         filmes_id:info.filmes_id
    
       })
       res.send(req.body)
@@ -83,6 +147,7 @@ app.get("/carrinho",async(req, res) => {
    app.post("/delete-carrinho",async(req,res)=>{
       const info = req.body
       await db.deleteCarrinho(info.id)
+      await db.deleteallCarrinho()
       res.send(info)
    })
 
@@ -95,7 +160,6 @@ app.get("/contato",async(req,res)=>{
   const consultaContato = await db.selectSingle(q.id)
   const consultaInit = await db.selectSingle(4)
   res.render(`contato`,{
-      titulo:"A gente quer te ouvir",
       filmes:consulta,
       galeria: consultaInit
   })
@@ -114,26 +178,14 @@ app.post("/contato",async(req,res)=>{
 })
 
 
-app.get("/login",(req, res) => {
+app.get("/perfilDoUsuario",checkAuth,async(req, res) => {
     
-   res.render(`login`,{
-   titulo:"Vamos começar? Entre no nosso site aqui",
-   })
-   
-})
-
-app.post("/login", async (req, res) => {
-   let info = req.body
-   let consultaUsers = await db.selectUsers(info.email, info.senha)
-   consultaUsers == "" ? res.send("Usuário não encontrado!") : res.redirect("/")
-   const s = req.session
-   consultaUsers != "" ? s.nome=info.nome : null
-})
-
-app.get("/perfilDoUsuario",(req, res) => {
-    
+   let infoUrl = req.url
+   let urlProp = url.parse(infoUrl, true)
+   let q = urlProp.query
+   const perfil = await db.perfilDoUsuario( req.app.locals.info.user)
    res.render(`perfilDoUsuario`,{
-   titulo:"Sua sessão, suas regras!",
+      user:perfil
    })
    
 })
@@ -141,29 +193,26 @@ app.get("/perfilDoUsuario",(req, res) => {
 app.get("/produto",(req, res) => {
     
    res.render(`produto`,{
-   titulo:"Tem tudo para todas as idades",
    filmes:consulta})
 })
 
 app.get("/singleprefer",(req, res) => {
     
-   res.render(`singleprefer`,{
-   titulo:"Seus preferidos estão aqui!",
-   })
+   res.render(`singleprefer`)
    
 })
 
+// ==========================ADM===============================
 
 app.get("/addProduto",(req, res) => {
     
-   res.render(`addProduto`)
+   res.render(`adm/addProduto`)
    
 })  
 
 app.get("/promocao",async(req, res) => {
    const consultaPromo = await db.selectPromo()
    res.render(`promocao`,{
-         titulo:"É promoção que você quer?!",
          filmes:consulta,
          galeria:consultaPromo})
    
@@ -202,6 +251,36 @@ app.get("/upd-promo", (req, res) => {
    })
 })
 
+app.get("/relatorio-produto", async (req, res) => {
+   const selectFilmes = await db.selectFilmes() 
+   res.render(`adm/relatorio-produto`,{
+   titulo:"Alugue seu filme favorito!",
+   filmes: selectFilmes,
+ 
+   })
+})
+
+app.get("/atualiza_produtos",async(req, res) => {
+   const produto = await db.selectSingle(req.app.locals.idProd)  
+   res.render('adm/atualiza_produtos',{
+       galeria:consulta,
+       id:req.app.locals.idProd,
+       produtoDaVez:produto
+   })
+})
+
+app.post("/atualiza_produtos",(req, res) => { 
+   req.app.locals.idProd = req.body.id
+   res.send('Produto Exibido com Sucesso')
+})
+
+app.post("/atualiza-filme",async(req, res) => { 
+   //titulo,genero,ano,classificacao,imagens,trailer,id
+   const b = req.body
+   await db.updateProduto(b.titulo,b.genero,b.ano,b.sinopse,b.classificacao,b.imagens,b.trailer,b.id)
+   res.send('Produto Atualizado com Sucesso')
+})
+
 app.get("/single",async(req, res) => {
 
    let infoUrl = req.url
@@ -210,23 +289,94 @@ app.get("/single",async(req, res) => {
    const consultaSingle = await db.selectSingle(q.id)
    await db.updatePref(q.id)
    res.render(`singleproduto`, {
-         titulo:"Tem tudo pra todas as idades!",
          filmes: consulta,
          galeria: consultaSingle,
  
       })
    })
-   app.post("/singleproduto",async(req,res)=>{
-      const info = req.body
-       await db.insertCarrinho({
-         qtd: info.qtdTelas
+
+   //Adm Login 
+
+   app.get("/loginAdm",async(req, res) => {
+      const consultaPromo = await db.selectLoginAdm()
+      res.render(`adm/loginAdm`,{
+            filmes:consulta,
+            galeria:consultaPromo})
+      
+   })
+
+   app.post("/loginAdm", async (req, res) => {
+      const {email,senha} = req.body
+      let consultaUsers = await db.selectLoginAdm(email,senha)
+      if(consultaUsers != ""){
+         req.session.userInfo = email
+         userInfo = req.session.userInfo
+         req.app.locals.info.user= userInfo
+         res.redirect('adm/indexAdm')
+         } else {res.send("<h2>Acesso de Adm negado</h2>")}
       })
-      res.redirect("/carrinho")
-   }) 
-   
 
 
+   app.use('/logoutAdm', function (req, res) {
+         req.app.locals.info = {}
+         req.session.destroy()
+         res.clearCookie('connect.sid', { path: '/' });
+         res.redirect("adm/loginAdm") 
+
+      })
+
+   app.get("/",(req, res) => {
+    
+      res.render(`adm/indexAdm`,{titulo:"Alugue seu filme favorito!"})
+      
+  })
+  
+  app.get("/indexAdm",(req, res) => {
+      
+     res.render(`adm/indexAdm`)
+     
+  })
    
+  app.get("/cadastroAdm",(req, res) => {
+      
+     res.render(`adm/cadastroAdm`)
+     
+  })
+
+  app.post("/cadastroAdm", async (req, res) => {
+   const info=req.body
+   await db.insertCadastroAdm({
+     nome:info.nomeContato,
+     email:info.emailContato,
+     senha:info.senha,
+     conf_senha:info.senhaC
+   })
+   res.redirect("adm/indexAdm")
+})
+  
+  app.get("/cadastroProduto",(req, res) => {
+      
+     res.render(`adm/cadastroProduto`)
+     
+  })
+
+  
+  
+  
+  
+  app.get("/relatorio",(req, res) => {
+      
+     res.render(`adm/relatorio`)
+     
+  })
+  app.get("/relatorio-chamada",async(req, res) => {
+   const consultaChamada = await db.selectRelatorioChamada()
+      res.render(`adm/relatorio-chamada`,{
+      titulo:"Garanta já a sua sessão!",
+      chamada:consultaChamada
+   })
+   })
+  
   
 // app.get("/singleproduto",async(req,res)=>{
 //    let infoUrl = req.url
@@ -244,4 +394,3 @@ app.get("/single",async(req, res) => {
 
 app.listen(port,()=> console.log ("Servidor rodando com nodemon no servidor 8000"))
 })()
-

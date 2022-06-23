@@ -7,7 +7,37 @@ Time 02- Single Preferencia
 <%- include('header.ejs')%>
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
-<%- include('topo.ejs')%>
+<header class="text-center">
+  <div class="row">
+    <div class="col-sm-4 text-left">
+      <img src="../imagens/primeirasessão.png" width="250">
+    </div>
+    <div class="col-sm-4 mt-5">
+      <h2 style="font: size 100%;"><%=info.titulo%></h2>
+    </div>
+    <div class="col-sm-4 alignR">
+      <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
+      <% if (info.user) { %>
+        <a class="alignR" id="sair" href="index">Sair</a>
+        <% } else { %>
+      <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+          <% } %>
+    </div>
+  </div>
+</header>
+
+
+<%if(info.user) { %>
+  <div class="alignR">
+   
+  </div>
+  <% } else { %>
+    <div class="alignR">
+      <a id="cadastro" href="cadastro"></a>
+    </div>
+    <% }  %>
+
+</div>
       <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
@@ -53,7 +83,7 @@ Time 02- Single Preferencia
         Aqui vai a sinopse alimentada pela posição do array salva em LOCALSTORAGE
       </p>
     </div>
-  </header>
+  
   <div class="container">
     <div class="row">
       <div class="col-sm-4">

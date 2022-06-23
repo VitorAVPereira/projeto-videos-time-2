@@ -1,13 +1,38 @@
+let user = localStorage.emailUser
+let bemVindo = document.querySelector("#bemVindo")
+let entrar = document.querySelector("#entrar")
+let sair = document.querySelector("#sair")
+let cadastro = document.querySelector("#cadastro")
+
+function msgUser() {
+    let nomeUser = user.substring(0, user.indexOf('@'))
+    bemVindo.innerHTML = 'Olá, <b>' + nomeUser + '<b/>'
+    entrar.style.display = "none"
+    cadastro.style.display = "none"
+}
+function resetUser() {
+    sair.style.display = "none"
+}
+sair.onclick = function () {
+    localStorage.removeItem("emailUser")
+
+    location.href = 'index.html'
+
+}
+
+localStorage.emailUser ? msgUser() : resetUser()
+
+//////////////////////////////////////////////////////////////////////
+
 
 let videos='{"tipo":"Bem vindo(a)!","idade":35,"preferencia":"Comedia","dataInicio":"05/04/2022","tipoAssinatura":"Gold","valor":30}'
 let videosJSON= JSON.parse(videos)
 let conteudo=document.querySelector("#conteudo")
 let h3=document.querySelector("#conteudo h3")
-let idadeUsu=document.querySelector("#idadeUsu")
+
 let preferenciaUsu=document.querySelector("#preferenciaUsu")
 let dataUso=document.querySelector("#dataUso")
-let tipoUsu=document.querySelector("#tipoUsu")
-let valorUsu=document.querySelector("#valorUsu")
+
 let nome=localStorage.nomeUser
 
 let nomeUsu=document.querySelector("#nomeUsu")
@@ -28,16 +53,18 @@ let telUsu=document.querySelector("#telUsu")
     
 
 
-
-
-
 h3.innerHTML=videosJSON.tipo
-idadeUsu.innerHTML="Idade: "+videosJSON.idade
+
 preferenciaUsu.innerHTML="Preferencia: "+videosJSON.preferencia
 dataUso.innerHTML="Data Do Inicio: "+videosJSON.dataInicio
-tipoUsu.innerHTML="Tipo de Assinatura: "+videosJSON.tipoAssinatura
-valorUsu.innerHTML="Valor: "+videosJSON.valor+" R$"
 
+var today=new Date()
+  var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    document.getElementById("demo").innerHTML="Hoje :"+date
+    
+document.querySelector('button').onclick=function(){
+  document.querySelector('#cupom').innerHTML="123"
+}
 
 /*let user=localStorage.emailUser
 let bemVindo=document.querySelector("#bemVindo")

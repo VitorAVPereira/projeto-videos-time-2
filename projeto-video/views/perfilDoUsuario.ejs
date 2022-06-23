@@ -6,7 +6,6 @@ Time 02- Perfil do Usuario
 <!-- ============= HEADER ================ -->
 <%- include('header.ejs')%>
 <!-- ========= FIM HEADER ============= -->
-<%- include('topo.ejs')%>
 <!-- ======= MENU DO PROJETO ======== -->
       <style>
         .img {
@@ -30,17 +29,53 @@ Time 02- Perfil do Usuario
           text-align: right;
           cursor:pointer;text-decoration:underline
         }
+        .avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+#center {
+  text-align: center;
+}
       </style>
 
-        <header class="text-center" ><div class="row"><div class="col-sm-2">  <a href="index" class="col-">  <img class="text-left" src="../imagens/primeirasessão.png" width="250"/> </a>  </div>  <div class="col-sm-10 col-tm-5">    
-          <h2 class="p text-center">Seu Perfil</h2></div></div>
-        </header>
-        <div class="alert alert-primary text-center">
-          <strong><div class="spinner-grow text-primary"></div>FELIZ ANIVERSÁRIO  <div class="spinner-grow text-primary"></div><div id="nomeA"></div></strong> <br /> <a href="carrinho"> NÃO PERCA TEMPO E COMEMORE JÁ</a> <hr />
-          <button type="button" class="btn btn-primary" onclick="displayCode()">copie e cola sua supresa</button>
+<header class="text-center">
+  <div class="row">
+    <div class="col-sm-4 text-left">
+      <img src="../imagens/primeirasessão.png" width="250">
+    </div>
+    <div class="col-sm-4 mt-5">
+      <h2 style="font: size 100%;"><%=info.titulo%></h2>
+    </div>
+    <div class="col-sm-4 alignR">
+      <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
+      <% if (info.user) { %>
+        <a class="alignR" id="sair" href="index">Sair</a>
+        <% } else { %>
+      <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+          <% } %>
+    </div>
+  </div>
+</header>
 
-          <p id="demo"></p>
-        </div>
+<%if(info.user) { %>
+  <div class="alignR">
+   
+  </div>
+  <% } else { %>
+    <div class="alignR">
+      <a id="cadastro" href="cadastro"></a>
+    </div>
+    <% }  %>
+  </div>
+  <div class="alert alert-primary text-center">
+    <div class="spinner-grow text-primary"></div> <div class="spinner-grow text-primary"></div><div id="nomeA"></div><h2 id="cupom">  Já usou seu descontou hoje?</h2><hr />
+    <button type="button" class="btn btn-primary" ">copie e cola sua supresa</button>
+
+    
+  </div>
             
         <%- include('nav.ejs')%>
 <!-- =============== FIM DO MENU =============== -->
@@ -54,22 +89,19 @@ Time 02- Perfil do Usuario
             <h3 class="p body"></h3>
             <br />
 
-            <p class="body pMenor" id="nomeUsu"></p>
-            <br />
-            <p class="body pMenor" id="emailUsu"></p>
-            <br />
-            <p class="body pMenor" id="telUsu"></p>
-            <br />
-            <p class="body pMenor" id="idadeUsu"></p>
-            <br />
-            <p class="body pMenor" id="preferenciaUsu"></p>
-            <br />
-            <p class="body pMenor" id="dataUso"></p>
-            <br />
-            <p class="body pMenor" id="tipoUsu"></p>
-            <br />
-            <p class="body pMenor" id="valorUsu"></p>
-            <br />
+            <%if(info.user){%>
+              <article class="container text-primary text-center">
+                <div id="conteudo">
+                  
+                  <p class="body" id="nomeUsu">Nome : <%=user[0].nome%></p>
+                  <p class="body" id="emailUsu">Email : <%=info.user%></p>
+                  <p class="body" id="telUsu">Telefone : <%=user[0].telefone%></p>
+                  <p class="body" id="dataUso">Data de Inicio : <%=user[0].data_inicio%> </p>
+                  <p class="body" id="preferenciaUsu">Preferencia :<%=user[0].preferencia%> </p>
+                
+                </div>
+              </article>
+              <%}%>
             </div>
         </article>
         </section>
@@ -78,5 +110,11 @@ Time 02- Perfil do Usuario
 <%- include('footer.ejs')%>
 <!-- =============== Fim FOOTER ================== -->
     </body>
-    <script src="../js/perfilDoUsuario.js"></script>
+    <script >var today=new Date()
+      var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+        document.getElementById("demo").innerHTML="Hoje :"+date
+        
+    document.querySelector('button').onclick=function(){
+      document.querySelector('#cupom').innerHTML="123"
+    }</script>
 </html>
