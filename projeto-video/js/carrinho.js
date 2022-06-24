@@ -108,7 +108,7 @@ btCalcular.addEventListener('click',carrinho.somaTotal)
 //Fim do objeto
 
 
-let code =[123,456] ;
+let code =["20j4","4i56"] ;
 function validate(coupon) { 
    // let code =[123,456] ;
   
