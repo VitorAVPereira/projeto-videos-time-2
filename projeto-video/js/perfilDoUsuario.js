@@ -63,7 +63,7 @@ var today=new Date()
     document.getElementById("demo").innerHTML="Hoje :"+date
     
 document.querySelector('button').onclick=function(){
-  document.querySelector('#cupom').innerHTML="123"
+  document.querySelector('#cupom').innerHTML="20j4"
 }
 
 /*let user=localStorage.emailUser
