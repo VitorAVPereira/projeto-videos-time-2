@@ -116,7 +116,7 @@ Time 02- Carrinho
     
     </table>
  </div>
- <button class="btn btn-warning bt-carrinho" data-limpa="<%=carrinho%>" > Limpar carrinho </button>
+ <button class="btn btn-warning bt-carrinho" data-limpa="<%=carrinho.carrinho_id%>" > Limpar carrinho </button>
 
 </div>
  
@@ -196,11 +196,11 @@ Time 02- Carrinho
 
             $.post('/delete-carrinhoall',
             { 
-              filmes_id:datalim
+              carrinho_id:datalim
             },
             function (data,status)
             {
-                location.href = "/carrinho" //app.get
+                location.href = "/carrinho" 
 
             },"json")
           })
@@ -219,7 +219,7 @@ Time 02- Carrinho
             },
             function (data,status)
             {
-                location.href = "/carrinho" //app.get
+                location.href = "/carrinho" 
 
             },"json")
           })

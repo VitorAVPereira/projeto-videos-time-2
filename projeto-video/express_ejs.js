@@ -152,8 +152,9 @@ app.get("/carrinho",checkAuth,async(req, res) => {
    })
 
    app.post("/delete-carrinhoall",async(req,res)=>{
-      await db.deleteallCarrinho()
-      res.send("excluir carrinho")
+      const info = req.body
+      await db.deleteallCarrinho(info)
+      res.send(info)
    })
 
    
