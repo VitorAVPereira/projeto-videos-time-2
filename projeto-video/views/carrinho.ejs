@@ -79,6 +79,7 @@ Time 02- Carrinho
   <div>
   <div class="row">
     <div class="container-sm" class="col-md-8" class="w-50 mx-auto p- mt-3 mb-3 " >
+      <div>
       <section >
        
           <table class="table-bordered table text-white" cellspacing="0" >
@@ -108,16 +109,17 @@ Time 02- Carrinho
                   <td  id="preco" data-valor="<%=item.valor%>"> <%=item.valor%> </td>
                 
                   <td>
-                    <button class="btn btn-warning bt-carrinho" data-id="<%=item.carrinho_id%>">Excluir</button>
+                    <button class="btn btn-warning bt-limpa" data-id="<%=item.carrinho_id%>">Excluir</button>
                   </td>
                   </tr>
               <%})%>
     
     </table>
-    <button class="btn btn-warning bt-limpa" data-limpa="<%=carrinho%>" > Limpar carrinho </button>
  </div>
+ <button class="btn btn-warning bt-carrinho" data-limpa="<%=carrinho.carrinho_id%>" > Limpar carrinho </button>
 
-
+</div>
+ 
 <!--================ Fim do Carrinho ===================-->
 
 <!--================= Total, Cupom e Botões =================-->
@@ -218,26 +220,26 @@ Time 02- Carrinho
 
 
 
-//// carrinho - botão de deletar coluna
+////////////// DELETE CARRINHO
   $().ready(function(){
       console.log("jquery funfando...")
       $('.bt-carrinho').click(function(){
               let datalim = $(this).attr("data-limpa") 
 
-            $.post('/delete-carrinho',
+            $.post('/delete-carrinhoall',
             { 
-              id:datalim,
+              carrinho_id:datalim
             },
             function (data,status)
             {
-                location.href = "/carrinho" //app.get
+                location.href = "/carrinho" 
 
             },"json")
           })
   })
-  /////// carrinho - botão de deletar FIM
+  /////////////// FIM DO DELETE CARRINHO
 
-  ////// LIMPAR CARRINHO
+  /////////////// limpar coluna do carrinho
   $().ready(function(){
       console.log("jquery funfando...")
       $('.bt-limpa').click(function(){ 
@@ -249,13 +251,13 @@ Time 02- Carrinho
             },
             function (data,status)
             {
-                location.href = "/carrinho" //app.get
+                location.href = "/carrinho" 
 
             },"json")
           })
   })
 
-////////FIM LIMPAR CARRINHO
+/////////////// limpar coluna do carrinho
 
 ////////////carrinho cupom
 let code =["20j4","4i56"] ;
