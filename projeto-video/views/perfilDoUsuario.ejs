@@ -29,15 +29,93 @@ Time 02- Perfil do Usuario
           text-align: right;
           cursor:pointer;text-decoration:underline
         }
-        .avatar {
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-
+        * {
+    margin: 0;
+    padding: 0
 }
-#center {
-  text-align: center;
+
+body {
+    background-color: #000
+}
+
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
 }
       </style>
 
@@ -72,7 +150,7 @@ Time 02- Perfil do Usuario
   </div>
   <div class="alert alert-primary text-center">
     <div class="spinner-grow text-primary"></div> <div class="spinner-grow text-primary"></div><div id="nomeA"></div><h2 id="cupom">  Já usou seu descontou hoje?</h2><hr />
-    <button type="button" class="btn btn-primary" ">copie e cola sua supresa</button>
+    <button type="button" class="btn btn-primary" ">Vamos descobrir</button>
 
     
   </div>
@@ -84,10 +162,11 @@ Time 02- Perfil do Usuario
         
         <hr/>
         
-      
-        <article class="container text-primary text-center"><div id="conteudo">
-            <h3 class="p body"></h3>
-            <br />
+        <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+          <div class="card p-4">
+      <p id="demo" class="text-center" ></p>
+      <div class=" image d-flex flex-column justify-content-center align-items-center"> <button class="btn btn-secondary"> <img src="../imagens/img_avatar.png" height="100" width="100" /></button> 
+          <div id="conteudo">
 
             <%if(info.user){%>
               <article class="container text-primary text-center">
@@ -115,6 +194,6 @@ Time 02- Perfil do Usuario
         document.getElementById("demo").innerHTML="Hoje :"+date
         
     document.querySelector('button').onclick=function(){
-      document.querySelector('#cupom').innerHTML="123"
+      document.querySelector('#cupom').innerHTML="20j4"
     }</script>
 </html>
