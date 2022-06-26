@@ -87,13 +87,14 @@ Time 02- Promocao
     <div class="row">
       <% galeria.forEach((item)=> { %>
         <div class="col-md-4">
-
+          <h4>
+            <%=item.titulo%>
+          </h4>
           <div class="row">
+            
             <img class="col-sm-6 imgMenor" src="../imagens/<%=item.imagens%>">
             <div class="col-sm-6">
-              <h4>
-                <%=item.titulo%>
-              </h4>
+              
               <p>Gênero: <%=item.genero%>
               </p>
               <p>Ano: <%=item.ano%>
@@ -101,7 +102,7 @@ Time 02- Promocao
               <p>Indicação: <%=item.classificacao%>
               </p>
               <p>
-                <%=item.sinopse%>
+                <%=item.sinopse.substring(0,80)+'...'%>
               </p>
             </div>
           </div>
