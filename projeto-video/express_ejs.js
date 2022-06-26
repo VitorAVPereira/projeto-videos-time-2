@@ -91,10 +91,12 @@ app.post("/login", async (req,res)=>{
 
 app.get("/",checkFirst,async(req, res) => {
    const selectPref = await db.selectPref()
+    
     res.render(`index`,{
        titulo:"Alugue seu filme favorito!",
        filmes:consulta,
-       pref:selectPref})
+       pref:selectPref
+       })
     
 })
 
@@ -103,9 +105,11 @@ app.get("/index",async(req, res) => {
    res.render(`index`,{
       titulo:"Alugue seu filme favorito!",
       filmes:consulta,
-      pref:selectPref})
+      pref:selectPref,
+      })
 })
- 
+
+
 app.get("/cadastro",async(req, res) => {
     
    res.render(`cadastro`)

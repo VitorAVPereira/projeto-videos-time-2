@@ -47,8 +47,8 @@ let carrinho = {
         let inc2 = Number(incremento2)
         calculo =  inc + inc1 + inc2
 
-        Total.innerHTML=`R$ ${calculo}`
-        Total2.innerHTML=`R$ ${calculo}`
+        Total.innerHTML=`R$ ${(calculo).toFixed(2)}`
+        Total2.innerHTML=`R$ ${(calculo).toFixed(2)}`
     }
 }
 
@@ -118,12 +118,12 @@ function validate(coupon) {
    if (code[0]==coupon) 
     { 
     window.alert("Código de cupom aceito! Clique no botão comprar!"); 
-    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.10))
+    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.10)).toFixed(2)
     } 
      else if (code[1]==coupon) 
     { 
     window.alert("Código de cupom aceito! Clique no botão comprar"); 
-    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.20))
+    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.20)).toFixed(2)
     } 
    else 
     { 
