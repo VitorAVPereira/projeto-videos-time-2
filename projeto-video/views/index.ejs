@@ -75,26 +75,80 @@ Time 02- Index
           .p {
             font-size: 50px;
           }
+          .pModal {
+            font-size: 20px;
+          }
           .alignR{
             text-align: right;
             cursor:pointer;text-decoration:underline
+          }
+          .modal-content{
+            background-color: rgb(21, 46, 99);
           }
         </style>
         <div class="row">
           <% filmes.forEach((item)=> { %>
             <div class="col-md-4">
-              <a id="img" href="/single?id=<%=item.filmes_id%>">
+              <a data-toggle="modal" data-target="#runModal<%=item.filmes_id %>" href="/single?id=<%=item.filmes_id%>">
               <div class="row">
                 <h4 class="col-sm-12 mt-5 mb-2 body"><%=item.titulo%></h4>
               </div>
               <div class="row">
                 <img class="col-sm-12 img" src="../imagens/<%=item.imagens%>">
               </div>
-              </a>
               
-    
-    
+            
+
+
+              <!-- Modal -->
+              <div class="modal fade" id="runModal<%=item.filmes_id %>" tabindex="-1" role="dialog" aria-labelledby="runModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl" role="document">
+                  <div class="modal-content animate-zoom">
+
+                    <div class="modal-header">
+                      <h5 class="modal-title body text-white" id="runModalLabel"><%=item.titulo%></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <div class="modal-body container">
+                      <div class="row">
+                        <img class="imgMenor " src="../imagens/<%=item.imagens%>" />
+                        <div class="col text-white body pModal">
+                          
+                        Gênero: <%=item.genero%><br />
+                        Ano: <%=item.ano%><br />
+                        Diretor: <%=item.diretor%><br />
+                        Classificação: <%=item.classificacao%>
+                          
+                        </div>
+                      </div>
+                      <div class="row">
+                       <h1 class="text-white body mt-3 ml-2">R$ <%=item.valor%></h1> 
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <hr />
+                         <iframe width="1090" height="550" src="<%=item.trailer%>" id="fml" title="YouTube video player"
+                         frameborder="0"
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                         allowfullscreen></iframe>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      <button type="button" class="btn btn-primary">Adicionar ao Carrinho</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<!-- =========================  modal ========================= -->
+              
             </div>
+          </a>
             <% }) %>
         </div>
       </div>
@@ -129,6 +183,7 @@ Time 02- Index
 <%- include('footer.ejs')%>
 
 </body>
+
 
 <script src="../js/index.js"></script>
 

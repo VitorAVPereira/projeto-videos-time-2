@@ -56,7 +56,7 @@ let telUsu=document.querySelector("#telUsu")
 h3.innerHTML=videosJSON.tipo
 
 preferenciaUsu.innerHTML="Preferencia: "+videosJSON.preferencia
-dataUso.innerHTML="Data Do Inicio: "+videosJSON.dataInicio
+dataUso.innerHTML="Data De Inicio: "+videosJSON.dataInicio
 
 var today=new Date()
   var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
