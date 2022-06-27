@@ -122,6 +122,7 @@ app.post("/cadastro",async (req,res)=>{
        nome:info.nomeContato,
        email:info.emailContato,
        telefone:info.telefoneContato,
+       preferencia:info.preferenciaContato,
        senha:info.senha,
        conf_senha:info.conf_senha
    })      
