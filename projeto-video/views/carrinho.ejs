@@ -49,7 +49,7 @@ Time 02- Carrinho
     <div class="col-sm-4 alignR">
       <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
       <% if (info.user) { %>
-        <a class="alignR ml-2" id="sair" href="index">Sair</a>
+        <a class="alignR ml-2" id="sair" href="logout">Sair</a>
         <% } else { %>
       <a id="entrar" class="alignR text-right" href="login">Entrar</a>
           <% } %>
@@ -64,7 +64,7 @@ Time 02- Carrinho
   </div>
   <% } else { %>
     <div class="alignR">
-      <a id="cadastro" href="cadastro"></a>
+      <a id="cadastro" href="cadastro">Cadastre-se</a>
     </div>
     <% }  %>
 </div>
