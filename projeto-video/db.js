@@ -4,8 +4,7 @@ async function conecta(){
         host: "localhost",
 
         user: "root",
-        password: "Carol0626$#@!",
-
+        password: "Mah123$#@!",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
