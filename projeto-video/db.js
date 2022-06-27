@@ -3,8 +3,8 @@ async function conecta(){
     const conn = await mysql.createConnection({
         host: "localhost",
 
-        user: "v19",
-        password: "Sendokai123$",
+        user: "root",
+        password: "Carol0626$#@!",
 
         database:"projeto_video"
     })
@@ -91,9 +91,9 @@ async function selectPromo() {
 
 async function insertCadastro(usuario) {
     const conectado = await conecta()
-    const values = [usuario.nome, usuario.email, usuario.telefone, usuario.senha,usuario.conf_senha]
+    const values = [usuario.nome, usuario.email, usuario.telefone, usuario.preferencia, usuario.senha,usuario.conf_senha]
     const [rows] =
-    await conectado.query("INSERT INTO usuario (nome,email,telefone,senha,conf_senha)VALUES (?,?,?,?,?)", values)
+    await conectado.query("INSERT INTO usuario (nome,email,telefone,preferencia,senha,conf_senha)VALUES (?,?,?,?,?,?)", values)
     return rows
 }
 
