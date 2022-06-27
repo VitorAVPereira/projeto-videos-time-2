@@ -4,7 +4,7 @@
    const app = express()
    const db = require("./db.js")
    const bodyParser = require("body-parser")
-   const port = 8005
+   const port = 8000
    const url = require ("url")
  
 app.set("view engine","ejs")
@@ -175,6 +175,7 @@ app.get("/contato",async(req,res)=>{
   })
 })
 
+
 app.post("/contato",async(req,res)=>{
    const info=req.body
    await db.insertContato({
@@ -184,8 +185,9 @@ app.post("/contato",async(req,res)=>{
    assunto:info.assuntoContato,
    comentarios:info.comentarios
 })
-   res.redirect("/index")
+   res.redirect("/contatoOk")
 })
+
 
 
 app.get("/perfilDoUsuario",checkAuth,async(req, res) => {
@@ -372,7 +374,12 @@ app.get("/single",async(req, res) => {
 
   
   
-  
+  app.get("/contatoOk",(req, res) => {
+    
+   res.render(`contatoOk`,{
+   filmes:consulta})
+})
+
   
   app.get("/relatorio",(req, res) => {
       

@@ -1,0 +1,162 @@
+<!--
+Projeto Videos Online
+Parte do curso Javascript Programmer
+Time 02- Index
+-->
+<!-- ============= HEADER ================ -->
+<%- include('header.ejs')%>
+<!-- ========= FIM HEADER ============= -->
+<header class="text-center">
+  <div class="row">
+    <div class="col-sm-4 text-left">
+      <a href="index">
+        <img src="../imagens/primeirasessão.png" width="250">
+        </a>
+    </div>
+    <div class="col-sm-4 mt-5">
+      <h2 style="font: size 100%;"><%=info.titulo%></h2>
+    </div>
+    <div class="col-sm-4 alignR">
+      <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
+      <% if (info.user) { %>
+        <a class="alignR ml-2" id="sair" href="index">Sair</a>
+        <% } else { %>
+      <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+      <% } %>
+    </div>
+  </div>
+ 
+</header>
+  
+
+  <%- include('nav.ejs')%>
+<!-- =============== FIM DO MENU =============== -->
+<!-- =============== Conteúdo ================== -->
+
+
+<div class="container text-center">
+  <hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+  <span class="material-symbols-outlined"style= width:"50px"; height:"60px";>
+    check_circle
+    </span>
+<h1> Contato realizado com sucesso!</h1>
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+<hr />
+<hr />
+<hr />
+<hr />
+
+
+</div>
+
+
+<!-- =============== Fim Conteúdo ================== --> 
+
+       <style>
+          .img {
+            
+            border-radius: 4px;
+            padding: 5px;
+            width: 200px;
+            height: 495px;
+           
+          } 
+          .mt{
+            margin-top: 20px;
+          }
+          .flexS{
+            align-items: flex-start;
+          }
+          .flexEnd{
+            align-items: flex-end;
+          }
+          
+          .imgMenor {
+            
+            border-radius: 4px;
+            padding: 5px;
+            width: 300px;
+            height: 400px;
+           
+          } 
+          .body {
+            font-weight: bold;
+          }
+          .p {
+            font-size: 50px;
+          }
+          .pModal {
+            font-size: 20px;
+          }
+          .alignR{
+            text-align: right;
+            cursor:pointer;text-decoration:underline
+          }
+          .modal-content{
+            background-color: rgb(21, 46, 99);
+          }
+        </style>
+       
+              
+            
+
+
+
+          
+<!-- =============== Fim do Conteúdo ================== -->
+<!-- =============== FOOTER ================== -->
+<%- include('footer.ejs')%>
+
+
