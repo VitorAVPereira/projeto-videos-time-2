@@ -1,8 +1,3 @@
-
-
-
-/////////////////////////////////////////////////
-
 let imgArray = []
 let conteudo = [
     ["../imagens/deadpool.jpg", "Deadpool 2"],
@@ -36,7 +31,6 @@ for(var i=0;i<9;i++){
     for(var i=0;i<10;i++){
         if (localStorage.getItem('img'+i)){
             var result = localStorage.getItem('img'+i).split(',')
-            console.log(result)
             
             document.querySelector("#a").innerHTML += `<img id="imagem0" class="imgMenor" src="${result[1]}" />`
 

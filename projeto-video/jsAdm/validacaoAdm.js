@@ -1,5 +1,4 @@
-    console.log(document.forms.formCadastro)
-    var formC=document.forms.formCadastro
+var formC=document.forms.formCadastro
    
 let senha = document.getElementById('senha');
 let senhaC = document.getElementById('senhaC');

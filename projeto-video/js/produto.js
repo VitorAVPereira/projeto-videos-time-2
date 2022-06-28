@@ -13,7 +13,6 @@ function carregarImagem() {
 
     if(randfilmes.indexOf(aleatorio) == -1)
     randfilmes.push(aleatorio)
-    console.log(randfilmes)
     imagem = document.getElementById("fml")
     imagem.src = randfilmes[0]
     imagem = document.getElementById("fml1")

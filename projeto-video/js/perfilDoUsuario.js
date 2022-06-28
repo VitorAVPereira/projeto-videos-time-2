@@ -1,8 +1,3 @@
-
-
-//////////////////////////////////////////////////////////////////////
-
-
 let videos='{"tipo":"Bem vindo(a)!","idade":35,"preferencia":"Comedia","dataInicio":"05/04/2022","tipoAssinatura":"Gold","valor":30}'
 let videosJSON= JSON.parse(videos)
 let conteudo=document.querySelector("#conteudo")

@@ -24,7 +24,6 @@ var i=0
 let listaUsers=[]
 let listaResult=[]
 var chArray=[]
-//console.log(chArray)
 
 //Busca elementos em localStorage
 for (key in localStorage) {
@@ -36,7 +35,6 @@ for (key in localStorage) {
         if(key.includes('Chamada')){
             var ch = localStorage.getItem(key)
             chArray.push(ch.split(","))
-            console.log(chArray)
         
             //Insere as infos no html
             var p = document.createElement('p')
