@@ -38,10 +38,10 @@ Time 02- Contato
       <h2 style="font:size 100%;"><%=info.titulo%></h2>
     </div>
     <div class="col-sm-4 alignR">
-      <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
       <% if (info.user) { %>
+        <a id="bemVindo" href="perfilDoUsuario"><%='Bem vindo, ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></a>
         <a class="alignR ml-2" id="sair" href="logout">Sair</a>
-        <% } else { %>
+          <% } else { %>
       <a id="entrar" class="alignR text-right" href="login">Entrar</a>
           <% } %>
     </div>
