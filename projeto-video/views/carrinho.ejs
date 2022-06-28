@@ -111,14 +111,67 @@ Time 02- Carrinho
                   <td  id="preco" data-valor="<%=item.valor%>"> <%=item.valor%> </td>
                 
                   <td>
-                    <button class="btn btn-warning bt-limpa" data-id="<%=item.carrinho_id%>">Excluir</button>
+                    <button class="btn btn-warning"  data-toggle="modal" data-target="#myModal">Excluir</button>
+                    <!-- The Modal -->
+  <div class="modal fade " id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header bg-info">
+          <h4 class="modal-title"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body text-white bg-info">
+         Deseja realmente excluir o filme?
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer bg-info">
+          <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancelar </button>
+          <button type="button" class="btn btn-warning bt-limpa" data-id="<%=item.carrinho_id%>"> Excluir </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
                   </td>
                   </tr>
               <%})%>
     
     </table>
  </div>
- <button class="btn btn-warning bt-carrinho" data-limpa="<%=carrinho.carrinho_id%>" > Limpar carrinho </button>
+ <button class="btn btn-warning " data-toggle="modal" data-target="#runmyModal"  > Limpar carrinho </button>
+
+ <div class="modal fade " id="runmyModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    
+      <!-- Modal Header -->
+      <div class="modal-header bg-info">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      
+      <!-- Modal body -->
+      <div class="modal-body text-white bg-info text-center">
+       A ação apagará todo o seu carrinho.  <br />
+       <p class="w-50">
+        &#9888;
+      </p>
+      </div>
+      
+      <!-- Modal footer -->
+      <div class="modal-footer bg-info">
+        <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancelar </button>
+        <button type="button" class="btn btn-warning bt-carrinho" data-limpa="<%=carrinho.carrinho_id%>"> Prosseguir </button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 </div>
  
