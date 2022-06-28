@@ -10,17 +10,10 @@ function msgUser() {
     entrar.style.display = "none"
     cadastro.style.display = "none"
 }
-function resetUser() {
-    sair.style.display = "none"
-}
-sair.onclick = function () {
-    localStorage.removeItem("emailUser")
 
-    location.href = 'index.html'
 
-}
 
-localStorage.emailUser ? msgUser() : resetUser()
+localStorage.emailUser ? msgUser() : null
 
 //////////////////////////////////////////////////////////////////////
 
