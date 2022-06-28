@@ -14,12 +14,6 @@
     }
 
     //ESCONDE O BOTÃO ENTRAR
-    function resetUser() {
-      sair.style.display = "none"
-    }
-    sair.onclick = function () {
-      localStorage.removeItem("emailUser")
-      location.href = 'index'
-    }
+
     localStorage.emailUser ? msgUser() : resetUser()
     
