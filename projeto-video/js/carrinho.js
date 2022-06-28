@@ -1,3 +1,5 @@
+
+
 //QUANTIDADE DE FILMES E QUANTIDADE DE VAlORES
 
 var soma = [

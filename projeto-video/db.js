@@ -3,8 +3,8 @@ async function conecta(){
     const conn = await mysql.createConnection({
         host: "localhost",
 
-        user: "Ni28",
-        password: "Nikolle6414#@!",
+        user: "v19",
+        password: "Sendokai123$",
         database:"projeto_video"
     })
     console.log("mySQL conectado!")
