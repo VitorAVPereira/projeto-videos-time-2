@@ -7,7 +7,6 @@ async function conecta(){
         password: "Sendokai123$",
         database:"projeto_video"
     })
-    console.log("mySQL conectado!")
     global.connection = conn
     return connection
 }
@@ -40,7 +39,6 @@ async function makeSession(app,opt){
 async function selectFilmes(){
     const conectado = await conecta()
     const [rows] = await conectado.query("SELECT * FROM filmes ORDER BY filmes_id ASC")
-    //console.log(rows)
     return rows
 }
 
@@ -48,7 +46,6 @@ async function selectSingle(id){
     const conectado = await conecta()
     const values = [id]
     const [rows] = await conectado.query("SELECT * FROM filmes where filmes_id=?",values)
-    //console.log(rows)
     return rows
 }
 
@@ -63,20 +60,17 @@ async function insertProduto(filmes) {
 async function updatePromo(promo,id) {
     const conectado = await conecta()
     const values = [promo,id]
-    //console.log(rows)
     return await conectado.query("UPDATE filmes set promo=? where filmes_id=?",values)
 }
 
 async function updatePref(id) {
     const conectado = await conecta()
     const values = [id]
-    //console.log(rows)
     return await conectado.query("UPDATE filmes set pref=1 where filmes_id=?",values)
 }
 
 async function selectPref() {
     const conectado = await conecta()
-    //console.log(rows)
     const [rows] = await conectado.query("SELECT * FROM filmes where pref=1 ORDER BY filmes_id asc")
     return rows
 }
@@ -84,7 +78,6 @@ async function selectPref() {
 async function selectPromo() {
     const conectado = await conecta()
     const [rows] = await conectado.query("SELECT * FROM filmes where promo=1")
-    //console.log(rows)
     return rows
 }
 
@@ -107,7 +100,6 @@ async function insertContato(contato){
     const values = [contato.nome,contato.email,contato.telefone,contato.assunto,contato.comentarios]
     const [rows] = 
     await conectado.query("INSERT INTO contato(nome,email,telefone,assunto,comentarios) VALUES (?,?,?,?,?)",values)  
-    console.log("Insert ok!")
     return rows
 }
 
@@ -144,7 +136,6 @@ async function deleteallCarrinho() {
 async function updateLoginAdm(adm,email) {
     const conectado = await conecta()
     const values = [adm,email]
-    //console.log(rows)
     return await conectado.query("UPDATE usuario set adm=? where usuario_id=?",values)
 }
 
@@ -152,7 +143,6 @@ async function selectLoginAdm(email,senha) {
     const conectado = await conecta()
     const values = [email,senha]
     const [rows] = await conectado.query("SELECT * FROM usuario Where email=? AND senha=? AND adm=1",values)
-    //console.log(rows)
     return rows
 }
 
@@ -166,7 +156,6 @@ async function insertCadastroAdm(usuario) {
 async function selectRelatorioChamada(){
     const conectado = await conecta()
     const [rows] = await conectado.query("SELECT * FROM contato ORDER BY contato_id DESC")
-    //console.log(rows)
     return rows
 }
 
@@ -180,7 +169,6 @@ async function perfilDoUsuario(email){
     const conectado = await conecta()
     const values=[email]
     const [rows] = await conectado.query("SELECT nome,email,telefone,data_inicio,preferencia FROM usuario WHERE email=?",values)
-   // console.log(rows)
     return rows
 }
 

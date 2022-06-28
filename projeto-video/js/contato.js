@@ -1,7 +1,3 @@
-
-
-
-//////////////////////////////////////////////////////////////////////
 //Validação do Formulário de Contato//
 var formC=document.forms.formContato
 document.querySelector('#envia').onclick=function(){
@@ -35,4 +31,3 @@ function HabiDsabi() {
     }
   }
  let ana = document.getElementById('testep')
- console.log(ana)
