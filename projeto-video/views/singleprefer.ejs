@@ -18,7 +18,7 @@ Time 02- Single Preferencia
       <h2 style="font: size 100%;"><%=info.titulo%></h2>
     </div>
     <div class="col-sm-4 alignR">
-      <a id="bemVindo" href="perfilDoUsuario"><%=info.user%></a>
+      <a id="bemVindo" href="perfilDoUsuario"><%='Bem vindo, ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></a>
       <% if (info.user) { %>
         <a class="alignR ml-2" id="sair" href="index">Sair</a>
         <% } else { %>
