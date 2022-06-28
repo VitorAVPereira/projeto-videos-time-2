@@ -33,6 +33,9 @@ const options ={
    }  
 }
 
+await db.makeSession(app,options,session)
+
+
 function checkFirst(req, res, next) {
    if (!req.session.userInfo) {
      res.redirect('/promocao');
@@ -49,7 +52,6 @@ function checkAuth(req, res, next) {
    }
  }
 
-await db.makeSession(app,options,session)
 
 
 var userInfo=''
@@ -103,8 +105,6 @@ app.get("/",checkFirst,async(req, res) => {
 
 app.get("/index",checkFirst,async(req, res) => {
    const selectPref = await db.selectPref()
-   res.setHeader("Set-Cookie","type=test")
-   res.setHeader("year", new Date().getFullYear())
    res.render(`index`,{
       titulo:"Alugue seu filme favorito!",
       filmes:consulta,
