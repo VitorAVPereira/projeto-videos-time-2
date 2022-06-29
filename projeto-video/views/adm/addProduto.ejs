@@ -1,27 +1,60 @@
-<%- include("header.ejs") %>
-    <%- include("nav.ejs") %>
+<!DOCTYPE html>
 
-        <header>
-            <div class="row">
-            <div class="col-sm-4">
-                <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
-            </div>
+<head>
+  <title>Primeira Sessão - Área do Administrador</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../imagens/ps.png" />
+  
+</head>
+
+<header>
+    <div class="row">
+    <div class="col-sm-4">
+        <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
+    </div>
+    <br />
+    <div class="text-center col-sm-4 p-5 mb-2">
+        <h2>Área do Administrador</h2>
+    </div>
+    <div class="col-sm-4 alignR">
+      <%if (info.user) { %>
+        
+        <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
+        
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
+        <% } else { %>
+        <a id="entrar" class="alignR text-right" href="loginAdm">Entrar</a>
+        <% } %>
+    </div>
+</header>
+
+<body class="text-primary">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        <a class="navbar-brand" href="#">Acesse</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href='indexAdm'>Página Inicial</a>
+            </li>
+    
+            <li class="nav-item">
+              <a class="nav-link" href='cadastroProduto'> Cadastrar Produtos</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href='cadastroAdm'>Cadastro de Usuário</a>
+            </li>
+    
+          </ul>
+        </div>
+      </nav>
+
+        <form class="container" action="" method="POST">
             <br />
-            <div class="text-center col-sm-4 p-5 mb-2">
-                <h2>Área do Administrador</h2>
-            </div>
-            <div class="col-sm-3">
-                <span id="bemVindo">Adm: <%=info.user%></span>
-                <%if (info.user) { %>
-                
-                <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
-                <% } else { %>
-                <a id="entrar" href="loginAdm">Entrar</a>
-                <% } %>
-            </div>
-        </header>
-
-        <form action="" method="POST">
             <div class="form-group">
                 <label for="cad_nome">Nome</label>
                 <input type="text" class="form-control col-lg-9" id="cad_titulo" placeholder="Insira o titulo aqui"
@@ -59,4 +92,6 @@
             <button type="submit" class="btn btn-primary">Confirmar</button>
         </form>
 
-        <%- include("footer.ejs") %>
+        <footer class="bg-primary p-4 text-white text-center mt-4">
+            <p> &copy;2022 - Todos os direitos reservados. </p>
+          </footer>
