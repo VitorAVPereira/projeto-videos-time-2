@@ -22,40 +22,7 @@ Time 02- Index Admin
     height: 400px;
    
   } 
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
 
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
 </style>
 <body class="text-primary">
 <!-- ========= FIM HEADER ============= -->
@@ -110,8 +77,7 @@ Time 02- Index Admin
               </ul>
       </div>
   
-        
-  
+         
     </nav>
 
 <!-- =============== FIM DO MENU =============== -->
@@ -122,26 +88,36 @@ Time 02- Index Admin
  <section id="2" name="relatorios">
       <div class="container text-center">
         <div class="row">
-          <div class="col-sm-3 mr-4" style="background-color:grey;color:white;padding:20px; border-radius: 10%;">
+          <div class="col-sm-3 mr-4" style="background-color:rgb(155, 154, 154);color:white;padding:20px; border-radius: 10%;">
             <a  href='relatorio-produto'><h1>Relatório de Produtos</h1></a>
             <p>Acesse e edite produtos do site</p>
             
           </div>
          
-          <div class="col-sm-3 mr-4" style="background-color:grey;color:white;padding:20px; border-radius: 10%;">
+          <div class="col-sm-3 mr-4" style="background-color:rgb(155, 154, 154);color:white;padding:20px; border-radius: 10%;">
              <a  href='relatorio-chamada'><h1>Relatório de Chamadas</h1></a>
             <p>Controle das chamadas de usuário/clientes</p>
           </div>
 
-          <div class="col-sm-3 mr-4" style="background-color:grey;color:white;padding:20px; border-radius: 10%;">
+          <div class="col-sm-3 mr-4 text-white" style="background-color:rgb(155, 154, 154);color:white;padding:20px; border-radius: 10%;">
             <a  href='relatorio-usuario'><h1>Relatório de usuários</h1></a>
             <p>Lista de cadastrados no site</p>
+            
             
           </div>
         </div>
       </div>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </section>
+   
 <!-- =============== Fim do Conteúdo ================== -->
 <!-- =============== FOOTER ================== -->
     <footer class="bg-primary p-4 text-white text-center mt-4">
@@ -152,144 +128,5 @@ Time 02- Index Admin
 </body>
 <script src="../jsAdm/indexAdm.js"></script>
 
-<script>
-  function openCity(evt, cityName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace("active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
-
-//BOTÃO EDITAR PRODUTO
-
-  $().ready(function(){
-  
-  $('.bt-edit').click(function (){
-  
-  let dataid = $(this).attr('data-id')
-   
-          $.post("./atualiza_produtos",
-          {
-              id:dataid,
-          },
-          function(data,status)
-          {
-            location.href='./atualiza_produtos'
-          })
-      })
-  })  
-
-</script>
-
 </html>
-<!-- Tab links
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">Relatório de Produtos</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Relatório de Chamadas</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">...</button>
-</div>
 
-<!-- Tab content 
-<div id="London" class="tabcontent">
-  <h3>Produtos</h3>
-  
-      <% filmes.forEach((item)=> { %>
-      <table class="table" cellspacing="0">
-        <thead>
-          
-          <tr>
-            <th class="mr-3">Filme</th>
-            <th class="mr-3">Gênero</th>
-            <th class="mr-3">Ano</th>
-            <th class="mr-3">Sinopse</th>
-            <th class="mr-3">Imagem</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="mr-3"><b></b><%=item.titulo%></td>
-            <td class="mr-3"><p></p><%=item.genero%></td>
-            <td class="mr-3"><p></p><%=item.ano%></td>
-            <td class="mr-3"><p></p><%=item.sinopse%></td>
-            <td class="mr-3"><p></p><img class="imgMenor" src="../imagens/<%=item.imagens%>" /> </td>
-            <td>
-              <div>
-                <button data-id="<%=item.filmes_id%>" class="btn btn-primary bt-edit">Editar</button>
-              </div>
-            </td>
-          </tr>
-
-        </tbody>
-      </table>
-      <% }) %>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-
-  <% filmes.forEach((item)=> { %>
-    <table class="table" cellspacing="0">
-      <thead>
-        
-        <tr>
-          <th class="mr-3">Filme</th>
-          <th class="mr-3">Gênero</th>
-          <th class="mr-3">Ano</th>
-          <th class="mr-3">Sinopse</th>
-          <th class="mr-3">Imagem</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="mr-3"><b></b><%=item.titulo%></td>
-          <td class="mr-3"><p></p><%=item.genero%></td>
-          <td class="mr-3"><p></p><%=item.ano%></td>
-          <td class="mr-3"><p></p><%=item.sinopse%></td>
-          <td class="mr-3"><p></p><img class="imgMenor" src="../imagens/<%=item.imagens%>" /> </td>
-          <td>
-            <div>
-              <button data-id="<%=item.filmes_id%>" class="btn btn-primary bt-edit">Editar</button>
-            </div>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
-    <% }) %>
-
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>-->
