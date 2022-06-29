@@ -198,7 +198,16 @@ app.get("/perfilDoUsuario",checkAuth,async(req, res) => {
    let q = urlProp.query
    const perfil = await db.perfilDoUsuario( req.app.locals.info.user)
    res.render(`perfilDoUsuario`,{
-      user:perfil
+   user:perfil
+   })
+   
+})
+
+app.get("/relatorio-usuario",async(req, res) => {
+    
+   const perfil = await db.relatorioDoUsuario()
+   res.render(`adm/relatorio-usuario`,{
+   user: perfil
    })
    
 })
@@ -272,6 +281,33 @@ app.get("/relatorio-produto", async (req, res) => {
  
    })
 })
+
+
+
+
+//teste tab panel na indexAdm
+
+app.get("/indexAdm", async (req, res) => {
+   const selectFilmes = await db.selectFilmes() 
+   res.render(`adm/indexAdm`,{
+   titulo:"Alugue seu filme favorito!",
+   filmes: selectFilmes,
+ 
+   })
+})
+
+
+app.get("/indexAdm",async (req, res) => {
+   const consultaChamada = await db.selectRelatorioChamada()
+      res.render(`adm/indexAdm`,{
+      chamada: consultaChamada,
+   })
+   })
+
+//teste tab panel na indexAdm
+
+
+
 
 app.get("/atualiza_produtos",async(req, res) => {
    const produto = await db.selectSingle(req.app.locals.idProd)  
@@ -395,6 +431,8 @@ app.get("/single",async(req, res) => {
       chamada:consultaChamada
    })
    })
+
+   
   
   
 // app.get("/singleproduto",async(req,res)=>{

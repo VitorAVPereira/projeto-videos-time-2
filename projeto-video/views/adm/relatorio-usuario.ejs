@@ -10,7 +10,7 @@ Time 02- Relatorio
 <html>
 
 <head>
-  <title>Relatório de Produtos</title>
+  <title>Relatório de Usuários«</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
  
@@ -54,28 +54,25 @@ Time 02- Relatorio
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
 
-<header>
-  <div class="row">
-  <div class="col-sm-4">
-      <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
-  </div>
-  <br />
-
-  <div class="text-center col-sm-4 p-5 mb-2">
-    <h2>Área do Administrador</h2>
-  </div>
-
-  <div class="col-sm-4 alignR">
-    <%if (info.user) { %>
-      
-      <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
-      
-      <a class="ml-4" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
-      <% } else { %>
-      <a id="entrar" class="alignR text-right" href="loginAdm">Entrar</a>
-      <% } %>
-  </div>
-</header>
+  <header class="text-center">
+    <div class=row>
+      <div class="col-sm-4 text-left">
+        <a target="" href="../html/index">
+          <img src="../imagens/ps.png" width="250"></a>
+      </div>
+      <div class="text-center col-sm-4 p-5 mb-2">
+        <br />
+        <br />
+        <br />
+        <h2>Onde você acessa estréias primeiro</h2>
+      </div>
+      <div class="col-sm-3">
+        <span id="bemVindo"></span>
+        <a id="entrar" href="loginAdm">Entrar</a>
+        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
+      </div>
+    </div>
+  </header>
   <section>
 
   </section>
@@ -88,15 +85,15 @@ Time 02- Relatorio
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href='indexAdm'>Página Inicial</a>
+          <a class="nav-link text-white"" href='indexAdm'>Home</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href='cadastroProduto'> Cadastrar Produtos</a>
+          <a class="nav-link text-white"" href='cadastroProduto'> Cadastrar Produtos</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href='cadastroAdm'>Cadastro de Usuário</a>
+          <a class="nav-link text-white"" href='cadastroAdm'>Cadastrar Usuários</a>
         </li>
 
       </ul>
@@ -113,37 +110,38 @@ Time 02- Relatorio
     <div class="container">
       <div class="row">
         <div class="col-md-8" class="row">
-         
-            <div class="row"><h1>Relatório de Produtos</h1>        
-
+          <nav>
+            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true"><b class="p text-primary">Relatório de Usuários</b></a>
+              
             </div>
-        <!--Conteúdo do relatório produto-->
+          </nav>
+          <!--Conteúdo-->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-              <% filmes.forEach((item)=> { %>
+
+              <% user.forEach((item)=> { %>
               <table class="table" cellspacing="0">
                 <thead>
                   
                   <tr>
-                    <th class="mr-3">Filme</th>
-                    <th class="mr-3">Gênero</th>
-                    <th class="mr-3">Ano</th>
-                    <th class="mr-3">Sinopse</th>
-                    <th class="mr-3">Imagem</th>
+                    <th class="mr-3">Nome</th>
+                    <th class="mr-3">Telefone</th>
+                    <th class="mr-3">Data de cadastro</th>
+                    <th class="mr-3">Preferências</th>
+                   
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td class="mr-3"><b></b><%=item.titulo%></td>
-                    <td class="mr-3"><p></p><%=item.genero%></td>
-                    <td class="mr-3"><p></p><%=item.ano%></td>
-                    <td class="mr-3"><p></p><%=item.sinopse.substring(0, 90)%></td>
-                    <td class="mr-3"><p></p><img class="imgMenor" src="../imagens/<%=item.imagens%>" /> </td>
-                    <td>
-                      <div>
-                        <button data-id="<%=item.filmes_id%>" class="btn btn-primary bt-edit">Editar</button>
-                      </div>
+                    <td class="mr-3"><b></b><%=item.nome%></td>
+                    <td class="mr-3"><p></p><%=item.telefone%></td>
+                    <td class="mr-3"><p></p><%=item.data_inicio%></td>
+                    <td class="mr-3"><p></p><%=item.preferencia%></td>
+                    
+                    
                     </td>
                   </tr>
 
@@ -155,9 +153,10 @@ Time 02- Relatorio
       </div>
 
     </div>
+      
+    <div class="container " class="col-sm-3"> Voltar</div>
 
   </section>
-
 
 
 
@@ -173,33 +172,10 @@ Time 02- Relatorio
   </div>
   </div>
   </article>
-
-
-
-    </div>
-  </section>
   
   </br>
   <hr>
 <!-- =============== Fim do Conteúdo ================== -->
-<script>
-  $().ready(function(){
-  
-  $('.bt-edit').click(function (){
-  
-  let dataid = $(this).attr('data-id')
-   
-          $.post("./atualiza_produtos",
-          {
-              id:dataid,
-          },
-          function(data,status)
-          {
-            location.href='./atualiza_produtos'
-          })
-      })
-  })  
-  </script>
 
 <!-- =============== FOOTER ================== -->
   <footer class="bg-primary text-white p-4 text-center mt-4">
@@ -212,8 +188,4 @@ Time 02- Relatorio
 src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 crossorigin="anonymous"
-></script>
-
-<script src="../jsAdm/relatorio-chamada.js"></script>
-
-</html>
+>

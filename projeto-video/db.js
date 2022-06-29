@@ -3,8 +3,8 @@ async function conecta(){
     const conn = await mysql.createConnection({
         host: "localhost",
 
-        user: "almarim",
-        password: "Erica123!@#$",
+        user: "root",
+        password: "Mah123$#@!",
         database:"projeto_video"
     })
     global.connection = conn
@@ -172,6 +172,14 @@ async function perfilDoUsuario(email){
     return rows
 }
 
+async function relatorioDoUsuario(){
+    
+    const conectado = await conecta()
+    const values=[]
+    const [rows] = await conectado.query("SELECT * FROM usuario",values)
+    return rows
+}
+
 
 module.exports = {
     selectFilmes,
@@ -194,5 +202,8 @@ module.exports = {
     makeSession,
     selectRelatorioChamada,
     deleteallCarrinho,
-    perfilDoUsuario
+    perfilDoUsuario,
+    relatorioDoUsuario
+    
 }
+
