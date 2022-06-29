@@ -20,6 +20,8 @@ document.querySelector("#btContato").onclick=function(){
         alert ("Preencha com seu E-mail!")
     }else if (formC.telefoneContato.value == ""){
         alert ("Preencha com seu telefone!")
+    }else if (formC.preferenciaContato.value == ""){
+        alert ("Escolha uma Preferễncia!")
     }else if (formC.senha.value == ""){
         alert ("Crie sua senha!")
     }else if (formC.senhaC.value == ""){
@@ -32,6 +34,7 @@ document.querySelector("#btContato").onclick=function(){
         localStorage.nomeUser=formC.nomeContato.value
         localStorage.emailUser=formC.emailContato.value
         localStorage.telefoneUser=formC.telefoneContato.value
+        localStorage.preferenciaUser=formC.preferenciaContato.value
     //  localStorage.senhaUser=formC.senha.value
     }
     }
