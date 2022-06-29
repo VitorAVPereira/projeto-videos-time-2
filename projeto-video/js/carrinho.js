@@ -1,131 +1,169 @@
 
+let ShoppingCart = document.getElementById("tabela")
+let label = document.getElementById("label")
+let tabela = document.getElementById("tabela")
 
-//QUANTIDADE DE FILMES E QUANTIDADE DE VAlORES
+let cesta = JSON.parse(localStorage.getItem("data")) || []
 
-var soma = [
-    [1, 25],
-    [1, 25],
-    [1, 25]
-]
-
-
-//Objetos 
-//Calculo do incremento de telas
-
-let select = document.querySelector("#telas")
-let select1 = document.querySelector("#telas_1")
-let select2 = document.querySelector("#telas_2")
-let preco=document.querySelector("#preco")
-let preco1=document.querySelector("#preco1")
-let preco2=document.querySelector("#preco2")
-let Total=document.querySelector("#total")
-let Total2=document.querySelector("#total2")
-let btCalcular=document.querySelector("#btCalculoT")
-
-var incremento
-var incremento1
-var incremento2
-var calculo
-
-let carrinho = {
-    Telas: 'Quantidade de Telas ',
-    multiplicarTelas:function(valor){
-        incremento = (soma[0][1] * valor).toFixed(2)
-        parseInt.incremento
-        preco.innerHTML= 'R$ ' + incremento
-    },
-    multiplicarTelas1:function(valor){
-        incremento1 = (soma[1][1] * valor).toFixed(2)
-        preco1.innerHTML= 'R$ ' + incremento1 
-    },
-    multiplicarTelas2:function(valor){
-        incremento2 = (soma[2][1] * valor).toFixed(2)
-        preco2.innerHTML= 'R$ ' + incremento2
-       
-    },
-    somaTotal:function(){
-        let inc = Number(incremento)
-        let inc1 = Number(incremento1)
-        let inc2 = Number(incremento2)
-        calculo =  inc + inc1 + inc2
-
-        Total.innerHTML=`R$ ${(calculo).toFixed(2)}`
-        Total2.innerHTML=`R$ ${(calculo).toFixed(2)}`
-    }
+let calculation = () => {
+  let cartIcon = document.getElementById("cartAmount")
+  cartIcon.innerHTML = cesta.map((x) => x.item).reduce((x, y) => x + y, 0)
 }
 
+calculation()
 
 
-function exibirCategoria(){
+let gerarItensCarrinho = () => {
+  if (cesta.length !== 0) {
+    return (ShoppingCart.innerHTML = cesta
+      .map((x) => {
+        let { id, item } = x
+        let search = dadosTeste.find((x) => x.id === id) || []
+        let { img, preco, nome , ano} = search
+        return `
+
+        <tr>
+        <td id="produto">
+        <img width="100" src=${img} alt=""  />
+        <p>${nome}</p>
+        <p>${ano}</p>
+        </td>
+        <td>
+        <div class="cart-buttons">
+        <div class="buttons">
+          <i onclick="decremento(${id})" class="bi bi-dash-lg"></i>
+          <div id=${id} class="quantity">${item}</div>
+          <i onclick="incremento(${id})" class="bi bi-plus-lg"></i>
+        </div>
+        </div>
+        </td>
+        <td>
+          <div class="text-primary">
+            <var id="preco">R$ ${item * preco}</var>
+          </div>
+        </td>
+        <td>
+          <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary"> </input>
+        </td>
+      </tr>
+
+      `
+      })
+      .join(""))
+  } else {
+    ShoppingCart.innerHTML = ""
+    label.innerHTML = `
+    <h2>Carrinho Vazio</h2>
+    <a href="index.html">
+      <button class="btn btn-primary">Volte ao inicio</button>
+    </a>
+    `
+  }
+}
+
+gerarItensCarrinho()
+
+let incremento = (id) => {
+  let selectedItem = id
+  let search = cesta.find((x) => x.id === selectedItem.id)
+
+  if (search === undefined) {
+    cesta.push({
+      id: selectedItem.id,
+      item: 1,
+    })
+  } else {
+    search.item += 1
+  }
+
+  gerarItensCarrinho()
+  atualizar(selectedItem.id)
+  localStorage.setItem("data", JSON.stringify(cesta))
+}
+
+let decremento = (id) => {
+  let selectedItem = id
+  let search = cesta.find((x) => x.id === selectedItem.id)
+
+  if (search === undefined) return
+  else if (search.item === 0) return
+  else {
+    search.item -= 1
+  }
+
+  atualizar(selectedItem.id)
+  cesta = cesta.filter((x) => x.item !== 0)
+  gerarItensCarrinho()
+  localStorage.setItem("data", JSON.stringify(cesta))
+}
+
+let atualizar = (id) => {
+  let search = cesta.find((x) => x.id === id)
+  document.getElementById(id).innerHTML = search.item
+  calculation()
+  valorTotal()
+}
+
+let removeItem = (id) => {
+  let selectedItem = id
+  cesta = cesta.filter((x) => x.id !== selectedItem.id)
+  calculation()
+  gerarItensCarrinho()
+  valorTotal()
+  localStorage.setItem("data", JSON.stringify(cesta))
+}
+
+var amount
+
+let valorTotal = () => {
+  if (cesta.length !== 0) {
     
-    switch(select.selectedIndex){
-        case 0: carrinho.multiplicarTelas(0)
-        break
-        case 1 : carrinho.multiplicarTelas(1.00)
-        break
-        case 2 : carrinho.multiplicarTelas(1.07)
-        break
-        case 3 : carrinho.multiplicarTelas(1.14)
-        break
-        case 4 : carrinho.multiplicarTelas(1.21)
-        break
-        case 5 : carrinho.multiplicarTelas(1.28)
-        break
-    }
-    switch(select1.selectedIndex){
-        case 0: carrinho.multiplicarTelas1(0)
-        break
-        case 1 : carrinho.multiplicarTelas1(1.00)
-        break
-        case 2 : carrinho.multiplicarTelas1(1.07)
-        break
-        case 3 : carrinho.multiplicarTelas1(1.14)
-        break
-        case 4 : carrinho.multiplicarTelas1(1.21)
-        break
-        case 5 : carrinho.multiplicarTelas1(1.28)
-        break
-    }
-    switch(select2.selectedIndex){
-        case 0: carrinho.multiplicarTelas2(0)
-        break
-        case 1 : carrinho.multiplicarTelas2(1.00)
-        break
-        case 2 : carrinho.multiplicarTelas2(1.07)
-        break
-        case 3 : carrinho.multiplicarTelas2(1.14)
-        break
-        case 4 : carrinho.multiplicarTelas2(1.21)
-        break
-        case 5 : carrinho.multiplicarTelas2(1.28)
-        break
-    }
+    amount = cesta
+      .map((x) => {
+        let { id, item } = x
+        let filterData = dadosTeste.find((x) => x.id === id)
+        return filterData.preco * item
+      })
+      .reduce((x, y) => x + y, 0)
+      console.log(cesta)
+    return (total.innerHTML = `
+    <tr  class="text-uppercase">
+    <td id="total2">Total: R$ ${amount}</td>
+    </tr>
+    `)
+  } else return
 }
-select.addEventListener('change', exibirCategoria)
-select1.addEventListener('change', exibirCategoria)
-select2.addEventListener('change', exibirCategoria)
-btCalcular.addEventListener('click',carrinho.somaTotal)
 
+valorTotal()
 
-//Fim do objeto
+let limparCarrinho = () => {
+  cesta = []
+  gerarItensCarrinho()
+  calculation()
+  localStorage.setItem("data", JSON.stringify(cesta))
+}
 
-
-let code =["20j4","4i56"] ;
+let code =[123,456] ;
 function validate(coupon) { 
    // let code =[123,456] ;
-  
-  
- 
-   
+     
    if (code[0]==coupon) 
     { 
     window.alert("Código de cupom aceito! Clique no botão comprar!"); 
-    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.10)).toFixed(2)
+    document.querySelector("#total3").innerHTML=`    
+    <tr  class="text-uppercase">
+    <td id="total2">Valor final: R$ ${(amount -(amount*0.10))}</td>
+    </tr> 
+    `
     } 
      else if (code[1]==coupon) 
     { 
     window.alert("Código de cupom aceito! Clique no botão comprar"); 
-    document.querySelector("#total3").innerHTML= (calculo -(calculo*0.20)).toFixed(2)
+    document.querySelector("#total3").innerHTML=`    
+    <tr  class="text-uppercase">
+    <td id="total2">Valor final: R$ ${(amount -(amount*0.20))}</td>
+    </tr> 
+    `
     } 
    else 
     { 
@@ -184,4 +222,3 @@ function removeTable(exTabela) {
           null
        }
     }
- 
