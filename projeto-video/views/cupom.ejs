@@ -1,0 +1,52 @@
+<!--
+Projeto Videos Online
+Parte do curso Javascript Programmer
+Time 02- Login
+-->
+<!-- ============= HEADER ================ -->
+<%- include('header.ejs')%>
+<!-- ========= FIM HEADER ============= -->
+<!-- ======= MENU DO PROJETO ======== -->
+      <style>
+        .img {
+          
+          border-radius: 4px;
+          padding: 5px;
+          width: 300px;
+          height: 495px;
+         
+        } 
+        .body {
+          font-weight: bold;
+        }
+        .p {
+          font-size: 50px;
+        }
+        .alignR{
+          text-align: right;
+          cursor:pointer;text-decoration:underline
+        }
+      </style>
+        <header class="text-left mb-3">
+            <a target="" href="./index">
+            <img class="text-left" src="../imagens/primeirasessão.png" width="250"/></a>
+            <h2 class="text-center p">Bem-vindo à Primeira Sessão! </h2>
+        </header>
+        <br />
+            
+        <%- include('nav.ejs')%>
+<!-- =============== FIM DO MENU =============== -->
+<!-- =============== Conteúdo ================== -->
+            <section class="container"><h2>Vamos aproveitar mais desconto?</h2> <div class= "row">
+                <a href="carrinho" ><img src="../imagens/1.jpg" class="img col-sm-8"/></a>
+                <a href="carrinho" ><img src="../imagens/Black Yellow Father's Day.jpg" class="img col-sm-8 "/></a>
+              <h3>Escolhe um codigo de desconto</h3>
+            </div>
+        </section>
+<!-- =============== Fim do Conteúdo ================== -->
+<!-- =============== FOOTER ================== -->
+<%- include('footer.ejs')%>
+<!-- =============== Fim FOOTER ================== -->
+      </body>
+        <script src="../js/login.js"></script>
+</html>
