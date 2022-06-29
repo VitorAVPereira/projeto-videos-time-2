@@ -101,24 +101,23 @@ Time 02- Index
         <div class="row mt flexS flexEnd">
           <% filmes.forEach((item)=> { %>
             <div class="col-md-4">
-              <a data-toggle="modal" data-target="#runModal<%=item.filmes_id %>" href="/single?id=<%=item.filmes_id%>">
               <div class="row">
-                <h4 class="col-sm-12 mt-5 mb-2 body"><%=item.titulo%></h4>
+                <h4 class="col-sm-12 mt-5 mb-2 body "><%=item.titulo%></h4>
               </div>
               <div class="row">
-                <img class="col-sm-12 img" src="../imagens/<%=item.imagens%>">
+                <img class="col-sm-12 img imgFilme" data-generoModal="<%=item.genero%>" data-anoModal="<%=item.ano%>" data-classificacaoModal="<%=item.classificacao%>" data-tituloModal="<%=item.titulo%>" data-diretorModal="<%=item.diretor%>" data-valorModal="<%=item.valor%>" data-imgModal="../imagens/<%=item.imagens%>" data-video="<%=item.trailer%>" src="../imagens/<%=item.imagens%>">
               </div>
-              
-            
+            </div>
+            <% }) %>
 
 
               <!-- Modal -->
-              <div class="modal fade" id="runModal<%=item.filmes_id %>" tabindex="-1" role="dialog" aria-labelledby="runModalLabel" aria-hidden="true">
+              <div class="modal fade" id="modalFilme" tabindex="-1" role="dialog" aria-labelledby="runModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl" role="document">
                   <div class="modal-content animate-zoom">
 
                     <div class="modal-header">
-                      <h5 class="modal-title body text-white" id="runModalLabel"><%=item.titulo%></h5>
+                      <h5 class="modal-title body text-white" id="runModalLabel">xx</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -126,25 +125,38 @@ Time 02- Index
 
                     <div class="modal-body container">
                       <div class="row">
-                        <img class="imgMenor " src="../imagens/<%=item.imagens%>" />
+                        <img class="imgMenor" src="" />
                         <div class="col text-white body pModal">
-                          
-                        Gênero: <%=item.genero%><br />
-                        Ano: <%=item.ano%><br />
-                        Diretor: <%=item.diretor%><br />
-                        Classificação: <%=item.classificacao%>
-                          
+
+                          <p id="p1"></p>
+                 
+                          <p id="p2">
+                          </p>
+
+
+                          <p id="p3">
+                          </p>
+
+
+                          <p id="p4">
+                          </p>
+                      
+                          <!-- Gênero: xx<br />
+                        Ano: xx<br />
+                        Diretor: xx<br />
+                        Classificação: xx
+                           -->
                         </div>
                       </div>
                       <div class="row">
-                       <h1 class="text-white body mt-3 ml-2">R$ <%=item.valor%></h1> 
+                       <h1 class="text-white body mt-3 ml-2"></h1> 
                       </div>
                       <div class="row">
                         <div class="col-sm-12">
                           <hr />
-                         <iframe width="1090" height="550" src="<%=item.trailer%>" id="fml" title="YouTube video player"
+                         <iframe width="1090" height="550" src="https://www.youtube.com/embed/3p1d_6_ocEE" id="fml" title="YouTube video player"
                          frameborder="0"
-                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                         allow="autoplay; picture-in-picture"
                          allowfullscreen></iframe>
                         </div>
                       </div>
@@ -152,16 +164,12 @@ Time 02- Index
 
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                      <button type="buttom" data-id="<%=item.filmes_id%>" data-titulo="<%=item.titulo%>" data-ano="<%=item.ano%>" data-valor="<%=item.valor%>"  class="btn btn-primary bt-produto">Adicionar ao carrinho</button>
+                      <button type="button" data-id="" data-titulo="" data-ano="" data-valor=""  class="btn btn-primary bt-produto">Adicionar ao carrinho</button>
                     </div>
                   </div>
                 </div>
               </div>
 <!-- =========================  modal ========================= -->
-              
-            </div>
-          </a>
-            <% }) %>
         </div>
       </div>
   <hr />
@@ -198,6 +206,23 @@ Time 02- Index
 <script>
 $().ready(function(){
   console.log("jquery funfando...")
+
+  $('.imgFilme').click(function(){
+    $('#modalFilme iframe').attr('src',$(this).attr('data-video'))
+    $('#modalFilme img').attr('src',$(this).attr('data-imgModal'))
+    $('#modalFilme h5').html($(this).attr('data-tituloModal'))
+    $('#p1').html(`Gênero: ${$(this).attr('data-generoModal')}`)
+    $('#p2').html(`Ano: ${$(this).attr('data-anoModal')}`)
+    $('#p3').html(`Direção: ${$(this).attr('data-diretorModal')}`)
+    $('#p4').html(`Classificação: ${$(this).attr('data-classificacaoModal')}`)
+    $('#modalFilme h1').html(`R$ ${$(this).attr('data-valorModal')}`)
+
+
+    $(this).attr('data-video')
+  $("#modalFilme").modal('show');
+
+  })
+
   $('.bt-produto').click(function(){
       let dataid = $(this).attr("data-id")
       let dataTitulo = $(this).attr("data-titulo")

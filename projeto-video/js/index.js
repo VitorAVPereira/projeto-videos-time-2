@@ -16,33 +16,33 @@ let conteudo = [
     ["../imagens/estranho.jpg", "Doutor Estranho"]
 ]
 
-n = 0
+// n = 0
 
-for(var i=0;i<9;i++){
-    var bt = document.querySelector("#img"+i)
-    bt.index=i
-    bt.onclick=function(){       
+// for(var i=0;i<9;i++){
+//     var bt = document.querySelector("#img"+i)
+//     bt.index=i
+//     bt.onclick=function(){       
        
         
-        pref=(this.index + "," +conteudo[this.index][0] + "," + conteudo[this.index][1]).split(',')
-        imgArray.push(pref)
-        localStorage.setItem('img'+this.index,pref)
-        leitura()
-        }
-    }
+//         pref=(this.index + "," +conteudo[this.index][0] + "," + conteudo[this.index][1]).split(',')
+//         imgArray.push(pref)
+//         localStorage.setItem('img'+this.index,pref)
+//         leitura()
+//         }
+//     }
 
-    function leitura(){
-    document.querySelector("#a").innerHTML=""
-    for(var i=0;i<10;i++){
-        if (localStorage.getItem('img'+i)){
-            var result = localStorage.getItem('img'+i).split(',')
-            console.log(result)
+//     function leitura(){
+//     document.querySelector("#a").innerHTML=""
+//     for(var i=0;i<10;i++){
+//         if (localStorage.getItem('img'+i)){
+//             var result = localStorage.getItem('img'+i).split(',')
+//             console.log(result)
             
-            document.querySelector("#a").innerHTML += `<img id="imagem0" class="imgMenor" src="${result[1]}" />`
+//             document.querySelector("#a").innerHTML += `<img id="imagem0" class="imgMenor" src="${result[1]}" />`
 
-        }
-    }
-    }
+//         }
+//     }
+//     }
     
-    leitura()
+//     leitura()
 
