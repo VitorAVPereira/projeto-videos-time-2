@@ -5,6 +5,7 @@ async function conecta(){
 
         user: "root",
         password: "Mah123$#@!",
+
         database:"projeto_video"
     })
     global.connection = conn
