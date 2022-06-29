@@ -100,6 +100,17 @@
           <input class="form-control" name="telefoneContato" id="telefoneContato" maxlength="13" type="number">
         </div>
         <div class="form-group">
+          <label>Gênero Preferido : </label>
+          <select class="form-control" name="preferenciaContato" id="preferenciaContato" maxlength="50" required>
+              <option></option>
+              <option>Comédia</option>
+              <option>Ação</option>
+              <option>Drama</option>
+              <option>Ficção</option>
+              <option>Aventura</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Senha : </label>
           <input class="form-control" name="senha" id="senha" type="password" maxlength="15">
         </div>
@@ -123,6 +134,32 @@
 
 
   <script src="../js/cadastro.js"></script>
+  <script>
+    //IDENTIFICAÇÃO DO USUÁRIO 
+    let user = localStorage.emailUser
+    let bemVindo = document.querySelector("#bemVindo")
+    let entrar = document.querySelector("#entrar")
+    let sair = document.querySelector("#sair")
+    let cadastro = document.querySelector("#cadastro")
+    
+    //SAUDAÇÃO
+    function msgUser() {
+        let nomeUser = user.substring(0, user.indexOf('@'))
+        bemVindo.innerHTML = 'Olá <b>' + nomeUser + '<b/>'
+        entrar.style.display = "none"
+        cadastro.style.display = "none"
+    }
+    
+    //ESCONDE O BOTÃO ENTRAR
+    function resetUser() {
+        sair.style.display = "none"
+    }
+    sair.onclick = function () {
+        localStorage.removeItem("emailUser")
+        location.href = 'index.html'
+    }
+    localStorage.emailUser ? msgUser() : resetUser()
+    </script>
 </body>
 
 </html>

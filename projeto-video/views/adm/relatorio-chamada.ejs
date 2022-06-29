@@ -9,14 +9,13 @@ Time 02- Relatorio Chamada
 
 <head>
   <title>Relatorio</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
- 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <head>
+    <title>Primeira Sessão - Área do Administrador</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../imagens/ps.png" />
+    
+  </head>
 
 </head>
 <style>
@@ -26,29 +25,32 @@ Time 02- Relatorio Chamada
 
 </style>
 
-<body class="text-primary">
+
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
 
-  <header class="text-center">
-    <div class=row>
-      <div class="col-sm-4 text-left">
-        <a target="" href="../html/index">
-          <img src="../imagens/ps.png" width="250"></a>
-      </div>
-      <div class="col-sm-5">
-        <h2 style="font: size 100%;">Onde você acessa antes de Todos!</h2>
-      </div>
-      <div class="col-sm-3">
-        <span id="bemVindo"></span>
-        <a id="entrar" href="loginAdm">Entrar</a>
-        <a class="ml-5" style="cursor:pointer;text-decoration:underline" id="sair">Sair</a>
-      </div>
-    </div>
-  </header>
-  <section>
+<header>
+  <div class="row">
+  <div class="col-sm-4">
+      <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
+  </div>
+  <br />
 
-  </section>
+  <div class="text-center col-sm-4 p-5 mb-2">
+    <h2>Área do Administrador</h2>
+  </div>
+
+  <div class="col-sm-4 alignR">
+    <%if (info.user) { %>
+      
+      <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
+      
+      <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
+      <% } else { %>
+      <a id="entrar" class="alignR text-right" href="loginAdm">Entrar</a>
+      <% } %>
+  </div>
+</header>
  
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="#">Acesse</a>
@@ -72,6 +74,7 @@ Time 02- Relatorio Chamada
       </ul>
     </div>
   </nav>
+  <body class="text-primary"></body>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
   <div>
@@ -199,6 +202,6 @@ Time 02- Relatorio Chamada
   </section>
 </body>
 
-<script src="../jsAdm/relatorio-chamada.js"></script>
+<!-- <script src="../jsAdm/relatorio-chamada.js"></script> -->
 
 </html>

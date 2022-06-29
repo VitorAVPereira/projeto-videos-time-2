@@ -3,8 +3,8 @@ async function conecta(){
     const conn = await mysql.createConnection({
         host: "localhost",
 
-        user: "root",
-        password: "Mah123$#@!",
+        user: "almarim",
+        password: "Erica123!@#$",
         database:"projeto_video"
     })
     global.connection = conn

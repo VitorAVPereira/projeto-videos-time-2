@@ -315,6 +315,7 @@ app.get("/atualiza_produtos",async(req, res) => {
        galeria:consulta,
        id:req.app.locals.idProd,
        produtoDaVez:produto
+
    })
 })
 
@@ -361,7 +362,7 @@ app.get("/single",async(req, res) => {
          req.session.userInfo = email
          userInfo = req.session.userInfo
          req.app.locals.info.user= userInfo
-         res.redirect('adm/indexAdm')
+         res.redirect('indexAdm')
          } else {res.send("<h2>Acesso de Adm negado</h2>")}
       })
 
@@ -370,7 +371,7 @@ app.get("/single",async(req, res) => {
          req.app.locals.info = {}
          req.session.destroy()
          res.clearCookie('connect.sid', { path: '/' });
-         res.redirect("adm/loginAdm") 
+         res.redirect("loginAdm") 
 
       })
 

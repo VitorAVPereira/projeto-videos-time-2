@@ -66,14 +66,17 @@ Time 02- Index Admin
         <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
       </div>
       <br />
+
       <div class="text-center col-sm-4 p-5 mb-2">
         <br />
         <br />
         <br />
         <h2>Área do Administrador</h2>
       </div>
+
       <div class="col-sm-3">
-        <span id="bemVindo">Adm: <%=info.user%></span>
+        <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
+        
         <%if (info.user) { %>
         
 
