@@ -1,8 +1,3 @@
-
-
-
-/////////////////////////////////////////////////
-
 let imgArray = []
 let conteudo = [
     ["../imagens/deadpool.jpg", "Deadpool 2"],
@@ -24,19 +19,20 @@ let conteudo = [
 //     bt.onclick=function(){       
        
         
-//         pref=(this.index + "," +conteudo[this.index][0] + "," + conteudo[this.index][1]).split(',')
-//         imgArray.push(pref)
-//         localStorage.setItem('img'+this.index,pref)
-//         leitura()
-//         }
-//     }
 
-//     function leitura(){
-//     document.querySelector("#a").innerHTML=""
-//     for(var i=0;i<10;i++){
-//         if (localStorage.getItem('img'+i)){
-//             var result = localStorage.getItem('img'+i).split(',')
-//             console.log(result)
+        pref=(this.index + "," +conteudo[this.index][0] + "," + conteudo[this.index][1]).split(',')
+        imgArray.push(pref)
+        localStorage.setItem('img'+this.index,pref)
+        leitura()
+        }
+    }
+
+    function leitura(){
+    document.querySelector("#a").innerHTML=""
+    for(var i=0;i<10;i++){
+        if (localStorage.getItem('img'+i)){
+            var result = localStorage.getItem('img'+i).split(',')
+
             
 //             document.querySelector("#a").innerHTML += `<img id="imagem0" class="imgMenor" src="${result[1]}" />`
 

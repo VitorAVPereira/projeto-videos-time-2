@@ -63,9 +63,6 @@ const consulta = await db.selectFilmes()
 const updatePref = await db.updatePref()
 // const selectPref = await db.selectPref()
 
-console.log(consulta[0])
-
-
 
 app.get("/login",(req, res) => {
    res.render('login',{
