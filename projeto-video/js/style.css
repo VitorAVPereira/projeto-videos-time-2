@@ -1,5 +1,5 @@
 /**
-* ! Changing default styles of the browser
+* Estilo do site
 **/
 
 *{
@@ -20,17 +20,21 @@
   justify-content:center
 }
 
-body {
-  font-family: sans-serif;
-}
 
 i {
   cursor: pointer;
 }
 
 /**
-* ! Navbar STyles are here
+* ! Navbar
 **/
+
+
+
+.body {
+  font-weight: bold;
+}
+
 
 .alignR{
   text-align: right;
@@ -44,8 +48,16 @@ i {
   padding: 5px;
   width: 360px;
   height: 495px;
- 
 }
+
+.imgMenor {
+  
+  border-radius: 4px;
+  padding: 5px;
+  width: 300px;
+  height: 400px;
+ 
+} 
 
 .cart {
   position: relative;
@@ -69,7 +81,7 @@ i {
 }
 
 /**
-* ! Shop items styles are here
+* ! Itens
 **/
 
 .shop {
@@ -137,7 +149,7 @@ i {
 }
 
 /**
-* ! style rules for label and some buttons
+* ! Regras do botão
 **/
 
 .text-center {
@@ -168,19 +180,9 @@ i {
   font-weight: bold;
 }
 
-/**
-* ! style rules for shopping-cart
-**/
-
-.shopping-cart {
-  display: grid;
-  grid-template-columns: repeat(1, 320px);
-  justify-content: center;
-  gap: 15px;
-}
 
 /**
-* ! style rules for cart-item
+* ! Items do carrinho
 **/
 
 .cart-item {
@@ -210,3 +212,125 @@ i {
   padding: 3px 6px;
 }
 
+/**
+* ! Perfil usuario
+**/
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+}
+#center {
+  text-align: center;
+}
+    .img {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 200px;
+      height: 495px;
+     
+    } 
+    .imgMenor {
+      
+      border-radius: 4px;
+      padding: 5px;
+      width: 300px;
+      height: 400px;
+     
+    } 
+    .body {
+      font-weight: bold;
+    }
+    .p {
+      font-size: 30px;
+    }
+    .alignR{
+      text-align: right;
+      cursor:pointer;text-decoration:underline
+    }
+    * {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: #000
+}
+
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
