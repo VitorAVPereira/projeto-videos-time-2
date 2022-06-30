@@ -217,9 +217,16 @@ app.post("/atualiza_usuario",(req, res) => {
    res.send('usuario Exibido com Sucesso')
 })
 app.post("/update_user",async(req, res) => { 
-   //titulo,genero,ano,classificacao,imagens,trailer,id
-   const b = req.body.email
-   await db.update_user(b.nome,b.telefone,b.data_inicio,b.preferencia,b.senha,b.conf_senha,b.email)
+   
+
+   const b = req.body
+
+   await db.update_user(
+     b.nome,
+     b.telefone,
+     b.preferencia,
+     b.senha,
+     b.conf_senha,b.id)
    res.send('usuario Atualizado com Sucesso')
 })
 

@@ -168,13 +168,13 @@ async function perfilDoUsuario(email){
     
     const conectado = await conecta()
     const values=[email]
-    const [rows] = await conectado.query("SELECT nome,email,telefone,data_inicio,preferencia,img_perfil FROM usuario WHERE email=?",values)
+    const [rows] = await conectado.query("SELECT nome,email,telefone,data_inicio,preferencia,usuario_id FROM usuario WHERE email=?",values)
     return rows
 }
-async function update_user(nome,telefone,data_inicio,preferencia,senha,conf_senha,email) {
+async function update_user(nome,telefone,preferencia,senha,conf_senha,id) {
     const conectado = await conecta()
-    const values = [nome,telefone,data_inicio,preferencia,senha,conf_senha]
-    return await conectado.query("UPDATE usuario SET nome=?,telefone=?,preferencia=?,senha=?,conf_senha=?,img_perfil=? WHERE email=?",values)
+    const values = [nome,telefone,preferencia,senha,conf_senha,id]
+    return await conectado.query("UPDATE usuario SET nome=?,telefone=?,preferencia=?,senha=?,conf_senha=? WHERE usuario_id=?",values)
 }
 async function selectUsuario(email){
     const conectado = await conecta()

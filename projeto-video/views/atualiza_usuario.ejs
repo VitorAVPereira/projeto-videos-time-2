@@ -68,7 +68,14 @@
                         </li>
                         <li>
                             <label>Preferencia:</label>
-             <input class="form-control" name="preferencia" value="<%=user[0].preferencia%>">
+             <select class="form-control" name="preferencia" value="<%=user[0].preferencia%>">
+              <option><%=user[0].preferencia%></option>
+              <option>Ação</option>
+              <option>Drama</option>
+              <option>Aventura</option>
+              <option>Ficção</option>
+              <option>Comédia</option>
+             </select>
               
                         </li>
               
@@ -81,11 +88,23 @@
                 <input  type="password" class="form-control" name="conf_senha"  value="<%=user[0].conf_senha%>">
                         </li>
                         <input name="email"  type="hidden"  value="<%=info.user%>" class="btn btn-primary mt-5 ">  
+                        <input name="id"  type="hidden"  value="<%=user[0].usuario_id%>" class="btn btn-primary mt-5 ">  
                        
                         <li>
-                            <button type="button" class="btn btn-primary mt-5 bt-user">Confirmar</button>
+                            <button type="button" class="btn btn-primary mt-5 bt-user" data-toggle="modal" data-target="#myModal">Confirmar</button>
 
-                          
+                           
+                            <div class="modal fade" id="myModal" role="dialog">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button"  data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Dados atualizados!</h4>
+                                  </div>
+                               
+                                </div>
+                              </div>
+                            </div>
                             
                             <button type="button" class="btn btn-primary mt-5 bt-voltar">Voltar</button>
                         </li>
@@ -102,28 +121,26 @@
 
 </div>
 <!-- =============== FIM Conteúdo ================== -->
-</body>
-<script
-src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous">
-</script>
+
+
 <script>
 $().ready(function(){
 
     $('.bt-user').click(function(){
        $.post('/update_user',
        {
+        
          email:'<%=info.user%>',
+         id:$('#form-user input[name=id]').val(),
          nome:$('#form-user input[name=nome]').val(),
          telefone:$('#form-user input[name=telefone]').val(),
          preferencia:$('#form-user select[name=preferencia]').val(),
          senha:$('#form-user input[name=senha]').val(),
          conf_senha:$('#form-user input[name=conf_senha]' ).val()
         }, function(data,status){
-         alert(data)
+        
       
-       })
+       },'json')
    })
 
 
@@ -133,7 +150,11 @@ $('.bt-voltar').click(function(){
 
 })
 </script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"
+></script>
+
+
 <%- include('footer.ejs')%>
