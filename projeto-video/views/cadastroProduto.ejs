@@ -24,12 +24,10 @@ Time 02- Cadastro Produto
       </div>
       <br />
       <div class="text-center col-sm-4 p-5 mb-2">
-        <h2>Área do Administrador: Cadastre um Novo Produto</h2>
+        <h2>Cadastre um Novo Produto</h2>
       </div>
       <div class="col-sm-3">
-
-        <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
-        
+        <span id="bemVindo">Adm: <%=info.user%></span>
         <%if (info.user) { %>
         
         <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
@@ -54,6 +52,9 @@ Time 02- Cadastro Produto
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href='cadastroAdm'>Cadastro de Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href='loginAdm'>Entrar</a>
                     </li>
 
                 </ul>

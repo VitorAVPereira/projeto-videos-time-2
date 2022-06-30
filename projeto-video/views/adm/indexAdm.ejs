@@ -12,7 +12,18 @@ Time 02- Index Admin
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../imagens/ps.png" />
 </head>
+<style>
+/* Style the tab */
+.imgMenor {
+    
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+    height: 400px;
+   
+  } 
 
+</style>
 <body class="text-primary">
 <!-- ========= FIM HEADER ============= -->
 <!-- ======= MENU DO PROJETO ======== -->
@@ -22,13 +33,20 @@ Time 02- Index Admin
         <a href="indexAdm"><img class="w-50" src="../imagens/ps.png" /></a>
       </div>
       <br />
+
       <div class="text-center col-sm-4 p-5 mb-2">
+        <br />
+        <br />
+        <br />
         <h2>Área do Administrador</h2>
       </div>
+
       <div class="col-sm-3">
-        <span id="bemVindo">Adm: <%=info.user%></span>
+        <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
+        
         <%if (info.user) { %>
         
+
         <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
         <% } else { %>
           <a id="entrar" href="loginAdm">Entrar</a>
@@ -45,65 +63,61 @@ Time 02- Index Admin
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link" href='loginAdm'>Página principal</a>
+            <a class="nav-link text-white" href='loginAdm'>Login</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href='cadastroProduto'>Cadastro de produtos</a>
+            <a class="nav-link text-white" href='cadastroProduto'>Cadastrar Produtos</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href='cadastroAdm' id="cadastro">Cadastro de Usuario</a>
+            <a class="nav-link text-white" href='cadastroAdm' id="cadastro">Cadastrar Admnistrador</a>
           </li>
 
-        </ul>
+              </ul>
       </div>
   
-        
-  
+         
     </nav>
+
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
-    <section id="3">
-      <div class="row">
-        <hr />
-      </div>
-      <div class="container" class="col-sm-8">
-        <button type="button" class="btn btn-primary">Cadastrar Administrador</button>
-        <button type="button" class="btn btn-primary">Cadastrar Produto</button>
-        <hr />
-      </div>
-    </section>
+<br />
+
+
  <section id="2" name="relatorios">
       <div class="container text-center">
         <div class="row">
-          <div class="col-sm-3 mr-4" style="background-color:grey;color:white;padding:20px;">
-            <h2>Relatórios</h2>
-            <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a
-              metropolitan area of over 13 million inhabitants.</p>
-            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-              back to its founding by the Romans, who named it Londinium.</p>
+          <div class="col-sm-3 mr-4" style="background-color:rgb(155, 154, 154);color:white;padding:20px; border-radius: 10%;">
+            <a  href='relatorio-produto'><h1>Relatório de Produtos</h1></a>
+            <p>Acesse e edite produtos do site</p>
+            
+          </div>
+         
+          <div class="col-sm-3 mr-4" style="background-color:rgb(155, 154, 154);color:white;padding:20px; border-radius: 10%;">
+             <a  href='relatorio-chamada'><h1>Relatório de Chamadas</h1></a>
+            <p>Controle das chamadas de usuário/clientes</p>
           </div>
 
-          <div class="col-sm-3 mr-4" style="background-color:grey;color:white;padding:20px;">
-            <h2>Relatórios</h2>
-            <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a
-              metropolitan area of over 13 million inhabitants.</p>
-            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-              back to its founding by the Romans, who named it Londinium.</p>
-          </div>
-
-          <div class="col-sm-3 mr-4" style="background-color:grey;color:white;padding:20px;">
-            <h2>Relatórios</h2>
-            <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a
-              metropolitan area of over 13 million inhabitants.</p>
-            <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going
-              back to its founding by the Romans, who named it Londinium.</p>
+          <div class="col-sm-3 mr-4 text-white" style="background-color:rgb(155, 154, 154);color:white;padding:20px; border-radius: 10%;">
+            <a  href='relatorio-usuario'><h1>Relatório de usuários</h1></a>
+            <p>Lista de cadastrados no site</p>
+            
+            
           </div>
         </div>
       </div>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </section>
+   
 <!-- =============== Fim do Conteúdo ================== -->
 <!-- =============== FOOTER ================== -->
     <footer class="bg-primary p-4 text-white text-center mt-4">
@@ -115,3 +129,4 @@ Time 02- Index Admin
 <script src="../jsAdm/indexAdm.js"></script>
 
 </html>
+

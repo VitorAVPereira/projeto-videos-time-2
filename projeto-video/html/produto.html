@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../js/style.css">
   <title>Produtos</title>
   <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
 </head>
@@ -37,35 +38,7 @@
   
   </div>
   </header>
-  <style>
-    .img {
-      
-      border-radius: 4px;
-      padding: 5px;
-      width: 200px;
-      height: 495px;
-     
-    } 
-    .imgMenor {
-      
-      border-radius: 4px;
-      padding: 5px;
-      width: 300px;
-      height: 400px;
-     
-    } 
-    .body {
-      font-weight: bold;
-    }
-    .p {
-      font-size: 50px;
-    }
-    .alignR{
-      text-align: right;
-      cursor:pointer;text-decoration:underline
-    }
-  </style>
-  
+
   <!--NAVEGAÇÃO-->
   <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <a class="navbar-brand" href="#">Acesse</a>
@@ -74,17 +47,14 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-       
-      
         <li class="nav-item">
-          <a class="nav-link" href='promocao.html'>Promoção</a>
+          <a class="nav-link" href='produto.html'>Produtos</a>
         </li>
-       
+        <li class="nav-item">
+          <a class="nav-link" href='promocao.html'>Promoções</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href='contato.html'>Fale Conosco</a>
-        </li> 
-        <li class="nav-item">
-          <a class="nav-link" href='carrinho.html'>Carrinho</a>
         </li>
       </ul>
     </div>
@@ -92,8 +62,15 @@
       <img alt="Brand" src="../imagens/img_avatar.png" style="width:40px; vertical-align: middle;
       width: 50px;
       height: 50px;
-      border-radius: 50%;"   >
-    </a>
+      border-radius: 50%;" >
+      </a> 
+      <div><br /></div>
+    <a href="carrinho.html">
+      <div class="cart">
+      <i class="bi bi-cart2"></i>
+      <div id="cartAmount" class="cartAmount">0</div>
+      </div></a>
+     
   </nav>
   <hr></br>
   <section>
@@ -196,5 +173,4 @@
   </footer>
 </body>
 <script src="../js/produto.js"></script>
-
 </html>

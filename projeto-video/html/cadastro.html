@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="../js/style.css">  
   <title>Cadastre-se no Primeira Sessão</title>
   <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
 </head>
@@ -18,36 +18,7 @@
         <img class="text-left" src="../imagens/primeirasessão.png" width="250" /></a>
     </div>
   </header>
-
-  <style>
-    .img {
-      
-      border-radius: 4px;
-      padding: 5px;
-      width: 200px;
-      height: 495px;
-     
-    } 
-    .imgMenor {
-      
-      border-radius: 4px;
-      padding: 5px;
-      width: 300px;
-      height: 400px;
-     
-    } 
-    .body {
-      font-weight: bold;
-    }
-    .p {
-      font-size: 50px;
-    }
-    .alignR{
-      text-align: right;
-      cursor:pointer;text-decoration:underline
-    }
-  </style>
-
+  
   <section>
     <div class="container text-center ">
       <h1 id="testep" name="testep">Bem-vindo à Primeira Sessão! </h1>
@@ -100,6 +71,17 @@
           <input class="form-control" name="telefoneContato" id="telefoneContato" maxlength="13" type="number">
         </div>
         <div class="form-group">
+          <label>Gênero Preferido : </label>
+          <select class="form-control" name="preferenciaContato" id="preferenciaContato" maxlength="50" required>
+              <option></option>
+              <option>Comédia</option>
+              <option>Ação</option>
+              <option>Drama</option>
+              <option>Ficção</option>
+              <option>Aventura</option>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Senha : </label>
           <input class="form-control" name="senha" id="senha" type="password" maxlength="15">
         </div>
@@ -120,8 +102,7 @@
   <footer class="bg-primary p-4 text-white text-center mt-4">
     <p> &copy;2022 - Todos os direitos reservados. </p>
   </footer>
-
-
+  
   <script src="../js/cadastro.js"></script>
 </body>
 

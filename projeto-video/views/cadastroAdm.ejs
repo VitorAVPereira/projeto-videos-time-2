@@ -1,17 +1,18 @@
 <!--
 Projeto Videos Online
 Parte do curso Javascript Programmer
-Time 02- Cadastro Produto
+Time 02- Cadastro Admin
 -->
 <!-- ============= HEADER ================ -->
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Cadastrar-se Primeira Sessão</title>
+    <title>Cadastro Admin</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../imagens/primeirasessão.png" />
+    <link rel="stylesheet" href="../css/estilo.css" type="text/css" />
+    <link rel="stylesheet" href="../imagens/ps.png" />
 </head>
 
 <body class="text-primary">
@@ -24,12 +25,10 @@ Time 02- Cadastro Produto
       </div>
       <br />
       <div class="text-center col-sm-4 p-5 mb-2">
-        <h2>Área do Administrador: Cadastre um Novo Produto</h2>
+        <h2>Área do Administrador</h2>
       </div>
       <div class="col-sm-3">
-
-        <span id="bemVindo"><%='Bem vindo, Adm ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></span>
-        
+        <span id="bemVindo">Adm: <%=info.user%></span>
         <%if (info.user) { %>
         
         <a class="ml-5" style="cursor:pointer;text-decoration:underline" href="logoutAdm" id="sair">Sair</a>
@@ -39,6 +38,11 @@ Time 02- Cadastro Produto
       </div>
   </header>
     <section>
+        <div class="container text-center ">
+            <h1>Bem-vindo! </h1>
+            <h2>Cadastre aqui um novo ADM</h2>
+            <br />
+        </div>
         <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
             <a class="navbar-brand" href="#">Acesse</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -47,68 +51,62 @@ Time 02- Cadastro Produto
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href='loginAdm'>Página principal</a>
+                        <a class="nav-link" href='indexAdm'>Página Inicial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href=''>Cadastro de produtos</a>
+                        <a class="nav-link" href='cadastroProduto'>Cadastrar Produtos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href='cadastroAdm'>Cadastro de Usuario</a>
-                    </li>
-
                 </ul>
             </div>
         </nav>
 <!-- =============== FIM DO MENU =============== -->
 <!-- =============== Conteúdo ================== -->
-        <form method="post" id="formCadastro" action="indexAdm" class="w-50 mx-auto p-3 mt-5 mb-5"
+        <form method="post" id="formCadastro" action="" class="w-50 mx-auto p-3 mt-5 mb-5"
             style="border: 1px solid #ccc; border-radius: 12px;">
             <fieldset>
                 <div>
                     <legend class="text-center">
-                        Informe os dados do produto
+                        Informe seus dados para prosseguir
                     </legend>
                 </div>
-                <br />
                 <div class="form-group">
                     <lable>Nome : </lable>
-                    <input class="form-control" name="nomeCad" id="nomeCad" maxlength="50" required>
+                    <input class="form-control" name="nomeContato" id="nomeContato" maxlength="50" required>
                 </div>
                 <div class="form-group">
-                    <label>Categoria : </label>
-                    <input class="form-control" name="categoria" id="categoria" required>
+                    <label>E-mail : </label>
+                    <input class="form-control" name="emailContato" id="emailContato" type="email" required>
                 </div>
                 <div class="form-group">
-                    <label>Ano : </label>
-                    <input class="form-control" name="ano" id="ano" maxlength="4" type="number">
+                    <label>Senha : </label>
+                    <input class="form-control" name="senha" id="senha" type="password" maxlength="15">
                 </div>
                 <div class="form-group">
-                    <label>Sinopse :</br></label>
-                    <textarea class="form-control" name="sinopse" id="sinopse" rows="8"></textarea>
-                </div>
-                <div>
-                    <input id="img-input" type="file" name="imagem">
-                </div>
-                <div id="container">
-                    <img id="preview" src="" width="200">
-                </div>
 
+                    <label>Confirmar senha: </label>
+                    <input class="form-control" name="senhaC" id="senhaC" type="password" maxlength="12">
+                </div>
                 <div>
                     <div class="text-center">
-                        <button id="btCad" type="button" class="btn btn-primary">Confirmar</button>
+                        <button id="btContato" type="submit" class="btn btn-primary">Confirmar</button>
+                        <select name="nível" class="btn btn-primary">
+                            <option value="1">ADM</option>
+                            <option value="2">ADM MASTER</option>
+                        </select>
                     </div>
-
                 </div>
             </fieldset>
         </form>
     </section>
 <!-- =============== Fim do Conteúdo ================== -->
 <!-- =============== FOOTER ================== -->
-   <footer class="bg-primary p-4 text-white text-center mt-4">
+
+    <footer class="bg-primary p-4 text-white text-center mt-4">
         <p> &copy;2022 - Todos os direitos reservados. </p>
     </footer>
 <!-- =============== Fim FOOTER ================== -->
+    <script src="../jsAdm/validacaoAdm.js"></script>
+    <script src="../jsAdm/cadastroAdm.js"></script>
 </body>
-<script src="../jsAdm/cadastroProduto.js"></script>
 
 </html>

@@ -26,6 +26,16 @@ Time 02- Promocao
 
     }
 
+    .mt{
+            margin-top: 20px;
+          }
+          .flexS{
+            align-items: flex-start;
+          }
+          .flexEnd{
+            align-items: flex-end;
+          }
+
     .body {
       font-weight: bold;
     }
@@ -82,7 +92,7 @@ Time 02- Promocao
 <!-- =============== Conteúdo ================== -->
   <article class="container mt-5">
 
-    <div class="row">
+    <div class="row mt flexS flexEnd">
       <% galeria.forEach((item)=> { %>
         <div class="col-md-4">
           <h4>
@@ -116,6 +126,5 @@ Time 02- Promocao
 <!-- =============== Fim FOOTER ================== -->
 
 </body>
-<script src="../js/promocao.js"></script>
 
 </html>
