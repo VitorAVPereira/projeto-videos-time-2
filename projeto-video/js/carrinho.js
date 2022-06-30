@@ -43,7 +43,7 @@ let gerarItensCarrinho = () => {
           </div>
         </td>
         <td>
-          <input type="button" value="excluir" onclick='deleteRow(this)' class="btn btn-primary"> </input>
+          <input type="button" value="excluir" onclick='removeItem(${id})' class="btn btn-primary"> </input>
         </td>
       </tr>
 
@@ -135,6 +135,7 @@ let valorTotal = () => {
 }
 
 valorTotal()
+
 
 let limparCarrinho = () => {
   cesta = []
