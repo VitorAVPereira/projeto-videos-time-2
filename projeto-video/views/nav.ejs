@@ -22,11 +22,19 @@
       
     </div>
     <% if (info.user){ %>
-    <a class="navbar-brand" href="perfilDoUsuario">
+      <li class="nav-item dropdown">
+    <a class="navbar-brand  dropdown-toggle" href="perfilDoUsuario" data-toggle="dropdown">
       <img alt="Brand" src="../imagens/img_avatar.png" style="width:40px; vertical-align: middle;
       width: 50px;
       height: 50px;
       border-radius: 50%;"   >
     </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="perfilDoUsuario">Meu perfil</a>
+      <a class="dropdown-item" href="cupom">Cupom de descontos</a>
+    
+    </div>
+  </li>
     <% } %>
+  
   </nav>

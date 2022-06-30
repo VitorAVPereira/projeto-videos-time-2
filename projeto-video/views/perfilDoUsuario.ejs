@@ -152,7 +152,7 @@ hr .new1 {
   </div>
   <div class="alert alert-primary text-center">
     <div class="spinner-grow text-primary"></div> <div class="spinner-grow text-primary"></div><div id="nomeA"></div><h2 id="cupom">  Já usou seu descontou hoje?</h2><hr />
-    <button type="button" class="btn btn-primary" ">Vamos descobrir</button>
+   <a href="cupom" ><button type="button" class="btn btn-primary" ">Vamos descobrir</button></a>
 
     
   </div>
@@ -181,6 +181,9 @@ hr .new1 {
                   <p class="body" id="preferenciaUsu">Preferencia :<%=user[0].preferencia%> </p>
                 
                 </div>
+                <div>
+                  <button data-id="<%=info.user%>" class="btn btn-primary bt-edit">Editar</button>
+                </div>
               </article>
               <%}%>
             </div>
@@ -197,5 +200,21 @@ hr .new1 {
         
     document.querySelector('button').onclick=function(){
       document.querySelector('#cupom').innerHTML="20j4"
-    }</script>
+    }
+    $().ready(function(){
+  
+  $('.bt-edit').click(function (){
+  
+  let dataid = $(this).attr('data-id')
+   
+          $.post("./atualiza_usuario",
+          {
+              email:dataid,
+          },
+          function(data,status)
+          {
+            location.href='./atualiza_usuario'
+          })
+      })
+  })</script>
 </html>

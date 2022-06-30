@@ -211,6 +211,34 @@ app.get("/relatorio-usuario",async(req, res) => {
    })
    
 })
+app.get("/atualiza_usuario",async(req, res) => {
+ 
+   const perfil= await db.selectUsuario(req.app.locals.info.user)  
+   res.render('atualiza_usuario',{
+      email:req.app.locals.info.user,
+       user:perfil
+       
+   })
+})
+
+app.post("/atualiza_usuario",(req, res) => { 
+   req.app.locals.info.user = req.body.email
+   res.send('usuario Exibido com Sucesso')
+})
+app.post("/update_user",async(req, res) => { 
+   
+
+   const b = req.body
+
+   await db.update_user(
+     b.nome,
+     b.telefone,
+     b.preferencia,
+     b.senha,
+     b.conf_senha,b.id)
+   res.send('usuario Atualizado com Sucesso')
+})
+
 
 app.get("/produto",(req, res) => {
     
@@ -239,7 +267,11 @@ app.get("/promocao",async(req, res) => {
          galeria:consultaPromo})
    
 })
-
+app.get("/cupom",async(req, res) => {
+    
+   res.render(`cupom`)
+   
+})
 
 app.post("/addProduto", async (req, res) => {
    const info=req.body

@@ -1,0 +1,160 @@
+<%- include('header.ejs') %>
+
+
+
+<!-- ========= FIM HEADER ============= -->
+<!-- ======= MENU DO PROJETO ======== -->
+
+
+ 
+
+
+<!-- =============== Conteúdo ================== -->
+
+<header>
+    <header class="text-center">
+        <div class="row">
+          <div class="col-sm-4 text-left">
+            <a href="index">
+              <img src="../imagens/primeirasessão.png" width="250">
+              </a>
+          </div>
+          <div class="col-sm-4 mt-5">
+            <h2 style="font:size 100%;"><%=info.titulo%></h2>
+          </div>
+          <div class="col-sm-4 alignR">
+            <% if (info.user) { %>
+              <a id="bemVindo" href="perfilDoUsuario"><%='Bem vindo, ' + info.user.substring(0, info.user.indexOf('@')) + '!'%></a>
+              <a class="alignR ml-2" id="sair" href="logout">Sair</a>
+                <% } else { %>
+            <a id="entrar" class="alignR text-right" href="login">Entrar</a>
+                <% } %>
+          </div>
+        </div>
+      </header>
+      
+      
+      <%if(info.user) { %>
+        <div class="alignR">
+         
+        </div>
+        <% } else { %>
+          <div class="alignR">
+            <a id="cadastro" href="cadastro">Cadastre-se</a>
+          </div>
+          <% }  %>
+      </div>
+    <h1>Editar perfil</h1>
+</header>
+<%- include('nav.ejs') %>
+    <!-- =============== ATUALIZA PRODUTO ================== -->
+    <div class="row">
+    <div class="col-md-8 col-sm-8 col-lg-8">
+        <div class="card">
+                <div class="card-body">
+                <h4 class="card-title">Editar Perfil - <%=info.user%></h4>
+                <form id="form-user" class="form" >
+                    <fieldset>
+                        <legend></legend>
+                    <ul class="list-unstyled">
+                        <li>
+                            <label>Nome:</label>
+                <input class="form-control" name="nome"  value="<%=user[0].nome%>">
+                        </li>
+                 
+                        <li>
+                            <label>Telefone:</label>
+                <input class="form-control" name="telefone" value="<%=user[0].telefone%>">
+                        </li>
+                        <li>
+                            <label>Preferencia:</label>
+             <select class="form-control" name="preferencia" value="<%=user[0].preferencia%>">
+              <option><%=user[0].preferencia%></option>
+              <option>Ação</option>
+              <option>Drama</option>
+              <option>Aventura</option>
+              <option>Ficção</option>
+              <option>Comédia</option>
+             </select>
+              
+                        </li>
+              
+                       
+                        <li>
+                            <label>Trocar senha:</label>
+                <input type="password" class="form-control" name="senha"  value="<%=user[0].senha%>">
+                        </li><li>
+                            <label>Confirmar senha :</label>
+                <input  type="password" class="form-control" name="conf_senha"  value="<%=user[0].conf_senha%>">
+                        </li>
+                        <input name="email"  type="hidden"  value="<%=info.user%>" class="btn btn-primary mt-5 ">  
+                        <input name="id"  type="hidden"  value="<%=user[0].usuario_id%>" class="btn btn-primary mt-5 ">  
+                       
+                        <li>
+                            <button type="button" class="btn btn-primary mt-5 bt-user" data-toggle="modal" data-target="#myModal">Confirmar</button>
+
+                           
+                            <div class="modal fade" id="myModal" role="dialog">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button"  data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Dados atualizados!</h4>
+                                  </div>
+                               
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary mt-5 bt-voltar">Voltar</button>
+                        </li>
+                    </ul>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+   
+
+<!-- =============== Fim do Atualiza Produto ================== -->
+
+</div>
+<!-- =============== FIM Conteúdo ================== -->
+
+
+<script>
+$().ready(function(){
+
+    $('.bt-user').click(function(){
+       $.post('/update_user',
+       {
+        
+         email:'<%=info.user%>',
+         id:$('#form-user input[name=id]').val(),
+         nome:$('#form-user input[name=nome]').val(),
+         telefone:$('#form-user input[name=telefone]').val(),
+         preferencia:$('#form-user select[name=preferencia]').val(),
+         senha:$('#form-user input[name=senha]').val(),
+         conf_senha:$('#form-user input[name=conf_senha]' ).val()
+        }, function(data,status){
+        
+      
+       },'json')
+   })
+
+
+$('.bt-voltar').click(function(){
+    location.href='/perfilDoUsuario'
+    })
+
+})
+</script>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"
+></script>
+
+
+<%- include('footer.ejs')%>
