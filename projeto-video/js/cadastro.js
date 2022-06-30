@@ -21,7 +21,7 @@ document.querySelector("#btContato").onclick=function(){
     }else if (formC.telefoneContato.value == ""){
         alert ("Preencha com seu telefone!")
     }else if (formC.preferenciaContato.value == ""){
-        alert ("Escolha uma Preferễncia!")
+        alert ("Escolha um Gênero!")
     }else if (formC.senha.value == ""){
         alert ("Crie sua senha!")
     }else if (formC.senhaC.value == ""){
