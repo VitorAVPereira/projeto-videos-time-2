@@ -3,8 +3,8 @@ async function conecta(){
     const conn = await mysql.createConnection({
         host: "localhost",
 
-        user: "v19",
-        password: "Sendokai123$",
+        user: "sareh",
+        password: "SAr@1365",
         database:"projeto_video"
     })
     global.connection = conn
@@ -168,10 +168,21 @@ async function perfilDoUsuario(email){
     
     const conectado = await conecta()
     const values=[email]
-    const [rows] = await conectado.query("SELECT nome,email,telefone,data_inicio,preferencia FROM usuario WHERE email=?",values)
+    const [rows] = await conectado.query("SELECT nome,email,telefone,data_inicio,preferencia,img_perfil FROM usuario WHERE email=?",values)
     return rows
 }
-
+async function update_user(nome,telefone,data_inicio,preferencia,senha,conf_senha,email) {
+    const conectado = await conecta()
+    const values = [nome,telefone,data_inicio,preferencia,senha,conf_senha]
+    return await conectado.query("UPDATE usuario SET nome=?,telefone=?,preferencia=?,senha=?,conf_senha=?,img_perfil=? WHERE email=?",values)
+}
+async function selectUsuario(email){
+    const conectado = await conecta()
+    const values = [email]
+    const [rows] = await conectado.query("SELECT * FROM usuario where email=?",values)
+    //console.log(rows)
+    return rows
+}
 
 module.exports = {
     selectFilmes,
@@ -194,5 +205,5 @@ module.exports = {
     makeSession,
     selectRelatorioChamada,
     deleteallCarrinho,
-    perfilDoUsuario
+    perfilDoUsuario,selectUsuario,update_user
 }
