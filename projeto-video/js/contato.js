@@ -1,58 +1,32 @@
-//Validação do Formulário de Contato//
-var formC=document.forms.formContato
-document.querySelector('#envia').onclick=function(){
-    if(formC.nomeContato.value == ""){
-        alert("Preencha o nome!")
-    }else if(formC.emailContato.value == ""){
-        alert("Preencha o email!")
-    }else if(formC.telefoneContato.value == ""){
-        alert("Forneça um Telefone!")
-    }else if(formC.assuntoContato.value == ""){
-        alert("Informe o Assunto!")
-    }else if(formC.comentarios.value == ""){
-        alert("Preencha um comentário")}
-    else{
-        formC.submit ();
+var formC = document.forms.formContato
+//Verifica se o localStorage tem a key "Chamados" e adiciona no array
+let chamadosTotais = []
+if (localStorage.getItem("Chamados") != null) {
+    chamadosTotais = ((JSON.parse(localStorage.getItem("Chamados"))))
+}
+document.querySelector("#envia").onclick = function () {
+    if (formC.nomeContato.value == "") {
+        alert("Preencher o nome!")
+    } else if (formC.emailContato.value == "") {
+        alert("Preencha o e-mail!")
+    } else if (!formC.emailContato.value.includes('.', '@')) {
+        alert("Preencha um e-mail válido");
+    } else if (formC.telefoneContato.value == "") {
+        alert("Preencha o telefone!");
+    } else if (formC.assuntoContato.value == "") {
+        alert("Preencha o assunto!")
+    } else if (formC.comentarios.value == "") {
+        alert("Preencha o comentário!")
+    } else if (formC.habi.checked == true) {
+        formC.submit()
+        //Cria uma id para cada chamado, envia as informações para o localStorage
+        let chamados = []
+        let idChamado = parseInt(Math.random() * 90000) + 10000
+        chamados.push(idChamado, formC.nomeContato.value, formC.emailContato.value, formC.telefoneContato.value, formC.assuntoContato.value)
+        chamadosTotais.push(chamados)
+        localStorage.setItem('Chamados', JSON.stringify(chamadosTotais))
+        alert("Formulário Enviado!")
+    } else {
+        formC.submit()
     }
 }
-//Fim da Validação do Formulário de Contato//
-function HabiDsabi() {
-    if (document.getElementById('habi').checked == true) {
-        document.querySelector('#envia').onclick=function(){
-        let idChamada=parseInt (Math.floor(Math.random() * (100000 - 9999) + 9999))
-        let dados=formC.nomeContato.value+','+formC.emailContato.value+','+formC.telefoneContato.value+','+formC.assuntoContato.value
-        localStorage.setItem("Chamada- "+idChamada,dados)
-       
-        formC.submit()
-      }
-    }
-    if (document.getElementById('habi').checked == false) {
-
-    }
-  }
- let ana = document.getElementById('testep')
-
-  //IDENTIFICAÇÃO DO USUÁRIO 
-  let user = localStorage.emailUser
-  let bemVindo = document.querySelector("#bemVindo")
-  let entrar = document.querySelector("#entrar")
-  let sair = document.querySelector("#sair")
-  let cadastro = document.querySelector("#cadastro")
-  
-  //SAUDAÇÃO
-  function msgUser() {
-      let nomeUser = user.substring(0, user.indexOf('@'))
-      bemVindo.innerHTML = 'Olá <b>' + nomeUser + '<b/>'
-      entrar.style.display = "none"
-      cadastro.style.display = "none"
-  }
-  
-  //ESCONDE O BOTÃO ENTRAR
-  function resetUser() {
-      sair.style.display = "none"
-  }
-  sair.onclick = function () {
-      localStorage.removeItem("emailUser")
-      location.href = 'index.html'
-  }
-  localStorage.emailUser ? msgUser() : resetUser()
