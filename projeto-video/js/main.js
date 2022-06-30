@@ -2,6 +2,7 @@ let shop = document.getElementById("shop")
 let prefe = document.getElementById("pref")
 let cesta = JSON.parse(localStorage.getItem("data")) || []
 let singleP = JSON.parse(localStorage.getItem("single")) || []
+let pref = JSON.parse(localStorage.getItem("pref")) || []
 
 let gerarShop = () => {
   return (shop.innerHTML = dadosTeste
@@ -70,8 +71,8 @@ calculation()
 
 
 let gerarPreferencias = () => {
-  if (cesta.length !== 0) {
-    return (prefe.innerHTML = cesta
+  if (pref.length !== 0) {
+    return (prefe.innerHTML = pref
       .map((x) => {
         let { id, item } = x
         let search = dadosTeste.find((x) => x.id === id) || []
@@ -101,7 +102,7 @@ let single = (id) => {
   localStorage.removeItem("single")
   let selecionarItem = id,nome
   let busca = singleP.find((x) => x.id === selecionarItem.id)
-
+  
   if (busca === undefined) {
     singleP.push({
       id: selecionarItem.id,
@@ -113,7 +114,18 @@ let single = (id) => {
       desc: selecionarItem.desc,
       diretor: selecionarItem.diretor,
       img: selecionarItem.img,
-    },
+    })
+    pref.push({
+      id: selecionarItem.id,
+      item: 1 ,
+      preco: selecionarItem.preco,
+      trailer: selecionarItem.trailer,
+      nome: selecionarItem.nome,
+      ano: selecionarItem.ano,
+      desc: selecionarItem.desc,
+      diretor: selecionarItem.diretor,
+      img: selecionarItem.img,
+    }
  )
   } else {
     localStorage.removeItem("single")
@@ -121,6 +133,7 @@ let single = (id) => {
 
   console.log(singleP)
   localStorage.setItem("single", JSON.stringify(singleP))
+  localStorage.setItem("pref", JSON.stringify(pref))
   location.href = 'singleproduto.html'
 }
 
@@ -130,6 +143,7 @@ let limparSingle= () => {
 }
 
 limparSingle()
+
 
 //IDENTIFICAÇÃO DO USUÁRIO 
 let user = localStorage.emailUser
