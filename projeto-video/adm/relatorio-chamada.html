@@ -79,10 +79,9 @@
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
               <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
                 aria-controls="nav-home" aria-selected="true"><b class="text-primary">Relatório de Chamadas</b></a>
-              
-
             </div>
           </nav>
+        <section>
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
               <table class="table" cellspacing="0">
@@ -94,15 +93,8 @@
                     <th>Assunto</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td><b id="nome1"></b></td>
-                    <td><p id="email1"></p></td>
-                    <td><p id="telefone1"></p></td>
-                    <td><p id="assunto1"></p></td>
-                  </tr>
-                </tbody>
               </table>
+              <div id="clientesAtendidos"></div>
               <div class="row">
               <p>Próximo cliente a ser atendido:</p>
               <p id="next"></p>
@@ -122,44 +114,19 @@
             <div class="card-body">
               <dl class="dlist-align row">
                 <dt>Chamadas pendentes:</dt>
+                <p id="totalPendentes"></p>
                 <dd class="text-right text-dark " id="users"></dd>
               </dl>
               <dl class="dlist-align row">
                 <dt>Chamadas atendidas:</dt>
+                <p id="totalAtendidos"></p>
                 <dd class="text-right ml-3 text-dark" id="result"></dd>
               </dl>
             </div>
           </div>
-        </aside>
-
       </div>
-
     </div>
-
   </section>
-
-  <!--Fim Carrinho-->
-
-
-
-
-  <style>
-    .resumo {
-      width: 320px;
-      padding: 75px;
-      border: 15px solid rgb(244, 238, 238);
-      margin: 0px;
-    }
-  </style>
-
-  </div>
-  </div>
-  </article>
-
-
-
-
-
   <section>
     <div class="container">
       <div id="galeria2" class="mt-5 mb-5">
@@ -170,20 +137,16 @@
         </div>
       </div>
     </div>
-
-
     </div>
   </section>
   </br>
   <hr>
-
-
   <footer class="bg-primary text-white p-4 text-center mt-4">
     <p>&copy/2022-Todos os direitos reservadosos</p>
   </footer>
   </section>
 </body>
 
-<script src="../jsAdm/relatorio-chamada.js"></script>
+<script src="relatorio.js"></script>
 
 </html>
